@@ -1,0 +1,25 @@
+{
+  "nav": {
+    "home": "Beranda",
+    "howItWorks": "Cara Kerja",
+    "pricing": "Pricing",
+    "faq": "FAQ",
+    "blog": "Blog",
+    "contact": "Kontak",
+    "legal": "Legal"
+  },
+  "language": "ID",
+  "home": {
+    "brand": "Scam Radar",
+    "title": "Lindungi Crypto Anda. Hindari Scam & Honeypot.",
+    "subtitle": "Scam Radar adalah bot Telegram tepercaya Anda untuk memeriksa alamat smart contract dan mengidentifikasi potensi risiko sebelum Anda membeli. Deteksi scam, honeypot, dan aktivitas mencurigakan secara instan—di berbagai blockchain dan bahasa.",
+    "cta": "Coba Bot Telegram",
+    "feature1Title": "Deteksi Scam Real-Time",
+    "feature1Desc": "Analisis smart contract secara instan dan dapatkan penilaian risiko yang jelas sebelum membeli.",
+    "feature2Title": "Dukungan Multi-Bahasa",
+    "feature2Desc": "Gunakan Scam Radar dalam bahasa Indonesia, Inggris, Ukraina, Rusia, dan Tionghoa.",
+    "feature3Title": "Upgrade untuk Lebih Banyak",
+    "feature3Desc": "Buka cek tanpa batas, dukungan prioritas, dan fitur lanjutan dengan paket premium kami.",
+    "footer": "Bergabunglah dengan ribuan pembeli crypto yang mempercayai Scam Radar untuk menjaga investasi mereka tetap aman. Jangan tertipu scammer—cek sebelum membeli!"
+  }
+}
