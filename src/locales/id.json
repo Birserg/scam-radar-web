@@ -52,5 +52,34 @@
     ],
     "cta": "Bayar",
     "info": "Tautan pembayaran akan segera tersedia. Untuk saat ini, silakan gunakan bot untuk meminta upgrade."
+  },
+  "faq": {
+    "title": "Pertanyaan yang Sering Diajukan",
+    "questions": [
+      {
+        "question": "Di mana saya bisa menemukan smart contract token?",
+        "answer": "Cek CoinMarketCap, postingan resmi proyek, atau pengumuman komunitas. Alamat kontrak biasanya berupa string panjang seperti 0x2a...d9E1. Setelah dapat, tempelkan di bot dan pilih jaringan yang benar."
+      },
+      {
+        "question": "Bagaimana cara memeriksa token?",
+        "answer": "Tekan 'Periksa token', pilih blockchain, dan kirimkan alamat smart contract."
+      },
+      {
+        "question": "Blockchain apa saja yang didukung?",
+        "answer": "Ethereum, Base, BNB Chain (BSC), dan Solana. Pilih jaringan tempat Anda ingin membeli token."
+      },
+      {
+        "question": "Berapa banyak cek gratis yang saya dapatkan?",
+        "answer": "Anda mendapatkan 3 cek token gratis saat mulai menggunakan bot. Tidak perlu berlangganan. Butuh lebih? Upgrade ke premium."
+      },
+      {
+        "question": "Apa arti level risiko?",
+        "answer": "Token dinilai dari 1 hingga 100: Rendah (1–30), Sedang (30–50), Tinggi (50–80), Sangat Tinggi (80–100). Kami memeriksa honeypot, likuiditas, izin pemilik, dan lainnya."
+      },
+      {
+        "question": "Bagaimana cara membayar langganan?",
+        "answer": "Anda dapat membayar dengan aman melalui Tribute, yang mendukung pembayaran kripto dan fiat. Gunakan kartu kredit apa pun atau dompet kripto favorit Anda. Tribute cepat, aman, dan tersedia di seluruh dunia."
+      }
+    ]
   }
 }
