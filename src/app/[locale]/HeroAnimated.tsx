@@ -6,7 +6,7 @@ export default function HeroAnimated({ brand, title, subtitle, cta, feature1Titl
     <section className="relative flex flex-col items-center justify-center min-h-screen bg-black text-white overflow-hidden px-4 py-8">
         <h1 className="text-5xl font-extrabold mb-4 tracking-tight">
           <motion.span
-            initial={{ color: '#fff' }}
+            initial={{ color: '#ff0000' }}
             animate={{ color: '#22c55e' }}
             transition={{ duration: 1.2 }}
             className="block"
