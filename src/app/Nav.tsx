@@ -40,9 +40,9 @@ export function Nav({ locale }: { locale: string }) {
         <Link href={`/${locale}/how-it-works`} className="hover:text-green-400">{t('nav.howItWorks')}</Link>
         <Link href={`/${locale}/pricing`} className="hover:text-green-400">{t('nav.pricing')}</Link>
         <Link href={`/${locale}/faq`} className="hover:text-green-400">{t('nav.faq')}</Link>
-        <Link href={`/${locale}/blog`} className="hover:text-green-400">{t('nav.blog')}</Link>
-        <Link href={`/${locale}/contact`} className="hover:text-green-400">{t('nav.contact')}</Link>
-        <Link href={`/${locale}/legal`} className="hover:text-green-400">{t('nav.legal')}</Link>
+        {/* <Link href={`/${locale}/blog`} className="hover:text-green-400">{t('nav.blog')}</Link> */}
+        <Link href={`/${locale}/contact`} className="hover:text-green-400">{t('contact.title')}</Link>
+        {/* <Link href={`/${locale}/legal`} className="hover:text-green-400">{t('nav.legal')}</Link> */}
       </nav>
       <div className="flex items-center gap-2 relative">
         <span className="text-sm">🌐</span>
