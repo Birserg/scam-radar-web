@@ -87,5 +87,13 @@
     "title": "Hubungi Kami",
     "footer": "Kami siap membantu! Hubungi kami untuk pertanyaan atau masukan apa pun.",
     "support": "Dukung Proyek"
+  },
+  "meta": {
+    "title": "Scam Radar — Lindungi Crypto Anda",
+    "description": "Periksa smart contract dari scam dan honeypot secara instan. Lindungi crypto Anda dengan Scam Radar.",
+    "ogTitle": "Scam Radar — Deteksi Scam Crypto",
+    "ogDescription": "Periksa smart contract dari scam dan honeypot secara instan. Multi-bahasa, multi-chain.",
+    "twitterTitle": "Scam Radar — Lindungi Crypto Anda",
+    "twitterDescription": "Periksa smart contract dari scam dan honeypot secara instan. Multi-bahasa, multi-chain."
   }
 }

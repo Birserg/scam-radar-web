@@ -87,5 +87,13 @@
     "title": "联系我们",
     "footer": "如有任何问题或建议，欢迎随时联系我们。",
     "support": "支持项目"
+  },
+  "meta": {
+    "title": "Scam Radar — 保护您的加密资产",
+    "description": "即时检测智能合约骗局和蜜罐。用 Scam Radar 保护您的加密资产。",
+    "ogTitle": "Scam Radar — 加密骗局检测",
+    "ogDescription": "即时检测智能合约骗局和蜜罐。多语言，多链支持。",
+    "twitterTitle": "Scam Radar — 保护您的加密资产",
+    "twitterDescription": "即时检测智能合约骗局和蜜罐。多语言，多链支持。"
   }
 }

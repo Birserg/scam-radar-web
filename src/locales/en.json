@@ -87,5 +87,13 @@
     "title": "Contact Us",
     "footer": "We're here to help! Reach out with any questions or feedback.",
     "support": "Support the Project"
+  },
+  "meta": {
+    "title": "Scam Radar — Protect Your Crypto",
+    "description": "Check smart contracts for scams and honeypots instantly. Protect your crypto with Scam Radar.",
+    "ogTitle": "Scam Radar — Crypto Scam Detection",
+    "ogDescription": "Instantly check smart contracts for scams and honeypots. Multi-language, multi-chain.",
+    "twitterTitle": "Scam Radar — Protect Your Crypto",
+    "twitterDescription": "Check smart contracts for scams and honeypots instantly. Multi-language, multi-chain."
   }
 }
