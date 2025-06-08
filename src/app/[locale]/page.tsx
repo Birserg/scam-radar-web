@@ -3,7 +3,8 @@ import { getTranslations } from 'next-intl/server';
 import HeroAnimated from './HeroAnimated';
 
 export default async function Home({params}: {params: {locale: string}}) {
-  const t = await getTranslations({locale: params.locale, namespace: 'home'});
+  const { locale } = await params
+  const t = await getTranslations({locale: locale, namespace: 'home'});
   return (
     <HeroAnimated
       brand={t('brand')}

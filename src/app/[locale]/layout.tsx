@@ -14,11 +14,12 @@ export default async function LocaleLayout({
   children: React.ReactNode;
   params: { locale: string };
 }>) {
-  const messages = await getMessages({ locale: params.locale });
+  const { locale } =  await params
+  const messages = await getMessages({ locale: locale });
   return (
-    <NextIntlClientProvider locale={params.locale} messages={messages}>
+    <NextIntlClientProvider locale={locale} messages={messages}>
       <div className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <Nav locale={params.locale} />
+        <Nav locale={locale} />
         {children}
       </div>
     </NextIntlClientProvider>
