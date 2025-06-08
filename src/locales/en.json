@@ -50,6 +50,7 @@
       "Detailed risk analysis",
       "No ads"
     ],
+    "featuresEmphasized": [0,1,2,3,4],
     "cta": "Pay",
     "info": "Payment links will be available soon. For now, please use the bot to request an upgrade."
   },

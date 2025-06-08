@@ -6,6 +6,7 @@ export default function Pricing() {
   const t = useTranslations('pricing');
   const plans = t.raw('plans');
   const features = t.raw('features');
+  const featuresEmphasized: number[] = t.raw('featuresEmphasized') || [];
 
   return (
     <section className="relative flex flex-col items-center justify-center min-h-screen bg-black text-white overflow-hidden px-4 py-8">
@@ -46,10 +47,28 @@ export default function Pricing() {
         transition={{ delay: 0.8, duration: 0.7 }}
         className="w-full max-w-2xl mx-auto mb-8"
       >
-        <ul className="list-disc list-inside mb-8 text-lg text-gray-200">
-          {features.map((feature: string) => (
-            <li key={feature}>{feature}</li>
-          ))}
+        <ul className="mb-8 text-lg text-gray-200">
+          {features.map((feature: string, idx: number) => {
+            const emphasize = featuresEmphasized.includes(idx);
+            return (
+              <motion.li
+                key={feature}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 1 + idx * 0.08, duration: 0.5 }}
+                className={
+                  emphasize
+                    ? 'flex items-center gap-3 mb-3 font-semibold bg-gray-900 rounded-lg px-4 py-2 text-green-300 shadow-sm'
+                    : 'mb-3'
+                }
+              >
+                {emphasize && (
+                  <svg className="w-5 h-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
+                )}
+                <span className={emphasize ? 'font-bold' : ''}>{feature}</span>
+              </motion.li>
+            );
+          })}
         </ul>
         <p className="text-gray-400 text-sm text-center">{t('info')}</p>
       </motion.div>
