@@ -41,7 +41,7 @@
       { "name": "1 Month", "price": "$9.99" },
       { "name": "3 Months", "price": "$24.99" },
       { "name": "1 Year", "price": "$79.99" },
-      { "name": "Lifetime", "price": "$199.99" }
+      { "name": "Lifetime", "price": "$499.99" }
     ],
     "features": [
       "Unlimited contract checks",
@@ -81,5 +81,10 @@
         "answer": "You can pay securely via Tribute, which supports both crypto and fiat payments. Use any credit card or your favorite crypto wallet. Tribute is fast, safe, and works worldwide."
       }
     ]
+  },
+  "contact": {
+    "title": "Contact Us",
+    "footer": "We're here to help! Reach out with any questions or feedback.",
+    "support": "Support the Project"
   }
 }

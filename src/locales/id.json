@@ -41,7 +41,7 @@
       { "name": "1 Bulan", "price": "$9.99" },
       { "name": "3 Bulan", "price": "$24.99" },
       { "name": "1 Tahun", "price": "$79.99" },
-      { "name": "Seumur Hidup", "price": "$199.99" }
+      { "name": "Seumur Hidup", "price": "$499.99" }
     ],
     "features": [
       "Cek kontrak tanpa batas",
@@ -81,5 +81,10 @@
         "answer": "Anda dapat membayar dengan aman melalui Tribute, yang mendukung pembayaran kripto dan fiat. Gunakan kartu kredit apa pun atau dompet kripto favorit Anda. Tribute cepat, aman, dan tersedia di seluruh dunia."
       }
     ]
+  },
+  "contact": {
+    "title": "Hubungi Kami",
+    "footer": "Kami siap membantu! Hubungi kami untuk pertanyaan atau masukan apa pun.",
+    "support": "Dukung Proyek"
   }
 }
