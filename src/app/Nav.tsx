@@ -33,7 +33,6 @@ export function Nav({ locale }: { locale: string }) {
     <header className="flex flex-col sm:flex-row items-center justify-between p-4 border-b border-gray-800 gap-4">
       <div className="flex items-center gap-3">
         <Image src="/logo.jpeg" alt="Scam Radar Logo" width={48} height={48} />
-        <span className="text-xl font-bold tracking-wide">Scam Radar</span>
       </div>
       <nav className="flex flex-wrap gap-4 mt-2 sm:mt-0">
         <Link href={`/${locale}`} className="hover:text-green-400">{t('nav.home')}</Link>
