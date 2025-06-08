@@ -21,5 +21,17 @@
     "feature3Title": "Upgrade for More",
     "feature3Desc": "Unlock unlimited checks, priority support, and advanced features with our premium plans.",
     "footer": "Join thousands of crypto buyers who trust Scam Radar to keep their investments safe. Don&apos;t get caught by scammers—check before you buy!"
+  },
+  "howItWorks": {
+    "title": "How It Works",
+    "steps": [
+      { "title": "Start the Bot", "desc": "Open Scam Radar on Telegram to begin." },
+      { "title": "Choose Blockchain", "desc": "Select the blockchain you want to check (ETH, BSC, etc.)." },
+      { "title": "Send Contract Address", "desc": "Paste or send the smart contract address you want to check." },
+      { "title": "Get Instant Results", "desc": "The bot analyzes the contract and shows you if it's a scam, honeypot, or safe." },
+      { "title": "Upgrade for More", "desc": "Unlock unlimited checks and premium features by upgrading your subscription." },
+      { "title": "Stay Alert", "desc": "Get tweets from the crypto community, right in the bot." }
+    ],
+    "cta": "Try Scam Radar Now"
   }
 }

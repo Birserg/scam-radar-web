@@ -21,5 +21,17 @@
     "feature3Title": "Upgrade untuk Lebih Banyak",
     "feature3Desc": "Buka cek tanpa batas, dukungan prioritas, dan fitur lanjutan dengan paket premium kami.",
     "footer": "Bergabunglah dengan ribuan pembeli crypto yang mempercayai Scam Radar untuk menjaga investasi mereka tetap aman. Jangan tertipu scammer—cek sebelum membeli!"
+  },
+  "howItWorks": {
+    "title": "Cara Kerja",
+    "steps": [
+      { "title": "Mulai Bot", "desc": "Buka Scam Radar di Telegram untuk memulai." },
+      { "title": "Pilih Blockchain", "desc": "Pilih blockchain yang ingin Anda periksa (ETH, BSC, dll)." },
+      { "title": "Kirim Alamat Kontrak", "desc": "Tempel atau kirim alamat smart contract yang ingin Anda periksa." },
+      { "title": "Dapatkan Hasil Instan", "desc": "Bot menganalisis kontrak dan menunjukkan apakah itu scam, honeypot, atau aman." },
+      { "title": "Upgrade untuk Lebih Banyak", "desc": "Buka cek tanpa batas dan fitur premium dengan berlangganan." },
+      { "title": "Tetap Waspada", "desc": "Dapatkan tweet dari komunitas kripto langsung di bot." }
+    ],
+    "cta": "Coba Scam Radar"
   }
 }
