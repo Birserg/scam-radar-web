@@ -33,5 +33,24 @@
       { "title": "Stay Alert", "desc": "Get tweets from the crypto community, right in the bot." }
     ],
     "cta": "Try Scam Radar Now"
+  },
+  "pricing": {
+    "title": "Upgrade to Premium",
+    "subtitle": "Unlock unlimited checks, priority support, advanced risk analysis, and more!",
+    "plans": [
+      { "name": "1 Month", "price": "$9.99" },
+      { "name": "3 Months", "price": "$24.99" },
+      { "name": "1 Year", "price": "$79.99" },
+      { "name": "Lifetime", "price": "$199.99" }
+    ],
+    "features": [
+      "Unlimited contract checks",
+      "Priority support",
+      "Early access to new features",
+      "Detailed risk analysis",
+      "No ads"
+    ],
+    "cta": "Pay",
+    "info": "Payment links will be available soon. For now, please use the bot to request an upgrade."
   }
 }

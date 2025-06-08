@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
-import { FaTelegramPlane, FaClipboardList, FaSearch, FaShieldAlt, FaCrown, FaBell, FaDiscord } from 'react-icons/fa';
+import { FaTelegramPlane, FaClipboardList, FaSearch, FaShieldAlt, FaCrown, FaBell } from 'react-icons/fa';
 
 const icons = [
   <FaTelegramPlane className="text-green-400 text-3xl mb-2" key="telegram" />,

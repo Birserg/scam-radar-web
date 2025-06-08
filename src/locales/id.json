@@ -33,5 +33,24 @@
       { "title": "Tetap Waspada", "desc": "Dapatkan tweet dari komunitas kripto langsung di bot." }
     ],
     "cta": "Coba Scam Radar"
+  },
+  "pricing": {
+    "title": "Upgrade ke Premium",
+    "subtitle": "Buka cek tanpa batas, dukungan prioritas, analisis risiko lanjutan, dan banyak lagi!",
+    "plans": [
+      { "name": "1 Bulan", "price": "$9.99" },
+      { "name": "3 Bulan", "price": "$24.99" },
+      { "name": "1 Tahun", "price": "$79.99" },
+      { "name": "Seumur Hidup", "price": "$199.99" }
+    ],
+    "features": [
+      "Cek kontrak tanpa batas",
+      "Dukungan prioritas",
+      "Akses awal ke fitur baru",
+      "Analisis risiko mendalam",
+      "Tanpa iklan"
+    ],
+    "cta": "Bayar",
+    "info": "Tautan pembayaran akan segera tersedia. Untuk saat ini, silakan gunakan bot untuk meminta upgrade."
   }
 }
