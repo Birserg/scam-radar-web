@@ -5,7 +5,7 @@
     "pricing": "Pricing",
     "faq": "FAQ",
     "blog": "Blog",
-    "contact": "Kontak",
+    "contacts": "Kontak",
     "legal": "Legal"
   },
   "language": "ID",
@@ -48,7 +48,8 @@
       "Dukungan prioritas",
       "Akses awal ke fitur baru",
       "Analisis risiko mendalam",
-      "Tanpa iklan"
+      "Tanpa iklan",
+      "Alerts Twitter"
     ],
     "featuresEmphasized": [0,1,2,3,4],
     "cta": "Bayar",
@@ -83,10 +84,15 @@
       }
     ]
   },
-  "contact": {
+  "contacts": {
     "title": "Hubungi Kami",
     "footer": "Kami siap membantu! Hubungi kami untuk pertanyaan atau masukan apa pun.",
     "support": "Dukung Proyek"
+  },
+  "footer": {
+    "premiumFeatures": "✨ Fitur Premium",
+    "resources": "Sumber Daya",
+    "copyright": "© 2025 Scam Radar. Semua hak dilindungi."
   },
   "meta": {
     "title": "Scam Radar — Lindungi Crypto Anda",

@@ -5,7 +5,7 @@
     "pricing": "价格",
     "faq": "常见问题",
     "blog": "博客",
-    "contact": "联系",
+    "contacts": "联系",
     "legal": "法律信息"
   },
   "language": "中文",
@@ -48,7 +48,8 @@
       "优先支持",
       "新功能抢先体验",
       "详细风险分析",
-      "无广告"
+      "无广告",
+      "推特预警"
     ],
     "featuresEmphasized": [0,1,2,3,4],
     "cta": "支付",
@@ -83,10 +84,15 @@
       }
     ]
   },
-  "contact": {
+  "contacts": {
     "title": "联系我们",
     "footer": "如有任何问题或建议，欢迎随时联系我们。",
     "support": "支持项目"
+  },
+  "footer": {
+    "premiumFeatures": "✨ 高级功能",
+    "resources": "资源",
+    "copyright": "© 2025 Scam Radar. 保留所有权利。"
   },
   "meta": {
     "title": "Scam Radar — 保护您的加密资产",

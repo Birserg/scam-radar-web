@@ -5,14 +5,14 @@
     "pricing": "Pricing",
     "faq": "FAQ",
     "blog": "Blog",
-    "contact": "Contact",
+    "contacts": "Contact",
     "legal": "Legal"
   },
   "language": "EN",
   "home": {
     "brand": "Scam Radar",
-    "title": "Protect Your Crypto. Avoid <highlight>Scams</highlight> & <highlight>Honeypots</highlight>.",
-    "subtitle": "Scam Radar is your trusted Telegram bot for checking smart contract addresses and identifying potential risks before you buy. Instantly detect scams, honeypots, and suspicious activity—across multiple blockchains and languages.",
+    "title": "Protect Your Crypto. Avoid <highlight>Scam</highlight> & <highlight>Honeypot</highlight>.",
+    "subtitle": "Scam Radar is your trusted Telegram bot for checking smart contract addresses and identifying potential risks before you buy. Instantly detect Scam, Honeypot, and suspicious activity—across multiple blockchains and languages.",
     "cta": "Try the Telegram Bot",
     "feature1Title": "Real-Time Scam Detection",
     "feature1Desc": "Analyze smart contracts instantly and get clear risk assessments before you buy.",
@@ -48,7 +48,8 @@
       "Priority support",
       "Early access to new features",
       "Detailed risk analysis",
-      "No ads"
+      "No ads",
+      "Twitter alerts"
     ],
     "featuresEmphasized": [0,1,2,3,4],
     "cta": "Pay",
@@ -75,7 +76,7 @@
       },
       {
         "question": "What do the risk levels mean?",
-        "answer": "Tokens are scored from 1 to 100: Low (1–30), Medium (30–50), High (50–80), Very High (80–100). We check for honeypots, liquidity issues, owner permissions, and more."
+        "answer": "Tokens are scored from 1 to 100: Low (1–30), Medium (30–50), High (50–80), Very High (80–100). We check for Honeypot, liquidity issues, owner permissions, and more."
       },
       {
         "question": "How do I pay for a subscription?",
@@ -83,17 +84,22 @@
       }
     ]
   },
-  "contact": {
-    "title": "Contact Us",
+  "contacts": {
+    "title": "Get in Touch",
     "footer": "We're here to help! Reach out with any questions or feedback.",
     "support": "Support the Project"
   },
+  "footer": {
+    "premiumFeatures": "✨ Premium Features",
+    "resources": "Resources",
+    "copyright": "© 2025 Scam Radar. All rights reserved."
+  },
   "meta": {
     "title": "Scam Radar — Protect Your Crypto",
-    "description": "Check smart contracts for scams and honeypots instantly. Protect your crypto with Scam Radar.",
+    "description": "Check smart contracts for Scam and Honeypot instantly. Protect your crypto with Scam Radar.",
     "ogTitle": "Scam Radar — Crypto Scam Detection",
-    "ogDescription": "Instantly check smart contracts for scams and honeypots. Multi-language, multi-chain.",
+    "ogDescription": "Instantly check smart contracts for Scam and Honeypot. Multi-language, multi-chain.",
     "twitterTitle": "Scam Radar — Protect Your Crypto",
-    "twitterDescription": "Check smart contracts for scams and honeypots instantly. Multi-language, multi-chain."
+    "twitterDescription": "Check smart contracts for Scam and Honeypot instantly. Multi-language, multi-chain."
   }
 }
