@@ -11,7 +11,7 @@
   "language": "中文",
   "home": {
     "brand": "Scam Radar",
-    "title": "保护您的加密资产。远离骗局和蜜罐。",
+    "title": "保护您的加密资产。远离<highlight>Scam</highlight>和<highlight>Honeypot</highlight>。",
     "subtitle": "Scam Radar 是您值得信赖的 Telegram 机器人，可在购买前检查智能合约地址并识别潜在风险。即时检测骗局、蜜罐和可疑活动——支持多区块链和多语言。",
     "cta": "试用 Telegram 机器人",
     "feature1Title": "实时骗局检测",

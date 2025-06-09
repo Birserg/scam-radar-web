@@ -11,7 +11,7 @@
   "language": "EN",
   "home": {
     "brand": "Scam Radar",
-    "title": "Protect Your Crypto. Avoid Scams & Honeypots.",
+    "title": "Protect Your Crypto. Avoid <highlight>Scams</highlight> & <highlight>Honeypots</highlight>.",
     "subtitle": "Scam Radar is your trusted Telegram bot for checking smart contract addresses and identifying potential risks before you buy. Instantly detect scams, honeypots, and suspicious activity—across multiple blockchains and languages.",
     "cta": "Try the Telegram Bot",
     "feature1Title": "Real-Time Scam Detection",
@@ -20,7 +20,7 @@
     "feature2Desc": "Use Scam Radar in English, Ukrainian, Russian, Chinese, and Indonesian.",
     "feature3Title": "Upgrade for More",
     "feature3Desc": "Unlock unlimited checks, priority support, and advanced features with our premium plans.",
-    "footer": "Join thousands of crypto buyers who trust Scam Radar to keep their investments safe. Don&apos;t get caught by scammers—check before you buy!"
+    "footer": "Join thousands of crypto buyers who trust Scam Radar to keep their investments safe. Don't get caught by scammers—check before you buy!"
   },
   "howItWorks": {
     "title": "How It Works",

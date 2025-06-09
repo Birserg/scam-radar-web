@@ -9,7 +9,9 @@ export default async function Home({params}: {params: {locale: string}}) {
   return (
     <HeroAnimated
       brand={t('brand')}
-      title={t('title')}
+      title={t.rich('title', {
+        highlight: (chunks) => <span className="text-red-500 font-extrabold">{chunks}</span>
+      })}
       subtitle={t('subtitle')}
       cta={t('cta')}
       feature1Title={t('feature1Title')}

@@ -8,10 +8,11 @@ const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] });
 const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin'] });
 
 export async function generateMetadata({ params }: { params: { locale: string } }) {
-  const t = await getTranslations({ locale: params.locale, namespace: 'meta' });
+  const { locale } = await params;
+  const t = await getTranslations({ locale: locale, namespace: 'meta' });
   const baseUrl = 'https://scam-radar.net';
   const ogImage = `${baseUrl}/og-image.png`;
-  const url = `${baseUrl}/${params.locale}`;
+  const url = `${baseUrl}/${locale}`;
 
   return {
     title: t('title'),
@@ -22,7 +23,7 @@ export async function generateMetadata({ params }: { params: { locale: string } 
       url,
       siteName: 'Scam Radar',
       images: [{ url: ogImage, width: 1200, height: 630, alt: t('ogTitle') }],
-      locale: params.locale,
+      locale: locale,
       type: 'website',
     },
     twitter: {
