@@ -1,11 +1,19 @@
-import Head from 'next/head';
-import Script from 'next/script';
 import { useState } from 'react';
-import { GlobeAltIcon } from '@heroicons/react/24/solid';
+import Head from 'next/head';
 import Image from 'next/image';
-
-import { FaTelegramPlane, FaEye, FaRobot, FaShieldAlt, FaBell, FaCrown, FaEnvelope, FaCircle } from 'react-icons/fa';
+import Script from 'next/script';
+import { GlobeAltIcon } from '@heroicons/react/24/outline';
+import { FaTelegramPlane, FaEye, FaRobot, FaShieldAlt, FaCrown, FaBell, FaEnvelope, FaCircle } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+
+// Lazy load heavy motion components
+const LazyMotion = motion.div;
+const LazyMotionH1 = motion.h1;
+const LazyMotionP = motion.p;
+const LazyMotionSpan = motion.span;
+const LazyMotionA = motion.a;
+const LazyMotionH2 = motion.h2;
+const LazyMotionH3 = motion.h3;
 
 // TypeScript declarations for Google Analytics and GTM
 declare global {
@@ -179,16 +187,12 @@ export default function Home({ locale, messages }: { locale: string; messages: M
         <meta name="format-detection" content="telephone=no" />
 
         {/* Performance Optimizations */}
+        <link rel="preload" href={`${getBasePath()}/logo.webp`} as="image" type="image/webp" />
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
         <link rel="dns-prefetch" href="//t.me" />
-        <link rel="dns-prefetch" href="//www.googletagmanager.com" />
         <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="" />
-        <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="" />
-        <link rel="preload" href={`${getBasePath()}/logo.webp`} as="image" type="image/webp" />
-        <link rel="preload" href={`${getBasePath()}/og-scam-radar.webp`} as="image" type="image/webp" />
-        <link rel="modulepreload" href="/_next/static/chunks/pages/[locale]/index.js" />
 
-        {/* Additional Resource Hints */}
+        {/* Defer non-critical resources */}
         <link rel="prefetch" href={`${getBasePath()}/manifest.json`} />
         <link rel="prefetch" href="https://t.me/scam_radar_bot" />
 
@@ -261,12 +265,60 @@ export default function Home({ locale, messages }: { locale: string; messages: M
             }}
           />
         )}
+
+        {/* Critical CSS for above-the-fold content */}
+        <style dangerouslySetInnerHTML={{
+          __html: `
+            .critical-content {
+              font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+              background: #000000;
+              color: #ffffff;
+              min-height: 100vh;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+            .hero-title {
+              font-size: clamp(1rem, 3vw, 1.25rem);
+              font-weight: 700;
+              line-height: 1.2;
+              text-align: center;
+              max-width: 576px;
+              margin: 0 auto 1rem;
+            }
+            .hero-subtitle {
+              font-size: clamp(0.875rem, 1.5vw, 1rem);
+              font-weight: 400;
+              line-height: 1.5;
+              text-align: center;
+              max-width: 512px;
+              margin: 0 auto 1.25rem;
+              opacity: 0.9;
+            }
+            .cta-button {
+              display: inline-flex;
+              align-items: center;
+              gap: 0.5rem;
+              background: linear-gradient(to right, #22c55e, #16a34a);
+              color: white;
+              font-weight: 600;
+              padding: 0.5rem 1rem;
+              border-radius: 9999px;
+              text-decoration: none;
+              font-size: 0.875rem;
+              transition: transform 0.2s;
+            }
+            .cta-button:hover {
+              transform: scale(1.05);
+            }
+          `
+        }} />
       </Head>
 
-      {/* Google Tag Manager */}
+      {/* Google Tag Manager - Deferred */}
       <Script
         id="gtm-script"
-        strategy="afterInteractive"
+        strategy="lazyOnload"
         dangerouslySetInnerHTML={{
           __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -276,14 +328,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }}
       />
 
-      {/* Google Analytics 4 */}
+      {/* Google Analytics 4 - Minimal & Deferred */}
       <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-B6GE3FT4HY"
-        strategy="afterInteractive"
-      />
-      <Script
-        id="ga-script"
-        strategy="afterInteractive"
+        id="ga-minimal"
+        strategy="lazyOnload"
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];
@@ -291,13 +339,26 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             gtag('js', new Date());
             gtag('config', 'G-B6GE3FT4HY', {
               page_title: document.title,
-              page_location: window.location.href,
               content_group1: '${locale}',
-              custom_map: {
-                'custom_parameter_1': 'language'
-              }
+              send_page_view: false
             });
           `
+        }}
+      />
+
+      {/* Load GA script only when needed */}
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-B6GE3FT4HY"
+        strategy="lazyOnload"
+        onLoad={() => {
+          // Send page view only after script loads
+          if (typeof window !== 'undefined' && window.gtag) {
+            window.gtag('event', 'page_view', {
+              page_title: document.title,
+              page_location: window.location.href,
+              content_group1: locale
+            });
+          }
         }}
       />
 
@@ -494,7 +555,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         {/* How It Works Section */}
         <section id="how" className="relative max-w-6xl mx-auto px-4 py-16 lg:py-24">
-          <motion.h2
+          <LazyMotionH2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -502,7 +563,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             className="text-2xl sm:text-3xl lg:text-4xl font-extrabold mb-12 lg:mb-16 text-center text-green-400 drop-shadow"
           >
             {(t('howItWorks.title') as string) || 'How It Works'}
-          </motion.h2>
+          </LazyMotionH2>
           <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {Array.isArray(t('howItWorks.steps')) && ((t('howItWorks.steps') as unknown as { title: string; desc: string }[])).map((step, i) => {
               // Define React Icons for each step
@@ -516,7 +577,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               ];
 
               return (
-                <motion.div
+                <LazyMotion
                   key={step.title}
                   initial={{ opacity: 0, y: 40, scale: 0.95 }}
                   whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -525,13 +586,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                   className="glass-card bg-gradient-to-br from-[#0a1a0a]/90 to-[#1a2e1a]/90 rounded-xl p-4 flex flex-col items-start shadow-xl border border-green-400/30 hover:scale-105 hover:shadow-green-400/30 transition-all duration-300"
                 >
                   {/* Icon container */}
-                  <motion.div
+                  <LazyMotion
                     whileHover={{ rotate: 360, scale: 1.1 }}
                     transition={{ duration: 0.6, type: 'spring' }}
                     className="w-12 h-12 bg-black/60 border-2 border-green-400/40 rounded-lg flex items-center justify-center mb-4 shadow-lg hover:border-green-400/70 hover:shadow-green-400/20 transition-all duration-300"
                   >
                     {icons[i]}
-                  </motion.div>
+                  </LazyMotion>
 
                   {/* Content */}
                   <div>
@@ -542,7 +603,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                       {step.desc}
                     </p>
                   </div>
-                </motion.div>
+                </LazyMotion>
               );
             })}
           </div>
@@ -550,7 +611,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         {/* Pricing Section */}
         <section id="pricing" className="max-w-6xl mx-auto px-4 py-16 lg:py-24" itemScope itemType="https://schema.org/Product">
-          <motion.h2
+          <LazyMotionH2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -559,10 +620,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             itemProp="name"
           >
             {(t('pricing.title') as string) || ''}
-          </motion.h2>
+          </LazyMotionH2>
           <meta itemProp="category" content="Security Software" />
           <meta itemProp="brand" content="Scam Radar" />
-          <motion.p
+          <LazyMotionP
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -570,13 +631,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             className="text-base sm:text-lg lg:text-xl text-gray-200 mb-10 lg:mb-12 text-center max-w-2xl mx-auto px-4"
           >
             {(t('pricing.subtitle') as string) || ''}
-          </motion.p>
+          </LazyMotionP>
 
           {/* Pricing Cards */}
           <div className="w-full max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-12 lg:mb-16">
             {/* Existing Plans */}
             {Array.isArray(t('pricing.plans')) && ((t('pricing.plans') as unknown) as { name: string; price: string }[]).slice(0, 3).map((plan, i) => (
-              <motion.div
+              <LazyMotion
                 key={plan.name}
                 initial={{ opacity: 0, y: 60, scale: 0.8, rotateY: 15 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1, rotateY: 0 }}
@@ -604,7 +665,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                   <h3 className="text-xl font-bold mb-4 text-white drop-shadow-lg">{plan.name}</h3>
                   <p className="text-4xl font-extrabold mb-8 text-green-400">{plan.price}</p>
 
-                  <motion.a
+                  <LazyMotionA
                     href="https://t.me/scam_radar_bot"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -613,13 +674,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     className="w-full inline-block bg-gradient-to-r from-green-400 to-green-600 hover:from-green-500 hover:to-green-700 text-white font-bold px-6 py-4 rounded-full text-lg shadow-lg transition-all duration-300"
                   >
                     {(t('pricing.cta') as string) || 'Pay'}
-                  </motion.a>
+                  </LazyMotionA>
                 </div>
-              </motion.div>
+              </LazyMotion>
             ))}
 
             {/* Premium/Lifetime Card from Locales */}
-            <motion.div
+            <LazyMotion
               initial={{ opacity: 0, y: 60, scale: 0.8, rotateY: 15 }}
               whileInView={{ opacity: 1, y: 0, scale: 1, rotateY: 0 }}
               viewport={{ once: true }}
@@ -640,14 +701,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               style={{ transformStyle: 'preserve-3d' }}
             >
               {/* Popular badge */}
-              <motion.div
+              <LazyMotion
                 initial={{ scale: 0, rotate: -180 }}
                 animate={{ scale: 1, rotate: 0 }}
                 transition={{ delay: 1.2, duration: 0.6, type: 'spring' }}
                 className="absolute top-0 right-0 bg-gradient-to-r from-yellow-400 to-orange-400 text-black font-bold px-3 py-1 text-xs rounded-bl-lg"
               >
                 POPULAR
-              </motion.div>
+              </LazyMotion>
 
               {/* Glow effect */}
               <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/10 to-orange-400/5 rounded-2xl opacity-0 hover:opacity-100 transition-opacity duration-500" />
@@ -660,29 +721,36 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                   {((t('pricing.plans') as unknown as { name: string; price: string }[])?.[3]?.price) || '$99.99'}
                 </p>
 
-                <motion.a
+                <LazyMotionA
                   href="https://t.me/scam_radar_bot"
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 bg-gradient-to-r from-green-500 to-green-600 border-2 border-green-400/80 text-white font-semibold px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm shadow-lg hover:from-green-600 hover:to-green-700 hover:scale-105 active:scale-95 transition focus:outline-none focus:ring-4 focus:ring-green-400/40"
+                  style={{
+                    boxShadow: '0 0 10px 0 #22c55e44, 0 2px 10px 0 #000a',
+                    transform: 'none'
+                  }}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-full inline-block bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-black font-bold px-6 py-4 rounded-full text-lg shadow-lg transition-all duration-300"
+                  transition={{ type: 'spring', stiffness: 400, damping: 17 }}
                 >
-                  {(t('pricing.premiumCta') as string) || 'Get Lifetime'}
-                </motion.a>
+                  <FaTelegramPlane className="text-xs sm:text-sm" />
+                  <span className="hidden sm:inline">{(t('pricing.premiumCta') as string) || 'Get Lifetime'}</span>
+                  <span className="sm:hidden">Get Lifetime</span>
+                </LazyMotionA>
               </div>
-            </motion.div>
+            </LazyMotion>
           </div>
 
           {/* Premium Features Box */}
-          <motion.div
+          <LazyMotion
             initial={{ opacity: 0, y: 40, scale: 0.95 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1, delay: 1.2, type: 'spring' }}
             className="bg-gradient-to-br from-[#0a1a0a]/95 to-[#1a2e1a]/95 md:backdrop-blur-xl rounded-2xl p-8 border border-green-400/30 shadow-xl max-w-3xl mx-auto"
           >
-            <motion.h3
+            <LazyMotionH3
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -690,7 +758,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               className="text-2xl font-bold text-white mb-6 text-center"
             >
               {(t('footer.premiumFeatures') as string) || '✨ Premium Features'}
-            </motion.h3>
+            </LazyMotionH3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             {(Array.isArray(t('pricing.features')) ? (t('pricing.features') as string[]) : [
                 'Unlimited contract checks',
@@ -699,7 +767,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 'Detailed risk analysis',
                 'No ads'
               ]).map((feature, i) => (
-                <motion.div
+                <LazyMotion
                   key={feature}
                   initial={{ opacity: 0, x: -30, scale: 0.8 }}
                   whileInView={{ opacity: 1, x: 0, scale: 1 }}
@@ -717,19 +785,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                   }}
                   className="flex items-center gap-3 text-green-100 p-2 rounded-lg hover:bg-green-400/10 transition-all duration-300"
                 >
-                  <motion.div
+                  <LazyMotion
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ delay: 1.7 + i * 0.15, duration: 0.4, type: 'spring' }}
                     className="w-3 h-3 rounded-full bg-green-400 flex-shrink-0"
                   />
                   <span className="text-base font-medium">{feature}</span>
-                </motion.div>
+                </LazyMotion>
               ))}
             </div>
-          </motion.div>
+          </LazyMotion>
 
-          <motion.p
+          <LazyMotionP
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -737,12 +805,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             className="text-gray-400 text-center text-sm mt-8"
           >
             {(t('pricing.info') as string) || ''}
-          </motion.p>
+          </LazyMotionP>
         </section>
 
         {/* FAQ Section */}
         <section id="faq" className="max-w-6xl mx-auto px-4 py-24" itemScope itemType="https://schema.org/FAQPage">
-          <motion.h2
+          <LazyMotionH2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -751,10 +819,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             itemProp="name"
           >
             {(t('faq.title') as string) || 'FAQ'}
-          </motion.h2>
+          </LazyMotionH2>
           <div className="w-full max-w-3xl mx-auto space-y-8" itemProp="mainEntity">
             {Array.isArray(t('faq.questions')) && ((t('faq.questions') as unknown) as { question: string; answer: string }[]).map((q, i) => (
-              <motion.div
+              <LazyMotion
                 key={q.question}
                 initial={{ opacity: 0, y: 40, scale: 0.98 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -773,7 +841,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <div itemProp="text">{q.answer}</div>
                   </div>
                 </details>
-              </motion.div>
+              </LazyMotion>
             ))}
           </div>
         </section>
@@ -785,7 +853,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
               {/* Left side - Get in touch */}
-              <motion.div
+              <LazyMotion
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -799,7 +867,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                   <meta itemProp="areaServed" content="Worldwide" />
                   <meta itemProp="availableLanguage" content="en,ru,uk,id,zh" />
                   {/* Telegram Bot */}
-                  <motion.a
+                  <LazyMotionA
                     href="https://t.me/scam_radar_bot"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -810,10 +878,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                   >
                     <FaTelegramPlane className="text-xl text-blue-400 group-hover:text-blue-300" />
                     <span className="text-lg font-medium">Telegram Bot</span>
-                  </motion.a>
+                  </LazyMotionA>
 
                   {/* Email */}
-                  <motion.a
+                  <LazyMotionA
                     href="mailto:support@scam-radar.net"
                     whileHover={{ scale: 1.05, x: 10 }}
                     transition={{ duration: 0.2 }}
@@ -822,10 +890,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                   >
                     <FaEnvelope className="text-xl text-red-400 group-hover:text-red-300" />
                     <span className="text-lg font-medium">support@scam-radar.net</span>
-                  </motion.a>
+                  </LazyMotionA>
 
                   {/* Telegram Support */}
-                  <motion.a
+                  <LazyMotionA
                     href="https://t.me/bitcoin_inc"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -835,25 +903,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                   >
                     <FaTelegramPlane className="text-xl text-cyan-400 group-hover:text-cyan-300" />
                     <span className="text-lg font-medium">Telegram Support</span>
-                  </motion.a>
+                  </LazyMotionA>
 
                   {/* Live Now */}
-                  <motion.div
+                  <LazyMotion
                     className="flex items-center gap-4 pt-30 text-green-500"
                   >
-                    <motion.div
+                    <LazyMotion
                       animate={{ scale: [1, 1.3, 1], opacity: [1, 0.6, 1] }}
                       transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                     >
                       <FaCircle className="text-lg text-green-500" />
-                    </motion.div>
+                    </LazyMotion>
                     <span className="text-lg font-bold text-green-500">Live Now</span>
-                  </motion.div>
+                  </LazyMotion>
                 </div>
-              </motion.div>
+              </LazyMotion>
 
               {/* Right side - Year and Resources */}
-              <motion.div
+              <LazyMotion
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -863,54 +931,54 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <h3 className="text-2xl font-bold text-green-400 mb-8">{(t('footer.resources') as string) || 'Resources'}</h3>
 
                 <div className="space-y-4">
-                  <motion.a
+                  <LazyMotionA
                     href={createNavLink(locale, 'home')}
                     whileHover={{ scale: 1.05, x: 10 }}
                     transition={{ duration: 0.2 }}
                     className="block text-gray-200 hover:text-green-400 transition-all duration-300 text-lg"
                   >
                     {(t('nav.home') as string) || 'Home'}
-                  </motion.a>
+                  </LazyMotionA>
 
-                  <motion.a
+                  <LazyMotionA
                     href={createNavLink(locale, 'how')}
                     whileHover={{ scale: 1.05, x: 10 }}
                     transition={{ duration: 0.2 }}
                     className="block text-gray-200 hover:text-green-400 transition-all duration-300 text-lg"
                   >
                     {(t('nav.howItWorks') as string) || 'How It Works'}
-                  </motion.a>
+                  </LazyMotionA>
 
-                  <motion.a
+                  <LazyMotionA
                     href={createNavLink(locale, 'pricing')}
                     whileHover={{ scale: 1.05, x: 10 }}
                     transition={{ duration: 0.2 }}
                     className="block text-gray-200 hover:text-green-400 transition-all duration-300 text-lg"
                   >
                     {(t('nav.pricing') as string) || 'Pricing'}
-                  </motion.a>
+                  </LazyMotionA>
 
-                  <motion.a
+                  <LazyMotionA
                     href={createNavLink(locale, 'faq')}
                     whileHover={{ scale: 1.05, x: 10 }}
                     transition={{ duration: 0.2 }}
                     className="block text-gray-200 hover:text-green-400 transition-all duration-300 text-lg"
                   >
                     {(t('nav.faq') as string) || 'FAQ'}
-                  </motion.a>
+                  </LazyMotionA>
 
-                  <motion.a
+                  <LazyMotionA
                     href={createNavLink(locale, 'contacts')}
                     whileHover={{ scale: 1.05, x: 10 }}
                     transition={{ duration: 0.2 }}
                     className="block text-gray-200 hover:text-green-400 transition-all duration-300 text-lg"
                   >
                                          {(t('nav.contacts') as string) || 'Contacts'}
-                  </motion.a>
+                  </LazyMotionA>
                 </div>
 
                 {/* Copyright */}
-                <motion.div
+                <LazyMotion
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
@@ -920,8 +988,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                   <p className="text-gray-400 text-base">
                     {(t('footer.copyright') as string) || '© 2025 Scam Radar. All rights reserved.'}
                   </p>
-                </motion.div>
-              </motion.div>
+                </LazyMotion>
+              </LazyMotion>
             </div>
           </div>
         </footer>
@@ -936,7 +1004,7 @@ function HeroSection({ t }: { t: (key: string) => string | string[] | { [key: st
     <section id="home" className="relative flex flex-col lg:flex-row items-center justify-center min-h-screen w-full px-4 py-20 lg:py-12 overflow-hidden bg-black pt-24 lg:pt-12"
              itemScope itemType="https://schema.org/SoftwareApplication">
       {/* Animated multi-color gradient background */}
-      <motion.div
+      <LazyMotion
         className="absolute inset-0 -z-10 animate-gradient-bg"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -949,14 +1017,14 @@ function HeroSection({ t }: { t: (key: string) => string | string[] | { [key: st
       />
 
       {/* Text content - centered on mobile, left on desktop */}
-      <motion.div
+      <LazyMotion
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, type: 'spring' }}
         className="flex-1 flex flex-col items-center lg:items-start justify-center z-10 w-full lg:max-w-lg text-center lg:text-left lg:pl-8"
       >
         <HeroTextBlock t={t} />
-      </motion.div>
+      </LazyMotion>
 
       {/* Logo and features - centered on mobile, right on desktop */}
       <div className="flex-1 flex flex-col items-center justify-center relative z-10 mt-8 lg:mt-0 lg:pl-20 w-full lg:max-w-lg">
@@ -964,11 +1032,11 @@ function HeroSection({ t }: { t: (key: string) => string | string[] | { [key: st
         <LogoWithCoinFlip />
 
         {/* Three feature cards - responsive grid */}
-        <motion.div
+        <LazyMotion
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4 mt-8 lg:mt-10 w-full max-w-md lg:max-w-sm"
         >
           {[1, 2, 3].map((i) => (
-            <motion.div
+            <LazyMotion
               key={i}
               initial={{ opacity: 0, y: -50, rotateX: -45 }}
               animate={{ opacity: 1, y: 0, rotateX: 0 }}
@@ -982,9 +1050,9 @@ function HeroSection({ t }: { t: (key: string) => string | string[] | { [key: st
             >
               <h3 className="text-sm sm:text-base font-bold mb-2 text-white drop-shadow-lg">{(t(`home.feature${i}Title`) as string) || ''}</h3>
               <p className="text-xs sm:text-sm text-gray-200 leading-relaxed">{(t(`home.feature${i}Desc`) as string) || ''}</p>
-            </motion.div>
+            </LazyMotion>
           ))}
-        </motion.div>
+        </LazyMotion>
       </div>
     </section>
   );
@@ -1004,15 +1072,15 @@ function HeroTextBlock({ t }: { t: (key: string) => string | string[] | { [key: 
 
   return (
     <>
-      <motion.span
-        initial={{ color: 'var(--color-green-500)' }}
-        animate={{ color: ['var(--color-red-500)', 'var(--color-green-500)'], }}
-        transition={{ duration: 3, repeat: 0, repeatType: 'loop', ease: 'linear' }}
+      <LazyMotionSpan
+        initial={{ color: 'var(--color-red-500)' }}
+        animate={{ color: ['var(--color-green-500)', 'var(--color-green-500)'], }}
+        transition={{ duration: 2, repeat: 0, ease: 'easeInOut', }}
         className="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-4 drop-shadow-lg hover:scale-105 transition-all duration-300"
         style={{ letterSpacing: '-0.01em' }}
         dangerouslySetInnerHTML={{ __html: brandText }}
       />
-      <motion.h1
+      <LazyMotionH1
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 0.8, type: 'spring' }}
@@ -1021,7 +1089,7 @@ function HeroTextBlock({ t }: { t: (key: string) => string | string[] | { [key: 
         itemProp="name"
         dangerouslySetInnerHTML={{ __html: highlightWords(titleText) }}
       />
-      <motion.p
+      <LazyMotionP
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4, duration: 0.7, type: 'spring' }}
@@ -1029,7 +1097,7 @@ function HeroTextBlock({ t }: { t: (key: string) => string | string[] | { [key: 
         itemProp="description"
       >
         {(t('home.subtitle') as string) || ''}
-      </motion.p>
+      </LazyMotionP>
 
       {/* Hidden microdata for schema.org */}
       <meta itemProp="applicationCategory" content="SecurityApplication" />
@@ -1038,45 +1106,20 @@ function HeroTextBlock({ t }: { t: (key: string) => string | string[] | { [key: 
       <meta itemProp="author" content="Scam Radar Team" />
       <meta itemProp="price" content="0" />
       <meta itemProp="priceCurrency" content="USD" />
-      <motion.a
-        href='https://t.me/scam_radar_bot'
-        target="_blank"
-        rel="noopener noreferrer"
-        onClick={() => {
-          // Google Analytics event tracking
-          if (typeof window !== 'undefined' && window.gtag) {
-            window.gtag('event', 'click', {
-              event_category: 'engagement',
-              event_label: 'telegram_bot_cta',
-              event_action: 'cta_click',
-              value: 1
-            });
-          }
-          // Google Tag Manager event
-          if (typeof window !== 'undefined' && window.dataLayer) {
-            window.dataLayer.push({
-              event: 'telegram_bot_click',
-              event_category: 'engagement',
-              event_action: 'cta_click',
-              event_label: 'hero_telegram_bot'
-            });
-          }
-        }}
-        initial={{ scale: 1 }}
-        animate={{ scale: [1, 1.05, 1], opacity: [0.9, 1, 0.9] }}
-        transition={{
-          duration: 2,
-          repeat: Infinity,
-          ease: 'easeInOut',
-          repeatType: 'loop'
-        }}
-        className="inline-flex items-center gap-3 bg-gradient-to-r from-green-500 to-green-600 border-2 border-green-400/80 text-white font-bold px-6 sm:px-8 py-4 rounded-full text-base sm:text-lg shadow-2xl hover:from-green-600 hover:to-green-700 hover:scale-105 active:scale-95 transition focus:outline-none focus:ring-4 focus:ring-green-400/40"
-        style={{ boxShadow: '0 0 20px 0 #22c55e88, 0 4px 20px 0 #000a' }}
-      >
-        <FaTelegramPlane className="text-lg sm:text-xl" />
-        <span className="hidden sm:inline">{(t('home.cta') as string) || 'Try the Telegram Bot'}</span>
-        <span className="sm:hidden">Try Bot</span>
-      </motion.a>
+              <LazyMotionA
+          href='https://t.me/scam_radar_bot'
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-3 bg-gradient-to-r from-green-500 to-green-600 border-2 border-green-400/80 text-white font-bold px-6 sm:px-8 py-4 rounded-full text-base sm:text-lg shadow-2xl hover:from-green-600 hover:to-green-700 hover:scale-105 active:scale-95 transition focus:outline-none focus:ring-4 focus:ring-green-400/40"
+          style={{ boxShadow: '0 0 20px 0 #22c55e88, 0 4px 20px 0 #000a' }}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+        >
+          <FaTelegramPlane className="text-lg sm:text-xl" />
+          <span className="hidden sm:inline">{(t('home.cta') as string) || 'Try the Telegram Bot'}</span>
+          <span className="sm:hidden">Try Bot</span>
+        </LazyMotionA>
     </>
   );
 }
@@ -1085,7 +1128,7 @@ function LogoWithCoinFlip() {
   return (
     <div className="relative">
       {/* Glow effect */}
-      <motion.div
+      <LazyMotion
         className="absolute inset-0 z-0 rounded-full blur-xl"
         style={{ background: 'radial-gradient(circle, #22c55e88 0%, #38bdf888 60%, transparent 100%)', width: '100%', height: '100%' }}
         initial={{ opacity: 0 }}
@@ -1093,7 +1136,7 @@ function LogoWithCoinFlip() {
         transition={{ delay: 0.8, duration: 5, repeat: Infinity, repeatType: 'reverse', ease: 'easeInOut' }}
       />
       {/* Coin flip animation */}
-      <motion.div
+      <LazyMotion
         initial={{
           y: -200,
           rotateY: 0,
@@ -1122,7 +1165,7 @@ function LogoWithCoinFlip() {
         }}
       >
         {/* Continuous spin after landing */}
-        <motion.div
+        <LazyMotion
           initial={{ rotateY: 0 }}
           animate={{ rotateY: 360 }}
           transition={{
@@ -1135,8 +1178,8 @@ function LogoWithCoinFlip() {
           style={{ transformStyle: 'preserve-3d', transformOrigin: 'center' }}
         >
           <Image src={`${getBasePath()}/logo.webp`} alt="Scam Radar Logo" title="Scam Radar Logo" width={100} height={100} className="rounded-full border-2 border-white/80 shadow-md" />
-        </motion.div>
-      </motion.div>
+        </LazyMotion>
+      </LazyMotion>
     </div>
   );
 }

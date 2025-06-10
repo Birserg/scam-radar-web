@@ -34,6 +34,47 @@ const nextConfig: NextConfig = {
   env: {
     NEXT_PUBLIC_BASE_PATH: basePath,
   },
+  // Webpack optimizations for bundle size reduction
+  webpack: (config, { dev, isServer }) => {
+    // Only in production
+    if (!dev && !isServer) {
+      // Tree shaking optimization
+      config.optimization.usedExports = true;
+      config.optimization.sideEffects = false;
+
+      // Bundle splitting
+      config.optimization.splitChunks = {
+        chunks: 'all',
+        cacheGroups: {
+          vendor: {
+            test: /[\\/]node_modules[\\/]/,
+            name: 'vendors',
+            chunks: 'all',
+          },
+          common: {
+            name: 'common',
+            minChunks: 2,
+            chunks: 'all',
+            enforce: true,
+          },
+        },
+      };
+    }
+
+    // Bundle analyzer (uncomment to analyze)
+    // if (process.env.ANALYZE === 'true') {
+    //   const BundleAnalyzerPlugin = require('@next/bundle-analyzer')({
+    //     enabled: true
+    //   });
+    //   config.plugins.push(BundleAnalyzerPlugin);
+    // }
+
+    return config;
+  },
+  // Experimental features for performance
+  experimental: {
+    optimizePackageImports: ['framer-motion', 'react-icons'],
+  },
 };
 
 export default nextConfig;
