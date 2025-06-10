@@ -10,8 +10,12 @@ Allow: /zh/
 
 # Static assets
 Allow: /logo.jpeg
-Allow: /og-*.jpg
-Allow: /twitter-*.jpg
+Allow: /logo.webp
+Allow: /logo.avif
+  Allow: /og-*.jpg
+  Allow: /og-*.webp
+  Allow: /twitter-*.jpg
+  Allow: /twitter-*.webp
 Allow: /favicon.ico
 Allow: /apple-touch-icon.png
 Allow: /manifest.json

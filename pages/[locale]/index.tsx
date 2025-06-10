@@ -119,10 +119,11 @@ export default function Home({ locale, messages }: { locale: string; messages: M
         <meta property="og:site_name" content="Scam Radar" />
         <meta property="og:title" content={(t('meta.ogTitle') as string) || ''} />
         <meta property="og:description" content={(t('meta.ogDescription') as string) || ''} />
-        <meta property="og:image" content={`${getBasePath()}${(t('meta.ogImage') as string) || '/og-image.jpeg'}`} />
+        <meta property="og:image" content={`${getBasePath()}${(t('meta.ogImage') as string) || '/og-image.webp'}`} />
         <meta property="og:image:alt" content={(t('meta.ogImageAlt') as string) || 'Scam Radar - Cryptocurrency Scam Detection Bot'} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
+        <meta property="og:image:type" content="image/webp" />
         <meta property="og:url" content={getCanonicalUrl(locale)} />
         <meta property="og:locale" content={(t('meta.locale') as string) || locale.replace('-', '_')} />
         {((t('meta.alternateLocales') as string[]) || []).map((altLocale) => (
@@ -135,7 +136,7 @@ export default function Home({ locale, messages }: { locale: string; messages: M
         <meta name="twitter:creator" content="@ScamRadarBot" />
         <meta name="twitter:title" content={(t('meta.twitterTitle') as string) || ''} />
         <meta name="twitter:description" content={(t('meta.twitterDescription') as string) || ''} />
-        <meta name="twitter:image" content={`${getBasePath()}${(t('meta.twitterImage') as string) || '/twitter-image.jpeg'}`} />
+        <meta name="twitter:image" content={`${getBasePath()}${(t('meta.twitterImage') as string) || '/twitter-image.webp'}`} />
         <meta name="twitter:image:alt" content={(t('meta.twitterImageAlt') as string) || 'Scam Radar Bot - Protect Your Crypto'} />
 
         {/* Additional SEO Meta Tags */}
@@ -145,6 +146,21 @@ export default function Home({ locale, messages }: { locale: string; messages: M
         <meta name="rating" content="General" />
         <meta name="revisit-after" content="7 days" />
         <meta name="referrer" content="no-referrer-when-downgrade" />
+
+        {/* Enhanced SEO Meta Tags */}
+        <meta name="classification" content="Security Software" />
+        <meta name="identifier" content="scam-radar-bot" />
+        <meta name="url" content={getCanonicalUrl(locale)} />
+        <meta name="pagename" content={(t('meta.title') as string) || ''} />
+        <meta name="topic" content="Cryptocurrency Security, Scam Detection, DeFi Safety" />
+        <meta name="summary" content="Advanced Telegram bot for detecting cryptocurrency scams and honeypots across multiple blockchains" />
+        <meta name="designer" content="Scam Radar Team" />
+        <meta name="owner" content="Scam Radar" />
+        <meta name="reply-to" content="support@scam-radar.net" />
+        <meta name="target" content="cryptocurrency traders, DeFi investors" />
+        <meta name="audience" content="crypto traders, investors, blockchain users" />
+        <meta name="document-type" content="Landing Page" />
+        <meta name="document-rating" content="Safe For Kids" />
 
         {/* Alternate Language Links */}
         {SUPPORTED_LOCALES.map((l) => (
@@ -165,9 +181,16 @@ export default function Home({ locale, messages }: { locale: string; messages: M
         {/* Performance Optimizations */}
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
         <link rel="dns-prefetch" href="//t.me" />
+        <link rel="dns-prefetch" href="//www.googletagmanager.com" />
         <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="" />
-        <link rel="preload" href={`${getBasePath()}/logo.jpeg`} as="image" type="image/jpeg" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="" />
+        <link rel="preload" href={`${getBasePath()}/logo.webp`} as="image" type="image/webp" />
+        <link rel="preload" href={`${getBasePath()}/og-scam-radar.webp`} as="image" type="image/webp" />
         <link rel="modulepreload" href="/_next/static/chunks/pages/[locale]/index.js" />
+
+        {/* Additional Resource Hints */}
+        <link rel="prefetch" href={`${getBasePath()}/manifest.json`} />
+        <link rel="prefetch" href="https://t.me/scam_radar_bot" />
 
         {/* Resource Hints */}
         <meta httpEquiv="x-dns-prefetch-control" content="on" />
@@ -215,6 +238,26 @@ export default function Home({ locale, messages }: { locale: string; messages: M
                   }
                 }))
               })
+            }}
+          />
+        )}
+
+        {/* Breadcrumb Schema */}
+        {t('meta.breadcrumbData') && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(t('meta.breadcrumbData'))
+            }}
+          />
+        )}
+
+        {/* Review Schema */}
+        {t('meta.reviewData') && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(t('meta.reviewData'))
             }}
           />
         )}
@@ -273,6 +316,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>
+
         {/* Mobile-Optimized Navigation */}
         <nav role="navigation" aria-label="Main navigation" className="fixed top-0 left-0 w-full z-50 bg-black/95 shadow-xl border-b border-green-600/40 md:backdrop-blur-2xl">
           <div className="max-w-6xl mx-auto px-4 py-3">
@@ -280,7 +324,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               {/* Logo and Brand */}
               <div className="flex items-center gap-3" itemScope itemType="https://schema.org/Organization">
                 <Image
-                  src={`${getBasePath()}/logo.jpeg`}
+                  src={`${getBasePath()}/logo.webp`}
                   alt="Scam Radar Logo"
                   title="Scam Radar Logo"
                   width={40}
@@ -1090,7 +1134,7 @@ function LogoWithCoinFlip() {
           }}
           style={{ transformStyle: 'preserve-3d', transformOrigin: 'center' }}
         >
-          <Image src={`${getBasePath()}/logo.jpeg`} alt="Scam Radar Logo" title="Scam Radar Logo" width={100} height={100} className="rounded-full border-2 border-white/80 shadow-md" />
+          <Image src={`${getBasePath()}/logo.webp`} alt="Scam Radar Logo" title="Scam Radar Logo" width={100} height={100} className="rounded-full border-2 border-white/80 shadow-md" />
         </motion.div>
       </motion.div>
     </div>

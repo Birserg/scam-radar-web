@@ -13,15 +13,15 @@
   "categories": ["finance", "security", "utilities"],
   "icons": [
     {
-      "src": "/logo.jpeg",
+      "src": "/logo.webp",
       "sizes": "192x192",
-      "type": "image/jpeg",
+      "type": "image/webp",
       "purpose": "maskable any"
     },
     {
-      "src": "/logo.jpeg",
+      "src": "/logo.webp",
       "sizes": "512x512",
-      "type": "image/jpeg",
+      "type": "image/webp",
       "purpose": "maskable any"
     },
     {
@@ -54,8 +54,9 @@
       "url": "/en#how",
       "icons": [
         {
-          "src": "/logo.jpeg",
-          "sizes": "96x96"
+          "src": "/logo.webp",
+          "sizes": "96x96",
+          "type": "image/webp"
         }
       ]
     },
@@ -66,8 +67,9 @@
       "url": "/en#pricing",
       "icons": [
         {
-          "src": "/logo.jpeg",
-          "sizes": "96x96"
+          "src": "/logo.webp",
+          "sizes": "96x96",
+          "type": "image/webp"
         }
       ]
     }

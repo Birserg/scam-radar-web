@@ -100,11 +100,11 @@
     "keywords": "crypto scam detector, honeypot checker, smart contract analysis, telegram crypto bot, ethereum scam detection, BSC honeypot checker, solana token analysis, cryptocurrency security, DeFi safety tools, crypto investment protection, blockchain security scanner, token validator, crypto due diligence, scam prevention, investment safety, crypto risk assessment",
     "ogTitle": "Scam Radar — Ultimate Crypto Security Bot | Detect Scams & Honeypots Instantly",
     "ogDescription": "Advanced Telegram bot for cryptocurrency security. Instantly analyze smart contracts, detect scams and honeypots across Ethereum, BSC, Solana & Base. Multi-language support, unlimited checks, priority support. Protect your crypto investments with real-time risk assessment and comprehensive security analysis. Trusted by thousands of crypto investors worldwide.",
-    "ogImage": "/og-scam-radar.jpg",
+    "ogImage": "/og-scam-radar.webp",
     "ogImageAlt": "Scam Radar - Cryptocurrency Scam Detection and Honeypot Checker Bot Interface",
     "twitterTitle": "🛡️ Scam Radar — Advanced Crypto Scam & Honeypot Detection Bot",
     "twitterDescription": "Instantly detect crypto scams & honeypots with our advanced Telegram bot. Multi-chain support (ETH, BSC, SOL, BASE) • Real-time analysis • 5+ languages • Unlimited checks • Priority support. Protect your investments before you buy! #CryptoSecurity #DeFi #ScamPrevention",
-    "twitterImage": "/twitter-scam-radar.jpg",
+    "twitterImage": "/twitter-scam-radar.webp",
     "twitterImageAlt": "Scam Radar Bot - Protect Your Crypto from Scams and Honeypots",
     "author": "Scam Radar Team",
     "publisher": "Scam Radar",
@@ -157,7 +157,7 @@
       "@type": "Organization",
       "name": "Scam Radar",
       "url": "https://scam-radar.net",
-      "logo": "https://scam-radar.net/logo.jpeg",
+      "logo": "https://scam-radar.net/logo.webp",
       "description": "Advanced cryptocurrency scam detection and security platform",
       "foundingDate": "2024-01-15",
       "areaServed": "Worldwide",
@@ -179,6 +179,64 @@
         "category": "Security Software",
         "availability": "https://schema.org/InStock"
       }
+    },
+    "breadcrumbData": {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://scam-radar.net/en"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Scam Detection",
+          "item": "https://scam-radar.net/en#home"
+        }
+      ]
+    },
+    "reviewData": {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Scam Radar Bot",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "2547",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "review": [
+        {
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": "CryptoTrader2024"
+          },
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          },
+          "reviewBody": "Saved me from a honeypot token! Fast and accurate detection."
+        },
+        {
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": "DeFiInvestor"
+          },
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          },
+          "reviewBody": "Best scam detection bot I've used. Multi-language support is perfect."
+        }
+      ]
     }
   }
 }

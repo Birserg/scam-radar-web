@@ -161,14 +161,15 @@ export default function Custom404() {
         <meta property="og:title" content={`404 - ${currentMessages.title} | Scam Radar`} />
         <meta property="og:description" content={`${currentMessages.description} Scam Radar - Advanced cryptocurrency scam detection bot.`} />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content={`${getBasePath()}/logo.jpeg`} />
+        <meta property="og:image" content={`${getBasePath()}/logo.webp`} />
+        <meta property="og:image:type" content="image/webp" />
         <meta property="og:site_name" content="Scam Radar" />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content={`404 - ${currentMessages.title} | Scam Radar`} />
         <meta name="twitter:description" content={`${currentMessages.description} Scam Radar - Advanced cryptocurrency scam detection bot.`} />
-        <meta name="twitter:image" content={`${getBasePath()}/logo.jpeg`} />
+        <meta name="twitter:image" content={`${getBasePath()}/logo.webp`} />
 
         <link rel="canonical" href={`https://scam-radar.net/${currentLocale}`} />
         <link rel="icon" href={`${getBasePath()}/favicon.ico`} />

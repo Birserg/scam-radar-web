@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <!-- English Version -->
+  <!-- English (Default) -->
   <url>
     <loc>https://scam-radar.net/en</loc>
-    <lastmod>2025-01-10</lastmod>
+    <lastmod>2025-06-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://scam-radar.net/en"/>
@@ -14,10 +14,10 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://scam-radar.net/en"/>
   </url>
 
-  <!-- Russian Version -->
+  <!-- Russian -->
   <url>
     <loc>https://scam-radar.net/ru</loc>
-    <lastmod>2025-01-10</lastmod>
+    <lastmod>2025-06-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://scam-radar.net/en"/>
@@ -28,10 +28,10 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://scam-radar.net/en"/>
   </url>
 
-  <!-- Ukrainian Version -->
+  <!-- Ukrainian -->
   <url>
     <loc>https://scam-radar.net/uk</loc>
-    <lastmod>2025-01-10</lastmod>
+    <lastmod>2025-06-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://scam-radar.net/en"/>
@@ -42,10 +42,10 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://scam-radar.net/en"/>
   </url>
 
-  <!-- Indonesian Version -->
+  <!-- Indonesian -->
   <url>
     <loc>https://scam-radar.net/id</loc>
-    <lastmod>2025-01-10</lastmod>
+    <lastmod>2025-06-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://scam-radar.net/en"/>
@@ -56,10 +56,10 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://scam-radar.net/en"/>
   </url>
 
-  <!-- Chinese Version -->
+  <!-- Chinese -->
   <url>
     <loc>https://scam-radar.net/zh</loc>
-    <lastmod>2025-01-10</lastmod>
+    <lastmod>2025-06-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://scam-radar.net/en"/>
@@ -70,39 +70,35 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://scam-radar.net/en"/>
   </url>
 
-  <!-- GitHub Pages URLs for backup -->
+  <!-- GitHub Pages URLs (Secondary) -->
   <url>
-    <loc>https://birserg.github.io/scam-radar-web/en</loc>
-    <lastmod>2025-01-10</lastmod>
+    <loc>https://idoridori.github.io/scam-radar-web/en</loc>
+    <lastmod>2025-06-10</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.5</priority>
   </url>
-
   <url>
-    <loc>https://birserg.github.io/scam-radar-web/ru</loc>
-    <lastmod>2025-01-10</lastmod>
+    <loc>https://idoridori.github.io/scam-radar-web/ru</loc>
+    <lastmod>2025-06-10</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.5</priority>
   </url>
-
   <url>
-    <loc>https://birserg.github.io/scam-radar-web/uk</loc>
-    <lastmod>2025-01-10</lastmod>
+    <loc>https://idoridori.github.io/scam-radar-web/uk</loc>
+    <lastmod>2025-06-10</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.5</priority>
   </url>
-
   <url>
-    <loc>https://birserg.github.io/scam-radar-web/id</loc>
-    <lastmod>2025-01-10</lastmod>
+    <loc>https://idoridori.github.io/scam-radar-web/id</loc>
+    <lastmod>2025-06-10</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.5</priority>
   </url>
-
   <url>
-    <loc>https://birserg.github.io/scam-radar-web/zh</loc>
-    <lastmod>2025-01-10</lastmod>
+    <loc>https://idoridori.github.io/scam-radar-web/zh</loc>
+    <lastmod>2025-06-10</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.5</priority>
   </url>
 </urlset>
