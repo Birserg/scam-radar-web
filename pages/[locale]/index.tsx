@@ -74,6 +74,10 @@ export default function Home({ locale, messages }: { locale: string; messages: M
   const [mobileMenu, setMobileMenu] = useState(false);
 
   const handleLocaleChange = (code: string) => {
+    // Store the user's manual locale selection
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('preferred-locale', code);
+    }
     window.location.href = createNavLink(code);
   };
 

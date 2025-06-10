@@ -67,7 +67,10 @@ export default function Index() {
   const router = useRouter();
   useEffect(() => {
     const preferredLocale = detectUserLocale();
-    localStorage.setItem('preferred-locale', preferredLocale);
+    // Only update localStorage if no preference was already stored
+    if (typeof window !== 'undefined' && !localStorage.getItem('preferred-locale')) {
+      localStorage.setItem('preferred-locale', preferredLocale);
+    }
     router.push(createNavLink(preferredLocale));
   }, [router]);
 
