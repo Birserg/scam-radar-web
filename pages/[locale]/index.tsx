@@ -209,7 +209,7 @@ export default function Home({ locale, messages }: { locale: string; messages: M
           Skip to main content
         </a>
         {/* Mobile-Optimized Navigation */}
-        <nav role="navigation" aria-label="Main navigation" className="fixed top-0 left-0 w-full z-50 bg-black/95 shadow-xl border-b border-green-600/40 backdrop-blur-2xl">
+        <nav role="navigation" aria-label="Main navigation" className="fixed top-0 left-0 w-full z-50 bg-black/95 shadow-xl border-b border-green-600/40 md:backdrop-blur-2xl">
           <div className="max-w-6xl mx-auto px-4 py-3">
             <div className="flex items-center justify-between">
               {/* Logo and Brand */}
@@ -570,7 +570,7 @@ export default function Home({ locale, messages }: { locale: string; messages: M
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1, delay: 1.2, type: 'spring' }}
-            className="bg-gradient-to-br from-[#0a1a0a]/90 to-[#1a2e1a]/90 backdrop-blur-xl rounded-2xl p-8 border border-green-400/30 shadow-xl max-w-3xl mx-auto"
+            className="bg-gradient-to-br from-[#0a1a0a]/95 to-[#1a2e1a]/95 md:backdrop-blur-xl rounded-2xl p-8 border border-green-400/30 shadow-xl max-w-3xl mx-auto"
           >
             <motion.h3
               initial={{ opacity: 0, y: 20 }}
@@ -915,7 +915,7 @@ function HeroTextBlock({ t }: { t: (key: string) => string | string[] | { [key: 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4, duration: 0.7, type: 'spring' }}
-        className="text-sm sm:text-base lg:text-lg font-medium mb-8 text-white max-w-xl rounded-lg px-4 py-3 shadow-lg backdrop-blur-lg hover:scale-105 transition-all duration-300"
+        className="text-sm sm:text-base lg:text-lg font-medium mb-8 text-white max-w-xl rounded-lg px-4 py-3 shadow-lg md:backdrop-blur-lg hover:scale-105 transition-all duration-300"
         itemProp="description"
       >
         {(t('home.subtitle') as string) || ''}
