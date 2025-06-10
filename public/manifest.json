@@ -1,0 +1,80 @@
+{
+  "name": "Scam Radar - Cryptocurrency Scam Detection Bot",
+  "short_name": "Scam Radar",
+  "description": "Advanced cryptocurrency scam detection and honeypot checker bot for Telegram. Analyze smart contracts instantly across multiple blockchains.",
+  "start_url": "/en",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#00b894",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["finance", "security", "utilities"],
+  "icons": [
+    {
+      "src": "/logo.jpeg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/logo.jpeg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshot.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpeg",
+      "platform": "wide",
+      "label": "Scam Radar Main Interface"
+    },
+    {
+      "src": "/screenshot-mobile.jpg",
+      "sizes": "720x1280",
+      "type": "image/jpeg",
+      "platform": "narrow",
+      "label": "Scam Radar Mobile View"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Check Token",
+      "short_name": "Check",
+      "description": "Quickly check a token for scams",
+      "url": "/en#how",
+      "icons": [
+        {
+          "src": "/logo.jpeg",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Pricing",
+      "short_name": "Pricing",
+      "description": "View premium plans",
+      "url": "/en#pricing",
+      "icons": [
+        {
+          "src": "/logo.jpeg",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "prefer_related_applications": false,
+  "iarc_rating_id": "e84b072d-71b3-4d3e-86ae-31a8ce4e53b7",
+  "edge_side_panel": {
+    "preferred_width": 480
+  }
+}

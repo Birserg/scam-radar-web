@@ -82,20 +82,88 @@ export default function Home({ locale, messages }: { locale: string; messages: M
       <Head>
         <title>{(t('meta.title') as string) || ''}</title>
         <meta name="description" content={(t('meta.description') as string) || ''} />
+        <meta name="keywords" content={(t('meta.keywords') as string) || ''} />
+        <meta name="author" content={(t('meta.author') as string) || 'Scam Radar Team'} />
+        <meta name="publisher" content={(t('meta.publisher') as string) || 'Scam Radar'} />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
+        <meta name="googlebot" content="index, follow" />
+        <meta httpEquiv="Content-Language" content={locale} />
+        <meta name="application-name" content={(t('meta.applicationName') as string) || 'Scam Radar'} />
+        <meta name="theme-color" content="#00b894" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-title" content={(t('meta.applicationName') as string) || 'Scam Radar'} />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Scam Radar" />
         <meta property="og:title" content={(t('meta.ogTitle') as string) || ''} />
         <meta property="og:description" content={(t('meta.ogDescription') as string) || ''} />
-        <meta property="og:image" content="/og-image.jpeg" />
+        <meta property="og:image" content={`${getBasePath()}${(t('meta.ogImage') as string) || '/og-image.jpeg'}`} />
+        <meta property="og:image:alt" content={(t('meta.ogImageAlt') as string) || 'Scam Radar - Cryptocurrency Scam Detection Bot'} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:url" content={getCanonicalUrl(locale)} />
+        <meta property="og:locale" content={(t('meta.locale') as string) || locale.replace('-', '_')} />
+        {((t('meta.alternateLocales') as string[]) || []).map((altLocale) => (
+          <meta key={altLocale} property="og:locale:alternate" content={altLocale} />
+        ))}
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@ScamRadarBot" />
+        <meta name="twitter:creator" content="@ScamRadarBot" />
         <meta name="twitter:title" content={(t('meta.twitterTitle') as string) || ''} />
         <meta name="twitter:description" content={(t('meta.twitterDescription') as string) || ''} />
-        <meta name="twitter:image" content="/og-image.jpeg" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta httpEquiv="Content-Language" content={locale} />
-        <link rel="icon" href="/favicon.ico" />
+        <meta name="twitter:image" content={`${getBasePath()}${(t('meta.twitterImage') as string) || '/twitter-image.jpeg'}`} />
+        <meta name="twitter:image:alt" content={(t('meta.twitterImageAlt') as string) || 'Scam Radar Bot - Protect Your Crypto'} />
+
+        {/* Additional SEO Meta Tags */}
+        <meta name="category" content={(t('meta.category') as string) || 'Cryptocurrency Security Tools'} />
+        <meta name="coverage" content="Worldwide" />
+        <meta name="distribution" content="Global" />
+        <meta name="rating" content="General" />
+        <meta name="revisit-after" content="7 days" />
+        <meta name="referrer" content="no-referrer-when-downgrade" />
+
+        {/* Alternate Language Links */}
+        {SUPPORTED_LOCALES.map((l) => (
+          <link key={l.code} rel="alternate" hrefLang={l.code} href={getCanonicalUrl(l.code)} />
+        ))}
+        <link rel="alternate" hrefLang="x-default" href={getCanonicalUrl('en')} />
+
+        {/* Canonical and Other Links */}
         <link rel="canonical" href={getCanonicalUrl(locale)} />
+        <link rel="icon" href={`${getBasePath()}/favicon.ico`} />
+        <link rel="apple-touch-icon" href={`${getBasePath()}/apple-touch-icon.png`} />
+        <link rel="manifest" href={`${getBasePath()}/manifest.json`} />
+
+        {/* Viewport and Mobile Optimization */}
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+        <meta name="format-detection" content="telephone=no" />
+
+        {/* DNS Prefetch for Performance */}
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="//t.me" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="" />
+
+        {/* Structured Data */}
+        {t('meta.structuredData') && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(t('meta.structuredData'))
+            }}
+          />
+        )}
       </Head>
       <div className="bg-black min-h-screen w-full relative overflow-x-hidden">
+        {/* Skip to main content link for accessibility */}
+        <a href="#main-content" className="skip-link">
+          Skip to main content
+        </a>
         {/* Mobile-Optimized Navigation */}
-        <nav className="fixed top-0 left-0 w-full z-50 bg-black/95 shadow-xl border-b border-green-600/40 backdrop-blur-2xl">
+        <nav role="navigation" aria-label="Main navigation" className="fixed top-0 left-0 w-full z-50 bg-black/95 shadow-xl border-b border-green-600/40 backdrop-blur-2xl">
           <div className="max-w-6xl mx-auto px-4 py-3">
             <div className="flex items-center justify-between">
               {/* Logo and Brand */}
@@ -259,7 +327,8 @@ export default function Home({ locale, messages }: { locale: string; messages: M
         </nav>
         <div/>
         {/* Hero Section */}
-        <HeroSection t={t} />
+        <main id="main-content" role="main">
+          <HeroSection t={t} />
 
         {/* How It Works Section */}
         <section id="how" className="relative max-w-6xl mx-auto px-4 py-16 lg:py-24">
@@ -538,6 +607,8 @@ export default function Home({ locale, messages }: { locale: string; messages: M
             ))}
           </div>
         </section>
+
+        </main>
 
         {/* Footer Section */}
         <footer className="w-full bg-gradient-to-br from-black to-gray-900 border-t border-green-600/40 py-16 px-4 mt-16">

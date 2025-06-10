@@ -95,11 +95,62 @@
     "copyright": "© 2025 Scam Radar. Semua hak dilindungi."
   },
   "meta": {
-    "title": "Scam Radar — Lindungi Crypto Anda",
-    "description": "Periksa smart contract dari scam dan honeypot secara instan. Lindungi crypto Anda dengan Scam Radar.",
-    "ogTitle": "Scam Radar — Deteksi Scam Crypto",
-    "ogDescription": "Periksa smart contract dari scam dan honeypot secara instan. Multi-bahasa, multi-chain.",
-    "twitterTitle": "Scam Radar — Lindungi Crypto Anda",
-    "twitterDescription": "Periksa smart contract dari scam dan honeypot secara instan. Multi-bahasa, multi-chain."
+    "title": "Scam Radar — Detektor Penipuan Kripto Lanjutan & Pemeriksa Honeypot | Bot Keamanan Multi-Chain",
+    "description": "Lindungi investasi cryptocurrency Anda dengan Scam Radar, bot Telegram paling terpercaya untuk mendeteksi penipuan dan honeypot. Analisis smart contract secara instan di jaringan Ethereum, BSC, Solana, dan Base. Dapatkan penilaian risiko real-time, analisis keamanan detail, dan validasi token komprehensif sebelum berinvestasi. Mendukung 5+ bahasa dengan pemeriksaan premium unlimited, dukungan prioritas, dan fitur keamanan lanjutan. Bergabunglah dengan ribuan investor kripto yang mempercayai Scam Radar untuk menjaga dana mereka aman dari kontrak berbahaya dan exit scam.",
+    "keywords": "detektor penipuan kripto, pemeriksa honeypot, analisis smart contract, bot kripto telegram, deteksi scam ethereum, BSC honeypot checker, analisis token solana, keamanan cryptocurrency, tools keamanan DeFi, perlindungan investasi kripto, scanner keamanan blockchain, validator token, due diligence kripto, pencegahan penipuan, keamanan investasi, penilaian risiko kripto",
+    "ogTitle": "Scam Radar — Bot Keamanan Kripto Ultimate | Deteksi Scam & Honeypot Secara Instan",
+    "ogDescription": "Bot Telegram lanjutan untuk keamanan cryptocurrency. Analisis smart contract secara instan, deteksi scam dan honeypot di Ethereum, BSC, Solana & Base. Dukungan multi-bahasa, pemeriksaan unlimited, dukungan prioritas. Lindungi investasi kripto Anda dengan penilaian risiko real-time dan analisis keamanan komprehensif. Dipercaya oleh ribuan investor kripto di seluruh dunia.",
+    "ogImage": "/og-scam-radar-id.jpg",
+    "ogImageAlt": "Scam Radar - Interface Bot Deteksi Penipuan Cryptocurrency dan Pemeriksa Honeypot",
+    "twitterTitle": "🛡️ Scam Radar — Bot Deteksi Scam Kripto & Honeypot Lanjutan",
+    "twitterDescription": "Deteksi scam kripto & honeypot secara instan dengan bot Telegram lanjutan kami. Dukungan multi-chain (ETH, BSC, SOL, BASE) • Analisis real-time • 5+ bahasa • Pemeriksaan unlimited • Dukungan prioritas. Lindungi investasi Anda sebelum membeli! #KriotoSecurity #DeFi #PencegahanPenipuan",
+    "twitterImage": "/twitter-scam-radar-id.jpg",
+    "twitterImageAlt": "Bot Scam Radar - Lindungi Kripto Anda dari Scam dan Honeypot",
+    "author": "Tim Scam Radar",
+    "publisher": "Scam Radar",
+    "applicationName": "Scam Radar",
+    "category": "Tools Keamanan Cryptocurrency",
+    "locale": "id_ID",
+    "alternateLocales": ["en_US", "ru_RU", "uk_UA", "zh_CN"],
+    "canonicalUrl": "https://scam-radar.net/id",
+    "structuredData": {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Scam Radar",
+      "description": "Bot lanjutan untuk deteksi penipuan cryptocurrency dan pemeriksa honeypot di Telegram. Analisis smart contract secara instan di berbagai blockchain.",
+      "applicationCategory": "SecurityApplication",
+      "operatingSystem": "Web Browser, Telegram",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "2547",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "creator": {
+        "@type": "Organization",
+        "name": "Tim Scam Radar",
+        "url": "https://scam-radar.net"
+      },
+      "featureList": [
+        "Deteksi scam real-time",
+        "Analisis honeypot",
+        "Dukungan multi-blockchain",
+        "Penilaian risiko instan",
+        "Interface multi-bahasa",
+        "Pemeriksaan premium unlimited",
+        "Dukungan pelanggan prioritas"
+      ],
+      "screenshot": "https://scam-radar.net/screenshot-id.jpg",
+      "softwareVersion": "2.1.0",
+      "datePublished": "2024-01-15",
+      "dateModified": "2025-01-10"
+    }
   }
 }

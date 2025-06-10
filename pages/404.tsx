@@ -151,8 +151,51 @@ export default function Custom404() {
     <>
       <Head>
         <title>404 - {currentMessages.title} | Scam Radar</title>
-        <meta name="description" content={currentMessages.description} />
+        <meta name="description" content={`${currentMessages.description} Scam Radar - Advanced cryptocurrency scam detection bot.`} />
         <meta name="robots" content="noindex, nofollow" />
+        <meta httpEquiv="Content-Language" content={currentLocale} />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#00b894" />
+
+        {/* Open Graph */}
+        <meta property="og:title" content={`404 - ${currentMessages.title} | Scam Radar`} />
+        <meta property="og:description" content={`${currentMessages.description} Scam Radar - Advanced cryptocurrency scam detection bot.`} />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={`${getBasePath()}/logo.jpeg`} />
+        <meta property="og:site_name" content="Scam Radar" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content={`404 - ${currentMessages.title} | Scam Radar`} />
+        <meta name="twitter:description" content={`${currentMessages.description} Scam Radar - Advanced cryptocurrency scam detection bot.`} />
+        <meta name="twitter:image" content={`${getBasePath()}/logo.jpeg`} />
+
+        <link rel="canonical" href={`https://scam-radar.net/${currentLocale}`} />
+        <link rel="icon" href={`${getBasePath()}/favicon.ico`} />
+
+        {/* Structured Data for 404 Page */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebPage",
+              "name": `404 - ${currentMessages.title}`,
+              "description": `${currentMessages.description} Scam Radar - Advanced cryptocurrency scam detection bot.`,
+              "url": typeof window !== 'undefined' ? window.location.href : '',
+              "mainEntity": {
+                "@type": "Thing",
+                "name": "Page Not Found",
+                "description": "The requested page could not be found on this server."
+              },
+              "isPartOf": {
+                "@type": "WebSite",
+                "name": "Scam Radar",
+                "url": "https://scam-radar.net"
+              }
+            })
+          }}
+        />
       </Head>
       <div className="min-h-screen bg-black flex items-center justify-center px-4">
         <div className="text-center max-w-md">

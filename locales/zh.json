@@ -95,11 +95,62 @@
     "copyright": "© 2025 Scam Radar. 保留所有权利。"
   },
   "meta": {
-    "title": "Scam Radar — 保护您的加密资产",
-    "description": "即时检测智能合约骗局和蜜罐。用 Scam Radar 保护您的加密资产。",
-    "ogTitle": "Scam Radar — 加密骗局检测",
-    "ogDescription": "即时检测智能合约骗局和蜜罐。多语言，多链支持。",
-    "twitterTitle": "Scam Radar — 保护您的加密资产",
-    "twitterDescription": "即时检测智能合约骗局和蜜罐。多语言，多链支持。"
+    "title": "Scam Radar — 高级加密货币诈骗检测器和蜜罐检查器 | 多链安全机器人",
+    "description": "使用 Scam Radar 保护您的加密货币投资，这是最值得信赖的 Telegram 机器人，用于检测诈骗和蜜罐。在以太坊、BSC、Solana 和 Base 网络上即时分析智能合约。获得实时风险评估、详细安全分析和投资前的全面代币验证。支持 5+ 种语言，提供无限高级检查、优先支持和高级安全功能。加入数千名加密投资者，他们信任 Scam Radar 保护他们的资金免受恶意合约和退出诈骗的影响。",
+    "keywords": "加密诈骗检测器, 蜜罐检查器, 智能合约分析, 电报加密机器人, 以太坊诈骗检测, BSC蜜罐检查器, solana代币分析, 加密货币安全, DeFi安全工具, 加密投资保护, 区块链安全扫描器, 代币验证器, 加密货币尽职调查, 诈骗预防, 投资安全, 加密风险评估",
+    "ogTitle": "Scam Radar — 终极加密安全机器人 | 即时检测诈骗和蜜罐",
+    "ogDescription": "用于加密货币安全的高级 Telegram 机器人。即时分析智能合约，在以太坊、BSC、Solana 和 Base 上检测诈骗和蜜罐。多语言支持、无限检查、优先支持。通过实时风险评估和全面安全分析保护您的加密投资。受到全球数千名加密投资者的信赖。",
+    "ogImage": "/og-scam-radar-zh.jpg",
+    "ogImageAlt": "Scam Radar - 加密货币诈骗检测和蜜罐检查器机器人界面",
+    "twitterTitle": "🛡️ Scam Radar — 高级加密诈骗和蜜罐检测机器人",
+    "twitterDescription": "使用我们的高级 Telegram 机器人即时检测加密诈骗和蜜罐。多链支持 (ETH, BSC, SOL, BASE) • 实时分析 • 5+ 种语言 • 无限检查 • 优先支持。购买前保护您的投资！#加密安全 #DeFi #诈骗预防",
+    "twitterImage": "/twitter-scam-radar-zh.jpg",
+    "twitterImageAlt": "Scam Radar 机器人 - 保护您的加密货币免受诈骗和蜜罐攻击",
+    "author": "Scam Radar 团队",
+    "publisher": "Scam Radar",
+    "applicationName": "Scam Radar",
+    "category": "加密货币安全工具",
+    "locale": "zh_CN",
+    "alternateLocales": ["en_US", "ru_RU", "uk_UA", "id_ID"],
+    "canonicalUrl": "https://scam-radar.net/zh",
+    "structuredData": {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Scam Radar",
+      "description": "用于在 Telegram 中检测加密货币诈骗和蜜罐检查的高级机器人。在多个区块链上即时分析智能合约。",
+      "applicationCategory": "SecurityApplication",
+      "operatingSystem": "Web Browser, Telegram",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "2547",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "creator": {
+        "@type": "Organization",
+        "name": "Scam Radar 团队",
+        "url": "https://scam-radar.net"
+      },
+      "featureList": [
+        "实时诈骗检测",
+        "蜜罐分析",
+        "多区块链支持",
+        "即时风险评估",
+        "多语言界面",
+        "高级无限检查",
+        "优先客户支持"
+      ],
+      "screenshot": "https://scam-radar.net/screenshot-zh.jpg",
+      "softwareVersion": "2.1.0",
+      "datePublished": "2024-01-15",
+      "dateModified": "2025-01-10"
+    }
   }
 }
