@@ -1,10 +1,19 @@
 import Head from 'next/head';
+import Script from 'next/script';
 import { useState } from 'react';
 import { GlobeAltIcon } from '@heroicons/react/24/solid';
 import Image from 'next/image';
 
 import { FaTelegramPlane, FaEye, FaRobot, FaShieldAlt, FaBell, FaCrown, FaEnvelope, FaCircle } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+
+// TypeScript declarations for Google Analytics and GTM
+declare global {
+  interface Window {
+    gtag: (command: string, ...args: unknown[]) => void;
+    dataLayer: Record<string, unknown>[];
+  }
+}
 
 const SUPPORTED_LOCALES = [
   { code: 'en', label: 'EN' },
@@ -81,12 +90,19 @@ export default function Home({ locale, messages }: { locale: string; messages: M
     window.location.href = createNavLink(code);
   };
 
+
+
   return (
     <>
       <Head>
         <title>{(t('meta.title') as string) || ''}</title>
         <meta name="description" content={(t('meta.description') as string) || ''} />
         <meta name="keywords" content={(t('meta.keywords') as string) || ''} />
+
+        {/* Google Search Console Verification */}
+        <meta name="google-site-verification" content="GeK4WZtgQtonCWGVzCF4Ipy7ED6ZO19E75TsxX7vgCk" />
+
+
         <meta name="author" content={(t('meta.author') as string) || 'Scam Radar Team'} />
         <meta name="publisher" content={(t('meta.publisher') as string) || 'Scam Radar'} />
         <meta name="robots" content="index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
@@ -203,7 +219,56 @@ export default function Home({ locale, messages }: { locale: string; messages: M
           />
         )}
       </Head>
+
+      {/* Google Tag Manager */}
+      <Script
+        id="gtm-script"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5NZGBGJW');`
+        }}
+      />
+
+      {/* Google Analytics 4 */}
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-B6GE3FT4HY"
+        strategy="afterInteractive"
+      />
+      <Script
+        id="ga-script"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-B6GE3FT4HY', {
+              page_title: document.title,
+              page_location: window.location.href,
+              content_group1: '${locale}',
+              custom_map: {
+                'custom_parameter_1': 'language'
+              }
+            });
+          `
+        }}
+      />
+
       <div className="bg-black min-h-screen w-full relative overflow-x-hidden">
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-5NZGBGJW"
+            height="0"
+            width="0"
+            style={{display: 'none', visibility: 'hidden'}}
+          />
+        </noscript>
+
         {/* Skip to main content link for accessibility */}
         <a href="#main-content" className="skip-link">
           Skip to main content
@@ -217,6 +282,7 @@ export default function Home({ locale, messages }: { locale: string; messages: M
                 <Image
                   src={`${getBasePath()}/logo.jpeg`}
                   alt="Scam Radar Logo"
+                  title="Scam Radar Logo"
                   width={40}
                   height={40}
                   className="rounded-full shadow-lg border-2 border-green-500/60"
@@ -932,6 +998,26 @@ function HeroTextBlock({ t }: { t: (key: string) => string | string[] | { [key: 
         href='https://t.me/scam_radar_bot'
         target="_blank"
         rel="noopener noreferrer"
+        onClick={() => {
+          // Google Analytics event tracking
+          if (typeof window !== 'undefined' && window.gtag) {
+            window.gtag('event', 'click', {
+              event_category: 'engagement',
+              event_label: 'telegram_bot_cta',
+              event_action: 'cta_click',
+              value: 1
+            });
+          }
+          // Google Tag Manager event
+          if (typeof window !== 'undefined' && window.dataLayer) {
+            window.dataLayer.push({
+              event: 'telegram_bot_click',
+              event_category: 'engagement',
+              event_action: 'cta_click',
+              event_label: 'hero_telegram_bot'
+            });
+          }
+        }}
         initial={{ scale: 1 }}
         animate={{ scale: [1, 1.05, 1], opacity: [0.9, 1, 0.9] }}
         transition={{
@@ -1004,7 +1090,7 @@ function LogoWithCoinFlip() {
           }}
           style={{ transformStyle: 'preserve-3d', transformOrigin: 'center' }}
         >
-          <Image src={`${getBasePath()}/logo.jpeg`} alt="Scam Radar Logo" width={100} height={100} className="rounded-full border-2 border-white/80 shadow-md" />
+          <Image src={`${getBasePath()}/logo.jpeg`} alt="Scam Radar Logo" title="Scam Radar Logo" width={100} height={100} className="rounded-full border-2 border-white/80 shadow-md" />
         </motion.div>
       </motion.div>
     </div>
