@@ -9,6 +9,20 @@
     "legal": "法律信息"
   },
   "language": "中文",
+  "subtitle": "高级加密货币诈骗检测和蜜罐分析",
+  "description": "通过实时诈骗检测保护全球加密投资者，覆盖以太坊、BSC、Solana和Base网络。即时分析智能合约，检测蜜罐，在投资前避免恶意代币。",
+  "features": {
+    "detection": "🛡️ 实时检测",
+    "detectionDesc": "跨多个区块链的即时诈骗和蜜罐分析",
+    "language": "🌍 多语言",
+    "languageDesc": "支持中文、英文、乌克兰语、俄语和印尼语",
+    "bot": "⚡ Telegram机器人",
+    "botDesc": "易于使用的机器人，提供无限高级检查"
+  },
+  "detecting": "正在检测您的首选语言...",
+  "networks": "支持的网络：以太坊(ETH)、BNB智能链(BSC)、Solana(SOL)、Base网络",
+  "types": "检测类型：诈骗合约、蜜罐代币、Rug Pull、退出诈骗、恶意智能合约",
+  "cta": "加入数千名信任Scam Radar进行安全DeFi投资的加密交易者。尝试我们的Telegram机器人@scam_radar_bot进行即时代币分析。",
   "home": {
     "brand": "Scam Radar",
     "title": "保护您的加密资产。远离<highlight>Scam</highlight>和<highlight>Honeypot</highlight>。",
@@ -95,7 +109,7 @@
     "copyright": "© 2025 Scam Radar. 保留所有权利。"
   },
   "meta": {
-    "title": "Scam Radar — 高级加密货币诈骗检测器和蜜罐检查器 | 多链安全机器人",
+    "title": "Scam Radar — 高级加密货币诈骗检测和蜜罐分析",
     "description": "使用 Scam Radar 保护您的加密货币投资，这是最值得信赖的 Telegram 机器人，用于检测诈骗和蜜罐。在以太坊、BSC、Solana 和 Base 网络上即时分析智能合约。获得实时风险评估、详细安全分析和投资前的全面代币验证。支持 5+ 种语言，提供无限高级检查、优先支持和高级安全功能。加入数千名加密投资者，他们信任 Scam Radar 保护他们的资金免受恶意合约和退出诈骗的影响。",
     "keywords": "加密诈骗检测器, 蜜罐检查器, 智能合约分析, 电报加密机器人, 以太坊诈骗检测, BSC蜜罐检查器, solana代币分析, 加密货币安全, DeFi安全工具, 加密投资保护, 区块链安全扫描器, 代币验证器, 加密货币尽职调查, 诈骗预防, 投资安全, 加密风险评估",
     "ogTitle": "Scam Radar — 终极加密安全机器人 | 即时检测诈骗和蜜罐",
@@ -124,7 +138,12 @@
         "@type": "Offer",
         "price": "0",
         "priceCurrency": "USD",
-        "availability": "https://schema.org/InStock"
+        "availability": "https://schema.org/InStock",
+        "url": "https://t.me/scam_radar_bot",
+        "seller": {
+          "@type": "Organization",
+          "name": "Scam Radar"
+        }
       },
       "aggregateRating": {
         "@type": "AggregateRating",
@@ -151,6 +170,62 @@
       "softwareVersion": "2.1.0",
       "datePublished": "2024-01-15",
       "dateModified": "2025-01-10"
+    },
+    "reviewData": {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Scam Radar Bot",
+      "description": "先进的加密货币诈骗检测和蜜罐检查器Telegram机器人",
+      "brand": {
+        "@type": "Brand",
+        "name": "Scam Radar"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://t.me/scam_radar_bot",
+        "priceCurrency": "USD",
+        "price": "0",
+        "availability": "https://schema.org/InStock",
+        "seller": {
+          "@type": "Organization",
+          "name": "Scam Radar"
+        }
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "2547",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "review": [
+        {
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": "加密交易者2024"
+          },
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          },
+          "reviewBody": "拯救了我免于蜜罐代币！快速准确的检测。"
+        },
+        {
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": "DeFi投资者"
+          },
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          },
+          "reviewBody": "我使用过的最好的诈骗检测机器人。多语言支持完美。"
+        }
+      ]
     }
   }
 }

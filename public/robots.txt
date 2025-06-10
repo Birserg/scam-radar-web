@@ -28,7 +28,7 @@ Disallow: /api/
 
 # Sitemap location
 Sitemap: https://scam-radar.net/sitemap.xml
-Sitemap: https://birserg.github.io/scam-radar-web/sitemap.xml
+Sitemap: https://www.scam-radar.net/sitemap.xml
 
 # Crawl delay for bots
 Crawl-delay: 1

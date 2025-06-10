@@ -9,6 +9,20 @@
     "legal": "Legal"
   },
   "language": "ID",
+  "subtitle": "Deteksi Kripto Scam & Honeypot Lanjutan",
+  "description": "Melindungi investor kripto di seluruh dunia dengan deteksi scam real-time di jaringan Ethereum, BSC, Solana, dan Base. Analisis smart contract secara instan, deteksi honeypot, dan hindari token berbahaya sebelum berinvestasi.",
+  "features": {
+    "detection": "🛡️ Deteksi Real-Time",
+    "detectionDesc": "Analisis scam dan honeypot instan di berbagai blockchain",
+    "language": "🌍 Multi-Bahasa",
+    "languageDesc": "Dukungan untuk Indonesia, Inggris, Ukraina, Rusia, dan China",
+    "bot": "⚡ Bot Telegram",
+    "botDesc": "Bot yang mudah digunakan dengan pemeriksaan premium unlimited"
+  },
+  "detecting": "Mendeteksi bahasa pilihan Anda...",
+  "networks": "Jaringan yang Didukung: Ethereum (ETH), BNB Smart Chain (BSC), Solana (SOL), Base Network",
+  "types": "Jenis Deteksi: Kontrak Scam, Token Honeypot, Rug Pull, Exit Scam, Smart Contract Berbahaya",
+  "cta": "Bergabunglah dengan ribuan trader kripto yang mempercayai Scam Radar untuk investasi DeFi yang aman. Coba bot Telegram kami @scam_radar_bot untuk analisis token instan.",
   "home": {
     "brand": "Scam Radar",
     "title": "Lindungi Crypto Anda. Hindari <highlight>Scam</highlight> & <highlight>Honeypot</highlight>.",
@@ -95,11 +109,11 @@
     "copyright": "© 2025 Scam Radar. Semua hak dilindungi."
   },
   "meta": {
-    "title": "Scam Radar — Detektor Penipuan Kripto Lanjutan & Pemeriksa Honeypot | Bot Keamanan Multi-Chain",
-    "description": "Lindungi investasi cryptocurrency Anda dengan Scam Radar, bot Telegram paling terpercaya untuk mendeteksi penipuan dan honeypot. Analisis smart contract secara instan di jaringan Ethereum, BSC, Solana, dan Base. Dapatkan penilaian risiko real-time, analisis keamanan detail, dan validasi token komprehensif sebelum berinvestasi. Mendukung 5+ bahasa dengan pemeriksaan premium unlimited, dukungan prioritas, dan fitur keamanan lanjutan. Bergabunglah dengan ribuan investor kripto yang mempercayai Scam Radar untuk menjaga dana mereka aman dari kontrak berbahaya dan exit scam.",
+    "title": "Scam Radar — Deteksi Kripto Scam",
+    "description": "Bot untuk deteksi penipuan cryptocurrency. Lindungi investasi kripto dengan analisis smart contract di jaringan Ethereum, BSC, Solana, dan Base.",
     "keywords": "detektor penipuan kripto, pemeriksa honeypot, analisis smart contract, bot kripto telegram, deteksi scam ethereum, BSC honeypot checker, analisis token solana, keamanan cryptocurrency, tools keamanan DeFi, perlindungan investasi kripto, scanner keamanan blockchain, validator token, due diligence kripto, pencegahan penipuan, keamanan investasi, penilaian risiko kripto",
-    "ogTitle": "Scam Radar — Bot Keamanan Kripto Ultimate | Deteksi Scam & Honeypot Secara Instan",
-    "ogDescription": "Bot Telegram lanjutan untuk keamanan cryptocurrency. Analisis smart contract secara instan, deteksi scam dan honeypot di Ethereum, BSC, Solana & Base. Dukungan multi-bahasa, pemeriksaan unlimited, dukungan prioritas. Lindungi investasi kripto Anda dengan penilaian risiko real-time dan analisis keamanan komprehensif. Dipercaya oleh ribuan investor kripto di seluruh dunia.",
+    "ogTitle": "Scam Radar — Bot Keamanan Kripto",
+    "ogDescription": "Bot Telegram lanjutan untuk keamanan cryptocurrency. Analisis smart contract secara instan, deteksi scam dan honeypot di Ethereum, BSC, Solana & Base.",
     "ogImage": "/og-scam-radar-id.webp",
     "ogImageAlt": "Scam Radar - Interface Bot Deteksi Penipuan Cryptocurrency dan Pemeriksa Honeypot",
     "twitterTitle": "🛡️ Scam Radar — Bot Deteksi Scam Kripto & Honeypot Lanjutan",
@@ -117,14 +131,19 @@
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
       "name": "Scam Radar",
-      "description": "Bot lanjutan untuk deteksi penipuan cryptocurrency dan pemeriksa honeypot di Telegram. Analisis smart contract secara instan di berbagai blockchain.",
+      "description": "Bot untuk deteksi penipuan cryptocurrency dan pemeriksa honeypot di Telegram. Analisis smart contract secara instan di berbagai blockchain.",
       "applicationCategory": "SecurityApplication",
       "operatingSystem": "Web Browser, Telegram",
       "offers": {
         "@type": "Offer",
         "price": "0",
         "priceCurrency": "USD",
-        "availability": "https://schema.org/InStock"
+        "availability": "https://schema.org/InStock",
+        "url": "https://t.me/scam_radar_bot",
+        "seller": {
+          "@type": "Organization",
+          "name": "Scam Radar"
+        }
       },
       "aggregateRating": {
         "@type": "AggregateRating",
@@ -151,6 +170,62 @@
       "softwareVersion": "2.1.0",
       "datePublished": "2024-01-15",
       "dateModified": "2025-01-10"
+    },
+    "reviewData": {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Scam Radar Bot",
+      "description": "Bot lanjutan untuk deteksi penipuan cryptocurrency dan pemeriksa honeypot di Telegram",
+      "brand": {
+        "@type": "Brand",
+        "name": "Scam Radar"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://t.me/scam_radar_bot",
+        "priceCurrency": "USD",
+        "price": "0",
+        "availability": "https://schema.org/InStock",
+        "seller": {
+          "@type": "Organization",
+          "name": "Scam Radar"
+        }
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "2547",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "review": [
+        {
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": "CryptoTrader2024"
+          },
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          },
+          "reviewBody": "Menyelamatkan saya dari token honeypot! Deteksi cepat dan akurat."
+        },
+        {
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": "DeFiInvestor"
+          },
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          },
+          "reviewBody": "Bot deteksi scam terbaik yang pernah saya gunakan. Dukungan multi-bahasa sempurna."
+        }
+      ]
     }
   }
 }

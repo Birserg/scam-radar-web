@@ -9,6 +9,20 @@
     "legal": "Legal"
   },
   "language": "EN",
+  "subtitle": "Advanced Crypto Scam Detection & Honeypot Checker",
+  "description": "Protecting crypto investors worldwide with real-time scam detection across Ethereum, BSC, Solana, and Base networks. Instantly analyze smart contracts, detect honeypots, and avoid malicious tokens before investing.",
+  "features": {
+    "detection": "🛡️ Real-Time Detection",
+    "detectionDesc": "Instant scam and honeypot analysis across multiple blockchains",
+    "language": "🌍 Multi-Language",
+    "languageDesc": "Support for English, Russian, Ukrainian, Indonesian, and Chinese",
+    "bot": "⚡ Telegram Bot",
+    "botDesc": "Easy-to-use bot with unlimited premium checks available"
+  },
+  "detecting": "Detecting your preferred language...",
+  "networks": "Supported Networks: Ethereum (ETH), BNB Smart Chain (BSC), Solana (SOL), Base Network",
+  "types": "Detection Types: Scam Contracts, Honeypot Tokens, Rug Pulls, Exit Scams, Malicious Smart Contracts",
+  "cta": "Join thousands of crypto traders who trust Scam Radar for safe DeFi investing. Try our Telegram bot @scam_radar_bot for instant token analysis.",
   "home": {
     "brand": "Scam Radar",
     "title": "Protect Your Crypto. Avoid <highlight>Scam</highlight> & <highlight>Honeypot</highlight>.",
@@ -95,15 +109,15 @@
     "copyright": "© 2025 Scam Radar. All rights reserved."
   },
   "meta": {
-    "title": "Scam Radar — Advanced Crypto Scam Detection & Honeypot Checker | Multi-Chain Security Bot",
-    "description": "Protect your cryptocurrency investments with Scam Radar, the most trusted Telegram bot for detecting scams and honeypots. Analyze smart contracts instantly across Ethereum, BSC, Solana, and Base networks. Get real-time risk assessments, detailed security analysis, and comprehensive token validation before investing. Supporting 5+ languages with unlimited premium checks, priority support, and advanced security features. Join thousands of crypto investors who trust Scam Radar to keep their funds safe from malicious contracts and exit scams.",
-    "keywords": "crypto scam detector, honeypot checker, smart contract analysis, telegram crypto bot, ethereum scam detection, BSC honeypot checker, solana token analysis, cryptocurrency security, DeFi safety tools, crypto investment protection, blockchain security scanner, token validator, crypto due diligence, scam prevention, investment safety, crypto risk assessment",
-    "ogTitle": "Scam Radar — Ultimate Crypto Security Bot | Detect Scams & Honeypots Instantly",
-    "ogDescription": "Advanced Telegram bot for cryptocurrency security. Instantly analyze smart contracts, detect scams and honeypots across Ethereum, BSC, Solana & Base. Multi-language support, unlimited checks, priority support. Protect your crypto investments with real-time risk assessment and comprehensive security analysis. Trusted by thousands of crypto investors worldwide.",
+    "title": "Scam Radar — Crypto Scam & Honeypot Detector",
+    "description": "Cryptocurrency scam detection bot. Protect your crypto investments with real-time smart contract analysis across Ethereum, BSC, Solana, and Base networks.",
+    "keywords": "crypto scam detector, honeypot checker, smart contract analysis, telegram crypto bot, ethereum scam detection, BSC honeypot checker, solana token analysis, cryptocurrency security, DeFi safety tools, crypto investment protection, blockchain security scanner, token validator, scam prevention, investment safety, crypto risk assessment",
+    "ogTitle": "Scam Radar — Crypto Security Bot",
+    "ogDescription": "Telegram bot for cryptocurrency security. Instantly analyze smart contracts, detect scams and honeypots across Ethereum, BSC, Solana & Base networks.",
     "ogImage": "/og-scam-radar.webp",
     "ogImageAlt": "Scam Radar - Cryptocurrency Scam Detection and Honeypot Checker Bot Interface",
-    "twitterTitle": "🛡️ Scam Radar — Advanced Crypto Scam & Honeypot Detection Bot",
-    "twitterDescription": "Instantly detect crypto scams & honeypots with our advanced Telegram bot. Multi-chain support (ETH, BSC, SOL, BASE) • Real-time analysis • 5+ languages • Unlimited checks • Priority support. Protect your investments before you buy! #CryptoSecurity #DeFi #ScamPrevention",
+    "twitterTitle": "Scam Radar — Crypto Security Bot",
+    "twitterDescription": "Instantly detect crypto scams & honeypots with our Telegram bot. Multi-chain support (ETH, BSC, SOL, BASE) with real-time analysis. Protect your crypto!",
     "twitterImage": "/twitter-scam-radar.webp",
     "twitterImageAlt": "Scam Radar Bot - Protect Your Crypto from Scams and Honeypots",
     "author": "Scam Radar Team",
@@ -117,14 +131,19 @@
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
       "name": "Scam Radar",
-      "description": "Advanced cryptocurrency scam detection and honeypot checker bot for Telegram. Analyze smart contracts instantly across multiple blockchains.",
+      "description": "Cryptocurrency scam detection and honeypot checker bot for Telegram. Analyze smart contracts instantly across multiple blockchains.",
       "applicationCategory": "SecurityApplication",
       "operatingSystem": "Web Browser, Telegram",
       "offers": {
         "@type": "Offer",
         "price": "0",
         "priceCurrency": "USD",
-        "availability": "https://schema.org/InStock"
+        "availability": "https://schema.org/InStock",
+        "url": "https://t.me/scam_radar_bot",
+        "seller": {
+          "@type": "Organization",
+          "name": "Scam Radar"
+        }
       },
       "aggregateRating": {
         "@type": "AggregateRating",
@@ -158,7 +177,7 @@
       "name": "Scam Radar",
       "url": "https://scam-radar.net",
       "logo": "https://scam-radar.net/logo.webp",
-      "description": "Advanced cryptocurrency scam detection and security platform",
+      "description": "Cryptocurrency scam detection and security platform",
       "foundingDate": "2024-01-15",
       "areaServed": "Worldwide",
       "serviceType": "Cryptocurrency Security",
@@ -202,6 +221,22 @@
       "@context": "https://schema.org",
       "@type": "Product",
       "name": "Scam Radar Bot",
+      "description": "Cryptocurrency scam detection and honeypot checker bot for Telegram",
+      "brand": {
+        "@type": "Brand",
+        "name": "Scam Radar"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://t.me/scam_radar_bot",
+        "priceCurrency": "USD",
+        "price": "0",
+        "availability": "https://schema.org/InStock",
+        "seller": {
+          "@type": "Organization",
+          "name": "Scam Radar"
+        }
+      },
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "4.8",

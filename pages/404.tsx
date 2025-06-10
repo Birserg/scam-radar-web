@@ -171,7 +171,7 @@ export default function Custom404() {
         <meta name="twitter:description" content={`${currentMessages.description} Scam Radar - Advanced cryptocurrency scam detection bot.`} />
         <meta name="twitter:image" content={`${getBasePath()}/logo.webp`} />
 
-        <link rel="canonical" href={`https://scam-radar.net/${currentLocale}`} />
+        <link rel="canonical" href={`https://scam-radar.net/`} />
         <link rel="icon" href={`${getBasePath()}/favicon.ico`} />
 
         {/* Structured Data for 404 Page */}

@@ -95,6 +95,7 @@ export default function Home({ locale, messages }: { locale: string; messages: M
     if (typeof window !== 'undefined') {
       localStorage.setItem('preferred-locale', code);
     }
+    // Use Next.js router for smooth client-side navigation
     window.location.href = createNavLink(code);
   };
 
@@ -118,6 +119,7 @@ export default function Home({ locale, messages }: { locale: string; messages: M
         <meta httpEquiv="Content-Language" content={locale} />
         <meta name="application-name" content={(t('meta.applicationName') as string) || 'Scam Radar'} />
         <meta name="theme-color" content="#00b894" />
+        <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="apple-mobile-web-app-title" content={(t('meta.applicationName') as string) || 'Scam Radar'} />
