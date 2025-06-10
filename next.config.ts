@@ -11,8 +11,8 @@ const basePath = isProd && isGitHubPages ? `/${repoName}` : '';
 const assetPrefix = isProd && isGitHubPages ? `/${repoName}/` : '';
 
 const nextConfig: NextConfig = {
-  output: 'export', // Always static export
-  trailingSlash: true,
+  output: 'export', // Always use static export for consistency
+  trailingSlash: false,
   skipTrailingSlashRedirect: true,
   basePath,
   assetPrefix,
