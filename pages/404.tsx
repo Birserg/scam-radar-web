@@ -100,7 +100,7 @@ export default function Custom404() {
   const messages = {
     en: {
       title: 'Page Not Found',
-      description: 'The page you&apos;re looking for doesn&apos;t exist.',
+      description: 'The page you are looking for does not exist.',
       redirecting: 'Redirecting to homepage in',
       seconds: 'seconds',
       selectLanguage: 'Or select your language:',
@@ -150,7 +150,7 @@ export default function Custom404() {
   return (
     <>
       <Head>
-        <title>404 - {currentMessages.title} | Scam Radar</title>
+        <title>{`404 - ${currentMessages.title} | Scam Radar`}</title>
         <meta name="description" content={`${currentMessages.description} Scam Radar - Advanced cryptocurrency scam detection bot.`} />
         <meta name="robots" content="noindex, nofollow" />
         <meta httpEquiv="Content-Language" content={currentLocale} />

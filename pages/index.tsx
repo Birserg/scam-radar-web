@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import Head from 'next/head';
 
@@ -63,15 +64,12 @@ const detectUserLocale = (): string => {
 };
 
 export default function Index() {
+  const router = useRouter();
   useEffect(() => {
     const preferredLocale = detectUserLocale();
-
-    // Store the detected locale for future visits
     localStorage.setItem('preferred-locale', preferredLocale);
-
-    // Redirect to the appropriate locale
-    window.location.href = createNavLink(preferredLocale);
-  }, []);
+    router.push(createNavLink(preferredLocale));
+  }, [router]);
 
   return (
     <>

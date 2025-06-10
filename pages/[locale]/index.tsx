@@ -142,10 +142,21 @@ export default function Home({ locale, messages }: { locale: string; messages: M
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
         <meta name="format-detection" content="telephone=no" />
 
-        {/* DNS Prefetch for Performance */}
+        {/* Performance Optimizations */}
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
         <link rel="dns-prefetch" href="//t.me" />
         <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="" />
+        <link rel="preload" href={`${getBasePath()}/logo.jpeg`} as="image" type="image/jpeg" />
+        <link rel="modulepreload" href="/_next/static/chunks/pages/[locale]/index.js" />
+
+        {/* Resource Hints */}
+        <meta httpEquiv="x-dns-prefetch-control" content="on" />
+        <meta name="format-detection" content="telephone=no, date=no, email=no, address=no" />
+
+        {/* Performance Meta */}
+        <meta name="renderer" content="webkit" />
+        <meta name="force-rendering" content="webkit" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
 
         {/* Structured Data */}
         {t('meta.structuredData') && (
@@ -153,6 +164,37 @@ export default function Home({ locale, messages }: { locale: string; messages: M
             type="application/ld+json"
             dangerouslySetInnerHTML={{
               __html: JSON.stringify(t('meta.structuredData'))
+            }}
+          />
+        )}
+
+        {/* Organization Schema */}
+        {t('meta.organizationData') && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(t('meta.organizationData'))
+            }}
+          />
+        )}
+
+        {/* FAQ Schema */}
+        {Array.isArray(t('faq.questions')) && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": (t('faq.questions') as unknown as Array<{question: string, answer: string}>).map(item => ({
+                  "@type": "Question",
+                  "name": item.question,
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": item.answer
+                  }
+                }))
+              })
             }}
           />
         )}
@@ -167,17 +209,23 @@ export default function Home({ locale, messages }: { locale: string; messages: M
           <div className="max-w-6xl mx-auto px-4 py-3">
             <div className="flex items-center justify-between">
               {/* Logo and Brand */}
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3" itemScope itemType="https://schema.org/Organization">
                 <Image
                   src={`${getBasePath()}/logo.jpeg`}
                   alt="Scam Radar Logo"
                   width={40}
                   height={40}
                   className="rounded-full shadow-lg border-2 border-green-500/60"
+                  priority
+                  placeholder="blur"
+                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
+                  itemProp="logo"
                 />
-                <span className="text-xl md:text-2xl font-extrabold tracking-tight text-white drop-shadow-lg">
+                <span className="text-xl md:text-2xl font-extrabold tracking-tight text-white drop-shadow-lg" itemProp="name">
                   {(t('home.brand') as string) || 'Scam Radar'}
                 </span>
+                <meta itemProp="url" content={getCanonicalUrl(locale)} />
+                <meta itemProp="description" content={(t('meta.description') as string) || ''} />
               </div>
 
               {/* Desktop Navigation */}
@@ -387,16 +435,19 @@ export default function Home({ locale, messages }: { locale: string; messages: M
         </section>
 
         {/* Pricing Section */}
-        <section id="pricing" className="max-w-6xl mx-auto px-4 py-16 lg:py-24">
+        <section id="pricing" className="max-w-6xl mx-auto px-4 py-16 lg:py-24" itemScope itemType="https://schema.org/Product">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
             className="text-2xl sm:text-3xl lg:text-4xl font-extrabold mb-8 lg:mb-10 text-center text-green-400 drop-shadow"
+            itemProp="name"
           >
             {(t('pricing.title') as string) || ''}
           </motion.h2>
+          <meta itemProp="category" content="Security Software" />
+          <meta itemProp="brand" content="Scam Radar" />
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -514,7 +565,7 @@ export default function Home({ locale, messages }: { locale: string; messages: M
             initial={{ opacity: 0, y: 40, scale: 0.95 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 1, delay: 1.2, type: 'spring', bounce: 0.4 }}
+            transition={{ duration: 1, delay: 1.2, type: 'spring' }}
             className="bg-gradient-to-br from-[#0a1a0a]/90 to-[#1a2e1a]/90 backdrop-blur-xl rounded-2xl p-8 border border-green-400/30 shadow-xl max-w-3xl mx-auto"
           >
             <motion.h3
@@ -576,17 +627,18 @@ export default function Home({ locale, messages }: { locale: string; messages: M
         </section>
 
         {/* FAQ Section */}
-        <section id="faq" className="max-w-6xl mx-auto px-4 py-24">
+        <section id="faq" className="max-w-6xl mx-auto px-4 py-24" itemScope itemType="https://schema.org/FAQPage">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
             className="text-4xl font-extrabold mb-10 text-center text-green-400 drop-shadow"
+            itemProp="name"
           >
             {(t('faq.title') as string) || 'FAQ'}
           </motion.h2>
-          <div className="w-full max-w-3xl mx-auto space-y-8">
+          <div className="w-full max-w-3xl mx-auto space-y-8" itemProp="mainEntity">
             {Array.isArray(t('faq.questions')) && ((t('faq.questions') as unknown) as { question: string; answer: string }[]).map((q, i) => (
               <motion.div
                 key={q.question}
@@ -595,13 +647,17 @@ export default function Home({ locale, messages }: { locale: string; messages: M
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1, duration: 0.7, type: 'spring' }}
                 className="glass-card bg-gradient-to-br from-[#101624]/80 to-[#181f2a]/80 rounded-2xl shadow-xl border border-green-800 overflow-hidden"
+                itemScope itemType="https://schema.org/Question"
+                itemProp="mainEntity"
               >
                 <details className="group" open={i === 0}>
                   <summary className="w-full text-left px-8 py-6 flex justify-between items-center cursor-pointer select-none">
-                    <span className="text-xl font-semibold text-green-400 group-hover:text-green-300 transition-colors">{q.question}</span>
+                    <span className="text-xl font-semibold text-green-400 group-hover:text-green-300 transition-colors" itemProp="name">{q.question}</span>
                     <span className="ml-4 text-green-400 text-3xl">&#8250;</span>
                   </summary>
-                  <div className="px-8 pb-6 text-gray-200 text-lg whitespace-pre-line">{q.answer}</div>
+                  <div className="px-8 pb-6 text-gray-200 text-lg whitespace-pre-line" itemScope itemType="https://schema.org/Answer" itemProp="acceptedAnswer">
+                    <div itemProp="text">{q.answer}</div>
+                  </div>
                 </details>
               </motion.div>
             ))}
@@ -624,7 +680,10 @@ export default function Home({ locale, messages }: { locale: string; messages: M
               >
                                  <h3 id="contacts" className="text-2xl font-bold text-green-400 mb-8">{(t('contacts.title') as string) || 'Get in Touch'}</h3>
 
-                <div className="space-y-4">
+                <div className="space-y-4" itemScope itemType="https://schema.org/ContactPoint">
+                  <meta itemProp="contactType" content="Customer Support" />
+                  <meta itemProp="areaServed" content="Worldwide" />
+                  <meta itemProp="availableLanguage" content="en,ru,uk,id,zh" />
                   {/* Telegram Bot */}
                   <motion.a
                     href="https://t.me/scam_radar_bot"
@@ -633,6 +692,7 @@ export default function Home({ locale, messages }: { locale: string; messages: M
                     whileHover={{ scale: 1.05, x: 10 }}
                     transition={{ duration: 0.2 }}
                     className="flex items-center gap-4 text-gray-200 hover:text-green-400 transition-all duration-300 group"
+                    itemProp="url"
                   >
                     <FaTelegramPlane className="text-xl text-blue-400 group-hover:text-blue-300" />
                     <span className="text-lg font-medium">Telegram Bot</span>
@@ -644,6 +704,7 @@ export default function Home({ locale, messages }: { locale: string; messages: M
                     whileHover={{ scale: 1.05, x: 10 }}
                     transition={{ duration: 0.2 }}
                     className="flex items-center gap-4 text-gray-200 hover:text-green-400 transition-all duration-300 group"
+                    itemProp="email"
                   >
                     <FaEnvelope className="text-xl text-red-400 group-hover:text-red-300" />
                     <span className="text-lg font-medium">support@scam-radar.net</span>
@@ -651,7 +712,7 @@ export default function Home({ locale, messages }: { locale: string; messages: M
 
                   {/* Telegram Support */}
                   <motion.a
-                    href="https://t.me/scam_radar_support"
+                    href="https://t.me/bitcoin_inc"
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.05, x: 10 }}
@@ -758,7 +819,8 @@ export default function Home({ locale, messages }: { locale: string; messages: M
 function HeroSection({ t }: { t: (key: string) => string | string[] | { [key: string]: unknown } | undefined }) {
   // Responsive layout: mobile-first, stacked on mobile, side-by-side on desktop
   return (
-    <section id="home" className="relative flex flex-col lg:flex-row items-center justify-center min-h-screen w-full px-4 py-20 lg:py-12 overflow-hidden bg-black pt-24 lg:pt-12">
+    <section id="home" className="relative flex flex-col lg:flex-row items-center justify-center min-h-screen w-full px-4 py-20 lg:py-12 overflow-hidden bg-black pt-24 lg:pt-12"
+             itemScope itemType="https://schema.org/SoftwareApplication">
       {/* Animated multi-color gradient background */}
       <motion.div
         className="absolute inset-0 -z-10 animate-gradient-bg"
@@ -842,6 +904,7 @@ function HeroTextBlock({ t }: { t: (key: string) => string | string[] | { [key: 
         transition={{ delay: 0.2, duration: 0.8, type: 'spring' }}
         className="text-xl sm:text-2xl lg:text-4xl font-extrabold mb-6 tracking-tight max-w-xl drop-shadow-xl leading-tight text-white hover:scale-105 transition-all duration-300"
         style={{ letterSpacing: '-0.01em' }}
+        itemProp="name"
         dangerouslySetInnerHTML={{ __html: highlightWords(titleText) }}
       />
       <motion.p
@@ -849,9 +912,18 @@ function HeroTextBlock({ t }: { t: (key: string) => string | string[] | { [key: 
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4, duration: 0.7, type: 'spring' }}
         className="text-sm sm:text-base lg:text-lg font-medium mb-8 text-white max-w-xl rounded-lg px-4 py-3 shadow-lg backdrop-blur-lg hover:scale-105 transition-all duration-300"
+        itemProp="description"
       >
         {(t('home.subtitle') as string) || ''}
       </motion.p>
+
+      {/* Hidden microdata for schema.org */}
+      <meta itemProp="applicationCategory" content="SecurityApplication" />
+      <meta itemProp="operatingSystem" content="Web Browser, Telegram" />
+      <meta itemProp="softwareVersion" content="2.1.0" />
+      <meta itemProp="author" content="Scam Radar Team" />
+      <meta itemProp="price" content="0" />
+      <meta itemProp="priceCurrency" content="USD" />
       <motion.a
         href='https://t.me/scam_radar_bot'
         target="_blank"

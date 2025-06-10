@@ -18,7 +18,16 @@ const nextConfig: NextConfig = {
   assetPrefix,
   images: {
     unoptimized: true, // Required for static export
+    formats: ['image/avif', 'image/webp'],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
+  // Performance optimizations
+  compress: true,
+  poweredByHeader: false,
+  generateEtags: false,
+  // Note: Custom headers are not supported with static export
+  // Security headers would need to be configured at the web server level (GitHub Pages, Vercel, etc.)
   env: {
     NEXT_PUBLIC_BASE_PATH: basePath,
   },

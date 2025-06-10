@@ -60,7 +60,7 @@
     "questions": [
       {
         "question": "Di mana saya bisa menemukan smart contract token?",
-        "answer": "Cek CoinMarketCap, postingan resmi proyek, atau pengumuman komunitas. Alamat kontrak biasanya berupa string panjang seperti 0x2a...d9E1. Setelah dapat, tempelkan di bot dan pilih jaringan yang benar."
+        "answer": "Cek CoinMarketCap, postingan resmi proyek, atau pengumuman komunitas. Alamat kontrak biasanya berupa string panjang seperti 0x2a...d9E1. Setelah dapat,  pilih jaringan yang benar dan tempelkan di bot."
       },
       {
         "question": "Bagaimana cara memeriksa token?",

@@ -60,7 +60,7 @@
     "questions": [
       {
         "question": "Where can I find a token's smart contract?",
-        "answer": "Check CoinMarketCap, official project posts, or community announcements. The contract address is usually a long string like 0x2a...d9E1. Once you have it, paste it in the bot and select the right network."
+        "answer": "Check CoinMarketCap, official project posts, or community announcements. The contract address is usually a long string like 0x2a...d9E1. Once you have it, select the right network and paste it in the bot."
       },
       {
         "question": "How do I check a token?",
@@ -151,6 +151,34 @@
       "softwareVersion": "2.1.0",
       "datePublished": "2024-01-15",
       "dateModified": "2025-01-10"
+    },
+    "organizationData": {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Scam Radar",
+      "url": "https://scam-radar.net",
+      "logo": "https://scam-radar.net/logo.jpeg",
+      "description": "Advanced cryptocurrency scam detection and security platform",
+      "foundingDate": "2024-01-15",
+      "areaServed": "Worldwide",
+      "serviceType": "Cryptocurrency Security",
+      "sameAs": [
+        "https://t.me/scam_radar_bot",
+        "https://github.com/birserg/scam-radar-web"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Customer Support",
+        "url": "https://t.me/scam_radar_bot",
+        "availableLanguage": ["en", "ru", "uk", "id", "zh"]
+      },
+      "offers": {
+        "@type": "Offer",
+        "name": "Cryptocurrency Scam Detection Service",
+        "description": "Real-time cryptocurrency scam and honeypot detection",
+        "category": "Security Software",
+        "availability": "https://schema.org/InStock"
+      }
     }
   }
 }
