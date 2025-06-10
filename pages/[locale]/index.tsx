@@ -69,9 +69,11 @@ export default function Home({ locale, messages }: { locale: string; messages: M
     const value = key.split('.').reduce<unknown>((obj, k) => (obj && typeof obj === 'object' ? (obj as Record<string, unknown>)[k] : undefined), messages);
     return value as string | string[] | { [key: string]: unknown } | undefined;
   };
+
   const [localeMenu, setLocaleMenu] = useState(false);
+  const [mobileMenu, setMobileMenu] = useState(false);
+
   const handleLocaleChange = (code: string) => {
-    setLocaleMenu(false);
     window.location.href = createNavLink(code);
   };
 
@@ -92,46 +94,167 @@ export default function Home({ locale, messages }: { locale: string; messages: M
         <link rel="canonical" href={getCanonicalUrl(locale)} />
       </Head>
       <div className="bg-black min-h-screen w-full relative overflow-x-hidden">
-        {/* Locale Switcher */}
-        <div className="fixed top-12 right-6 z-[120]">
-          <button
-            onClick={() => setLocaleMenu((v) => !v)}
-            className="flex items-center gap-2 px-5 py-3 rounded-full bg-green-500 text-white shadow-2xl border-2 border-white/30 backdrop-blur-lg font-bold text-lg focus:outline-none focus:ring-4 focus:ring-green-400/40 transition-all"
-            aria-haspopup="listbox"
-            aria-expanded={localeMenu}
-            type="button"
-          >
-            <GlobeAltIcon className="w-6 h-6 text-white drop-shadow" title="Globe" />
-            {SUPPORTED_LOCALES.find((l) => l.code === locale)?.label || locale}
-          </button>
-          {localeMenu && (
-            <div className="absolute right-0 mt-2 bg-black/90 border border-white/10 rounded-2xl shadow-2xl z-[100] min-w-[120px] py-2 px-1 flex flex-col items-stretch backdrop-blur-xl">
-              {SUPPORTED_LOCALES.filter((l) => l.code !== locale).map((l) => (
+        {/* Mobile-Optimized Navigation */}
+        <nav className="fixed top-0 left-0 w-full z-50 bg-black/95 shadow-xl border-b border-green-600/40 backdrop-blur-2xl">
+          <div className="max-w-6xl mx-auto px-4 py-3">
+            <div className="flex items-center justify-between">
+              {/* Logo and Brand */}
+              <div className="flex items-center gap-3">
+                <Image
+                  src={`${getBasePath()}/logo.jpeg`}
+                  alt="Scam Radar Logo"
+                  width={40}
+                  height={40}
+                  className="rounded-full shadow-lg border-2 border-green-500/60"
+                />
+                <span className="text-xl md:text-2xl font-extrabold tracking-tight text-white drop-shadow-lg">
+                  {(t('home.brand') as string) || 'Scam Radar'}
+                </span>
+              </div>
+
+              {/* Desktop Navigation */}
+              <div className="hidden md:flex items-center gap-6">
+                <div className="flex gap-6 text-lg font-semibold">
+                  <a href={createNavLink(locale, 'home')} className="text-white hover:text-green-400 transition">{(t('nav.home') as string) || 'Home'}</a>
+                  <a href={createNavLink(locale, 'how')} className="text-white hover:text-green-400 transition">{(t('nav.howItWorks') as string) || 'How It Works'}</a>
+                  <a href={createNavLink(locale, 'pricing')} className="text-white hover:text-green-400 transition">{(t('nav.pricing') as string) || 'Pricing'}</a>
+                  <a href={createNavLink(locale, 'faq')} className="text-white hover:text-green-400 transition">{(t('nav.faq') as string) || 'FAQ'}</a>
+                  <a href={createNavLink(locale, 'contacts')} className="text-white hover:text-green-400 transition">{(t('nav.contacts') as string) || 'Contact'}</a>
+                </div>
+
+                {/* Desktop Locale Switcher */}
+                <div className="relative">
+                  <button
+                    onClick={() => setLocaleMenu((v) => !v)}
+                    className="flex items-center gap-2 px-4 py-2 rounded-full bg-green-500 text-white shadow-lg border border-white/20 backdrop-blur-lg font-semibold text-sm focus:outline-none focus:ring-2 focus:ring-green-400/40 transition-all hover:bg-green-600"
+                    aria-haspopup="listbox"
+                    aria-expanded={localeMenu}
+                    type="button"
+                  >
+                    <GlobeAltIcon className="w-5 h-5 text-white" title="Globe" />
+                    <span className="hidden sm:inline">{SUPPORTED_LOCALES.find((l) => l.code === locale)?.label || locale}</span>
+                    <span className="sm:hidden">{locale.toUpperCase()}</span>
+                  </button>
+                  {localeMenu && (
+                    <div className="absolute right-0 mt-2 bg-black/95 border border-white/10 rounded-xl shadow-2xl z-[100] min-w-[140px] py-2 px-1 backdrop-blur-xl">
+                      {SUPPORTED_LOCALES.filter((l) => l.code !== locale).map((l) => (
+                        <button
+                          key={l.code}
+                          className="block w-full px-4 py-2 rounded-lg text-white hover:bg-green-600 hover:text-black text-sm transition-colors text-left"
+                          onClick={() => {
+                            handleLocaleChange(l.code);
+                            setLocaleMenu(false);
+                          }}
+                        >
+                          {l.label}
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {/* Mobile Menu Toggle */}
+              <div className="md:hidden flex items-center gap-3">
+                {/* Mobile Locale Switcher */}
+                <div className="relative">
+                  <button
+                    onClick={() => setLocaleMenu((v) => !v)}
+                    className="flex items-center gap-1 px-3 py-2 rounded-full bg-green-500 text-white shadow-lg border border-white/20 font-semibold text-sm focus:outline-none focus:ring-2 focus:ring-green-400/40 transition-all"
+                    type="button"
+                  >
+                    <GlobeAltIcon className="w-4 h-4 text-white" />
+                    {locale.toUpperCase()}
+                  </button>
+                  {localeMenu && (
+                    <div className="absolute right-0 mt-2 bg-black/95 border border-white/10 rounded-xl shadow-2xl z-[100] min-w-[120px] py-2 px-1 backdrop-blur-xl">
+                      {SUPPORTED_LOCALES.filter((l) => l.code !== locale).map((l) => (
+                        <button
+                          key={l.code}
+                          className="block w-full px-3 py-2 rounded-lg text-white hover:bg-green-600 hover:text-black text-sm transition-colors text-left"
+                          onClick={() => {
+                            handleLocaleChange(l.code);
+                            setLocaleMenu(false);
+                          }}
+                        >
+                          {l.label}
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                {/* Hamburger Menu Button */}
                 <button
-                  key={l.code}
-                  className="block px-4 py-2 rounded-xl text-white hover:bg-green-600 hover:text-black text-base transition-colors text-center"
-                  onClick={() => handleLocaleChange(l.code)}
+                  onClick={() => setMobileMenu((v) => !v)}
+                  className="p-2 rounded-lg bg-green-500 text-white shadow-lg border border-white/20 focus:outline-none focus:ring-2 focus:ring-green-400/40 transition-all"
+                  aria-label="Toggle mobile menu"
+                  type="button"
                 >
-                  {l.label}
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    {mobileMenu ? (
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    ) : (
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                    )}
+                  </svg>
                 </button>
-              ))}
+              </div>
             </div>
-          )}
-        </div>
-        {/* Navbar */}
-        <nav className="fixed top-0 left-0 w-full z-50 bg-black/90 shadow-xl py-4 px-4 flex justify-center border-b border-green-600/40 backdrop-blur-2xl">
-          <div className="max-w-6xl w-full flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <Image src={`${getBasePath()}/logo.jpeg`} alt="Scam Radar Logo" width={44} height={44} className="rounded-full shadow-lg border-2 border-green-500/60" />
-              <span className="text-2xl font-extrabold tracking-tight text-white drop-shadow-lg">{(t('home.brand') as string) || 'Scam Radar'}</span>
-            </div>
-            <div className="flex gap-6 text-lg font-semibold">
-              <a href={createNavLink(locale, 'home')} className="text-white hover:text-green-400 transition">{(t('nav.home') as string) || 'Home'}</a>
-              <a href={createNavLink(locale, 'how')} className="text-white hover:text-green-400 transition">{(t('nav.howItWorks') as string) || 'How It Works'}</a>
-              <a href={createNavLink(locale, 'pricing')} className="text-white hover:text-green-400 transition">{(t('nav.pricing') as string) || 'Pricing'}</a>
-              <a href={createNavLink(locale, 'faq')} className="text-white hover:text-green-400 transition">{(t('nav.faq') as string) || 'FAQ'}</a>
-              <a href={createNavLink(locale, 'contacts')} className="text-white hover:text-green-400 transition">{(t('nav.contacts') as string) || 'Contact'}</a>
-            </div>
+
+            {/* Mobile Menu */}
+            {mobileMenu && (
+              <div className="md:hidden mt-4 pb-4 border-t border-green-600/30">
+                <div className="flex flex-col space-y-3 pt-4">
+                  <a
+                    href={createNavLink(locale, 'home')}
+                    className="block px-4 py-3 text-white hover:text-green-400 hover:bg-green-500/10 rounded-lg transition text-lg font-semibold"
+                    onClick={() => setMobileMenu(false)}
+                  >
+                    {(t('nav.home') as string) || 'Home'}
+                  </a>
+                  <a
+                    href={createNavLink(locale, 'how')}
+                    className="block px-4 py-3 text-white hover:text-green-400 hover:bg-green-500/10 rounded-lg transition text-lg font-semibold"
+                    onClick={() => setMobileMenu(false)}
+                  >
+                    {(t('nav.howItWorks') as string) || 'How It Works'}
+                  </a>
+                  <a
+                    href={createNavLink(locale, 'pricing')}
+                    className="block px-4 py-3 text-white hover:text-green-400 hover:bg-green-500/10 rounded-lg transition text-lg font-semibold"
+                    onClick={() => setMobileMenu(false)}
+                  >
+                    {(t('nav.pricing') as string) || 'Pricing'}
+                  </a>
+                  <a
+                    href={createNavLink(locale, 'faq')}
+                    className="block px-4 py-3 text-white hover:text-green-400 hover:bg-green-500/10 rounded-lg transition text-lg font-semibold"
+                    onClick={() => setMobileMenu(false)}
+                  >
+                    {(t('nav.faq') as string) || 'FAQ'}
+                  </a>
+                  <a
+                    href={createNavLink(locale, 'contacts')}
+                    className="block px-4 py-3 text-white hover:text-green-400 hover:bg-green-500/10 rounded-lg transition text-lg font-semibold"
+                    onClick={() => setMobileMenu(false)}
+                  >
+                    {(t('nav.contacts') as string) || 'Contact'}
+                  </a>
+
+                  {/* Mobile CTA Button */}
+                  <a
+                    href="https://t.me/scam_radar_bot"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block mx-4 mt-4 px-6 py-4 bg-gradient-to-r from-green-500 to-green-600 text-white font-bold rounded-full text-center shadow-lg hover:from-green-600 hover:to-green-700 transition-all"
+                    onClick={() => setMobileMenu(false)}
+                  >
+                    🚀 Try Bot Now
+                  </a>
+                </div>
+              </div>
+            )}
           </div>
         </nav>
         <div/>
@@ -139,13 +262,13 @@ export default function Home({ locale, messages }: { locale: string; messages: M
         <HeroSection t={t} />
 
         {/* How It Works Section */}
-        <section id="how" className="relative max-w-6xl mx-auto px-4 py-24">
+        <section id="how" className="relative max-w-6xl mx-auto px-4 py-16 lg:py-24">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="text-4xl font-extrabold mb-16 text-center text-green-400 drop-shadow"
+            className="text-2xl sm:text-3xl lg:text-4xl font-extrabold mb-12 lg:mb-16 text-center text-green-400 drop-shadow"
           >
             {(t('howItWorks.title') as string) || 'How It Works'}
           </motion.h2>
@@ -195,13 +318,13 @@ export default function Home({ locale, messages }: { locale: string; messages: M
         </section>
 
         {/* Pricing Section */}
-        <section id="pricing" className="max-w-6xl mx-auto px-4 py-24">
+        <section id="pricing" className="max-w-6xl mx-auto px-4 py-16 lg:py-24">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="text-4xl font-extrabold mb-10 text-center text-green-400 drop-shadow"
+            className="text-2xl sm:text-3xl lg:text-4xl font-extrabold mb-8 lg:mb-10 text-center text-green-400 drop-shadow"
           >
             {(t('pricing.title') as string) || ''}
           </motion.h2>
@@ -210,13 +333,13 @@ export default function Home({ locale, messages }: { locale: string; messages: M
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-xl text-gray-200 mb-12 text-center max-w-2xl mx-auto"
+            className="text-base sm:text-lg lg:text-xl text-gray-200 mb-10 lg:mb-12 text-center max-w-2xl mx-auto px-4"
           >
             {(t('pricing.subtitle') as string) || ''}
           </motion.p>
 
           {/* Pricing Cards */}
-          <div className="w-full max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+          <div className="w-full max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-12 lg:mb-16">
             {/* Existing Plans */}
             {Array.isArray(t('pricing.plans')) && ((t('pricing.plans') as unknown) as { name: string; price: string }[]).slice(0, 3).map((plan, i) => (
               <motion.div
@@ -562,9 +685,9 @@ export default function Home({ locale, messages }: { locale: string; messages: M
 }
 
 function HeroSection({ t }: { t: (key: string) => string | string[] | { [key: string]: unknown } | undefined }) {
-  // Two-column layout: text left, logo+features right - with falling animations
+  // Responsive layout: mobile-first, stacked on mobile, side-by-side on desktop
   return (
-    <section id="home" className="relative flex flex-col md:flex-row items-center justify-center h-screen w-full px-4 py-12 overflow-hidden bg-black">
+    <section id="home" className="relative flex flex-col lg:flex-row items-center justify-center min-h-screen w-full px-4 py-20 lg:py-12 overflow-hidden bg-black pt-24 lg:pt-12">
       {/* Animated multi-color gradient background */}
       <motion.div
         className="absolute inset-0 -z-10 animate-gradient-bg"
@@ -578,40 +701,40 @@ function HeroSection({ t }: { t: (key: string) => string | string[] | { [key: st
         }}
       />
 
-      {/* Text left */}
+      {/* Text content - centered on mobile, left on desktop */}
       <motion.div
-        initial={{ opacity: 0, x: -40 }}
-        animate={{ opacity: 1, x: 0 }}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, type: 'spring' }}
-        className="flex-1 flex flex-col items-start justify-center z-10 max-w-lg md:pl-8 pl-4"
+        className="flex-1 flex flex-col items-center lg:items-start justify-center z-10 w-full lg:max-w-lg text-center lg:text-left lg:pl-8"
       >
         <HeroTextBlock t={t} />
       </motion.div>
 
-      {/* Logo and features right */}
-      <div className="flex-1 flex flex-col items-center justify-center relative z-10 mt-4 md:mt-0 md:pl-40 max-w-lg">
+      {/* Logo and features - centered on mobile, right on desktop */}
+      <div className="flex-1 flex flex-col items-center justify-center relative z-10 mt-8 lg:mt-0 lg:pl-20 w-full lg:max-w-lg">
         {/* Logo falling like coin FIRST */}
         <LogoWithCoinFlip />
 
-        {/* Three feature cards falling AFTER logo */}
+        {/* Three feature cards - responsive grid */}
         <motion.div
-          className="grid grid-cols-1 gap-5 mt-10 w-full max-w-sm"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4 mt-8 lg:mt-10 w-full max-w-md lg:max-w-sm"
         >
           {[1, 2, 3].map((i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: -100, rotateX: -45 }}
+              initial={{ opacity: 0, y: -50, rotateX: -45 }}
               animate={{ opacity: 1, y: 0, rotateX: 0 }}
               transition={{
-                delay: 0.5 + i * 0.2,
+                delay: 0.5 + i * 0.15,
                 duration: 0.8,
                 type: 'spring',
                 bounce: 0.4
               }}
-              className="glass-card bg-gradient-to-br from-[#0a1a0a]/90 to-[#1a2e1a]/90 rounded-xl p-3 flex flex-col items-start shadow-lg border border-green-400/20 hover:scale-105 hover:shadow-green-400/20 transition-all duration-300"
+              className="glass-card bg-gradient-to-br from-[#0a1a0a]/90 to-[#1a2e1a]/90 rounded-xl p-4 flex flex-col items-center sm:items-start lg:items-start text-center sm:text-left lg:text-left shadow-lg border border-green-400/20 hover:scale-105 hover:shadow-green-400/20 transition-all duration-300"
             >
-              <h3 className="text-base font-bold mb-1 text-white text-left drop-shadow-lg">{(t(`home.feature${i}Title`) as string) || ''}</h3>
-              <p className="text-xm text-gray-200 text-left">{(t(`home.feature${i}Desc`) as string) || ''}</p>
+              <h3 className="text-sm sm:text-base font-bold mb-2 text-white drop-shadow-lg">{(t(`home.feature${i}Title`) as string) || ''}</h3>
+              <p className="text-xs sm:text-sm text-gray-200 leading-relaxed">{(t(`home.feature${i}Desc`) as string) || ''}</p>
             </motion.div>
           ))}
         </motion.div>
@@ -638,7 +761,7 @@ function HeroTextBlock({ t }: { t: (key: string) => string | string[] | { [key: 
         initial={{ color: 'var(--color-green-500)' }}
         animate={{ color: ['var(--color-red-500)', 'var(--color-green-500)'], }}
         transition={{ duration: 3, repeat: 0, repeatType: 'loop', ease: 'linear' }}
-        className="text-6xl md:text-6xl font-extrabold mb-3 drop-shadow-lg text-left hover:scale-105 transition-all duration-300"
+        className="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-4 drop-shadow-lg hover:scale-105 transition-all duration-300"
         style={{ letterSpacing: '-0.01em' }}
         dangerouslySetInnerHTML={{ __html: brandText }}
       />
@@ -646,7 +769,7 @@ function HeroTextBlock({ t }: { t: (key: string) => string | string[] | { [key: 
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 0.8, type: 'spring' }}
-        className="text-2xl md:text-4xl font-extrabold mb-4 text-left tracking-tight max-w-xl drop-shadow-xl leading-tight text-white hover:scale-105 transition-all duration-300"
+        className="text-xl sm:text-2xl lg:text-4xl font-extrabold mb-6 tracking-tight max-w-xl drop-shadow-xl leading-tight text-white hover:scale-105 transition-all duration-300"
         style={{ letterSpacing: '-0.01em' }}
         dangerouslySetInnerHTML={{ __html: highlightWords(titleText) }}
       />
@@ -654,27 +777,28 @@ function HeroTextBlock({ t }: { t: (key: string) => string | string[] | { [key: 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4, duration: 0.7, type: 'spring' }}
-        className="text-base md:text-lg font-medium mb-4 text-white max-w-xl text-left rounded-lg px-4 py-3 shadow-lg backdrop-blur-lg hover:scale-105 transition-all duration-300"
+        className="text-sm sm:text-base lg:text-lg font-medium mb-8 text-white max-w-xl rounded-lg px-4 py-3 shadow-lg backdrop-blur-lg hover:scale-105 transition-all duration-300"
       >
         {(t('home.subtitle') as string) || ''}
       </motion.p>
       <motion.a
-      href='https://t.me/scam_radar_bot'
-      target="_blank"
-      rel="noopener noreferrer"
-      initial={{ scale: 1 }} // Initial size of the element
-      animate={{ scale: 1.2, opacity: 0.8 }} // Target size and opacity
-      transition={{
-        duration: 3, // Animation duration
-        repeat: Infinity, // Loop indefinitely
-        ease: 'easeInOut', // Choose an easing function
-        repeatType: 'loop' // Ensure it loops back to the starting point
-      }}
-      className="inline-flex items-center gap-2 bg-green-500 border-2 border-green-400/80 text-white font-bold px-8 py-4 rounded-full text-lg shadow-2xl hover:bg-green-600 hover:text-white hover:scale-105 active:scale-95 transition focus:outline-none focus:ring-4 focus:ring-green-400/40 ml-20 mt-10"
-      style={{ boxShadow: '0 0 20px 0 #22c55e88, 0 4px 20px 0 #000a' }}
+        href='https://t.me/scam_radar_bot'
+        target="_blank"
+        rel="noopener noreferrer"
+        initial={{ scale: 1 }}
+        animate={{ scale: [1, 1.05, 1], opacity: [0.9, 1, 0.9] }}
+        transition={{
+          duration: 2,
+          repeat: Infinity,
+          ease: 'easeInOut',
+          repeatType: 'loop'
+        }}
+        className="inline-flex items-center gap-3 bg-gradient-to-r from-green-500 to-green-600 border-2 border-green-400/80 text-white font-bold px-6 sm:px-8 py-4 rounded-full text-base sm:text-lg shadow-2xl hover:from-green-600 hover:to-green-700 hover:scale-105 active:scale-95 transition focus:outline-none focus:ring-4 focus:ring-green-400/40"
+        style={{ boxShadow: '0 0 20px 0 #22c55e88, 0 4px 20px 0 #000a' }}
       >
-        <FaTelegramPlane className="text-xl" />
-        {(t('home.cta') as string) || 'Try the Telegram Bot'}
+        <FaTelegramPlane className="text-lg sm:text-xl" />
+        <span className="hidden sm:inline">{(t('home.cta') as string) || 'Try the Telegram Bot'}</span>
+        <span className="sm:hidden">Try Bot</span>
       </motion.a>
     </>
   );
