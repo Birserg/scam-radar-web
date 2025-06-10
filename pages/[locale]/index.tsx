@@ -295,6 +295,9 @@ export default function Home({ locale, messages }: { locale: string; messages: M
               margin: 0 auto 1.25rem;
               opacity: 0.9;
             }
+            .text-red-500 {
+              color: #ef4444;
+            }
             .cta-button {
               display: inline-flex;
               align-items: center;
@@ -1059,16 +1062,16 @@ function HeroSection({ t }: { t: (key: string) => string | string[] | { [key: st
 }
 
 function HeroTextBlock({ t }: { t: (key: string) => string | string[] | { [key: string]: unknown } | undefined }) {
-  // Function to highlight scam and honeypot words in red
-  const highlightWords = (text: string) => {
-    if (!text) return text;
-    return text
-      .replace(/scam/gi, '<span style="color: #ef4444;">Scam</span>')
-      .replace(/honeypot/gi, '<span style="color: #ef4444;">Honeypot</span>');
-  };
-
   const brandText = (t('home.brand') as string) || 'Scam Radar';
   const titleText = (t('home.title') as string) || '';
+
+  // Convert highlight tags to red spans (fast, CSS-only)
+  const formatTitle = (text: string) => {
+    if (!text) return '';
+    return text
+      .replace(/<highlight>/g, '<span class="text-red-500">')
+      .replace(/<\/highlight>/g, '</span>');
+  };
 
   return (
     <>
@@ -1083,16 +1086,16 @@ function HeroTextBlock({ t }: { t: (key: string) => string | string[] | { [key: 
       <LazyMotionH1
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2, duration: 0.8, type: 'spring' }}
+        transition={{ delay: 0, duration: 0.3, type: 'spring' }}
         className="text-xl sm:text-2xl lg:text-4xl font-extrabold mb-6 tracking-tight max-w-xl drop-shadow-xl leading-tight text-white hover:scale-105 transition-all duration-300"
         style={{ letterSpacing: '-0.01em' }}
         itemProp="name"
-        dangerouslySetInnerHTML={{ __html: highlightWords(titleText) }}
+        dangerouslySetInnerHTML={{ __html: formatTitle(titleText) }}
       />
       <LazyMotionP
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.4, duration: 0.7, type: 'spring' }}
+        transition={{ delay: 0, duration: 0.3, type: 'spring' }}
         className="text-sm sm:text-base lg:text-lg font-medium mb-8 text-white max-w-xl rounded-lg px-4 py-3 shadow-lg md:backdrop-blur-lg hover:scale-105 transition-all duration-300"
         itemProp="description"
       >
