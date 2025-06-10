@@ -21,7 +21,7 @@ const getBasePath = () => {
 // Helper function for creating proper navigation links
 const createNavLink = (locale: string) => {
   const basePath = getBasePath();
-  return `${basePath}/${locale}/`;
+  return `${basePath}/${locale}`;
 };
 
 // Function to detect user's preferred locale

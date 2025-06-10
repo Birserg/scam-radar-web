@@ -20,7 +20,7 @@ const getBasePath = () => process.env.NEXT_PUBLIC_BASE_PATH || '';
 // Helper function for creating proper navigation links
 const createNavLink = (locale: string, anchor?: string) => {
   const basePath = getBasePath();
-  const path = `${basePath}/${locale}/`;
+  const path = `${basePath}/${locale}`;
   return anchor ? `${path}#${anchor}` : path;
 };
 
@@ -30,11 +30,11 @@ const getCanonicalUrl = (locale: string) => {
 
   // For GitHub Pages deployment
   if (basePath) {
-    return `https://birserg.github.io${basePath}/${locale}/`;
+    return `https://birserg.github.io${basePath}/${locale}`;
   }
 
   // For local development or custom domain
-  return `https://scam-radar.net/${locale}/`;
+  return `https://scam-radar.net/${locale}`;
 };
 
 export async function getStaticPaths() {
