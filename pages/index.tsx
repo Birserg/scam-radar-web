@@ -140,6 +140,9 @@ export default function Index() {
         <meta name="subject" content="Cryptocurrency Security" />
         <meta name="target" content="crypto investors, DeFi traders, blockchain users, crypto traders, traders beginners" />
 
+        {/* Viewport and Mobile Optimization */}
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=5" />
+
         {/* DNS prefetch for external resources */}
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
         <link rel="dns-prefetch" href="//t.me" />
@@ -169,7 +172,7 @@ export default function Index() {
         <div className="min-h-screen bg-black flex items-center justify-center px-4">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-400 mx-auto mb-4"></div>
-          <h1 className="text-2xl font-semibold text-white mb-2">Scam Radar</h1>
+          <h1 className="text-2xl font-semibold text-white mb-2" style={{ fontSize: '1.5rem' }}>Scam Radar</h1>
           <h2 className="text-xl text-green-400 mb-6">Advanced Crypto Scam Detection & Honeypot Checker</h2>
           <p className="text-gray-300 mb-6">
             Detecting your preferred language...
@@ -193,7 +196,7 @@ export default function Index() {
           <div className="max-w-4xl">
             {/* Hidden logo to satisfy preload */}
             <Image src="/logo.webp" alt="Scam Radar Logo" width={1} height={1} />
-            <h1 className="text-4xl font-bold text-white mb-4">Scam Radar</h1>
+            <h1 className="text-4xl font-bold text-white mb-4" style={{ fontSize: '2.25rem' }}>Scam Radar</h1>
             <h2 className="text-xl text-green-400 mb-6">{t('subtitle') || 'Advanced Crypto Scam Detection & Honeypot Checker'}</h2>
             <p className="text-gray-300 mb-8 text-lg leading-relaxed">
               {t('description') || 'Protect your cryptocurrency investments with Scam Radar, the most trusted Telegram bot for detecting scams and honeypots. Analyze smart contracts instantly across Ethereum, BSC, Solana, and Base networks.'}

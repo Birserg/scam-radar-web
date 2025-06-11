@@ -44,7 +44,7 @@
       { "title": "Send Contract Address", "desc": "Paste or send the smart contract address you want to check." },
       { "title": "Get Instant Results", "desc": "The bot analyzes the contract and shows you if it's a scam, honeypot, or safe." },
       { "title": "Upgrade for More", "desc": "Unlock unlimited checks and premium features by upgrading your subscription." },
-      { "title": "Stay Alert", "desc": "Get tweets from the crypto community, right in the bot." }
+      { "title": "Stay Alert", "desc": "Get posts from the crypto community, right in the bot." }
     ],
     "cta": "Try Scam Radar Now"
   },
@@ -63,7 +63,7 @@
       "Early access to new features",
       "Detailed risk analysis",
       "No ads",
-      "Twitter alerts"
+      "X alerts"
     ],
     "featuresEmphasized": [0,1,2,3,4],
     "cta": "Pay",

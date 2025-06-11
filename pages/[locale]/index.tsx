@@ -2,8 +2,8 @@ import { useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import Script from 'next/script';
-import { GlobeAltIcon } from '@heroicons/react/24/outline';
-import { FaTelegramPlane, FaEye, FaRobot, FaShieldAlt, FaCrown, FaBell, FaEnvelope, FaCircle, FaTwitter } from 'react-icons/fa';
+import { FaTelegramPlane, FaEye, FaRobot, FaShieldAlt, FaCrown, FaBell, FaEnvelope, FaCircle, FaGlobe } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
 import { motion } from 'framer-motion';
 
 // Lazy load heavy motion components
@@ -99,8 +99,6 @@ export default function Home({ locale, messages }: { locale: string; messages: M
     window.location.href = createNavLink(code);
   };
 
-
-
   return (
     <>
       <Head>
@@ -140,10 +138,10 @@ export default function Home({ locale, messages }: { locale: string; messages: M
           <meta key={altLocale} property="og:locale:alternate" content={altLocale} />
         ))}
 
-        {/* Twitter */}
+        {/* X (formerly Twitter) */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@ScamRadarBot" />
-        <meta name="twitter:creator" content="@ScamRadarBot" />
+        <meta name="twitter:site" content="@scam_radar_ai" />
+        <meta name="twitter:creator" content="@scam_radar_ai" />
         <meta name="twitter:title" content={(t('meta.twitterTitle') as string) || ''} />
         <meta name="twitter:description" content={(t('meta.twitterDescription') as string) || ''} />
         <meta name="twitter:image" content={`${getBasePath()}${(t('meta.twitterImage') as string) || '/twitter-image.webp'}`} />
@@ -194,14 +192,45 @@ export default function Home({ locale, messages }: { locale: string; messages: M
         <meta name="msapplication-config" content={`${getBasePath()}/browserconfig.xml`} />
 
         {/* Viewport and Mobile Optimization */}
-        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=5" />
         <meta name="format-detection" content="telephone=no" />
 
         {/* Performance Optimizations */}
         <link rel="preload" href={`${getBasePath()}/logo.webp`} as="image" type="image/webp" />
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
         <link rel="dns-prefetch" href="//t.me" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="" />
+
+        {/* Critical CSS for LCP elements */}
+        <style dangerouslySetInnerHTML={{
+          __html: `
+            .critical-lcp-h1 {
+              font-display: swap;
+              text-rendering: optimizeSpeed;
+              contain: layout style paint;
+            }
+            .critical-lcp-text {
+              font-display: swap;
+              text-rendering: optimizeSpeed;
+            }
+            /* Fix H1 font-size warnings in sectioning elements */
+            article h1, aside h1, nav h1, section h1,
+            .hero-section h1, .content-section h1 {
+              font-size: 2.25rem !important; /* 36px - explicit size */
+            }
+            @media (min-width: 768px) {
+              article h1, aside h1, nav h1, section h1,
+              .hero-section h1, .content-section h1 {
+                font-size: 3rem !important; /* 48px on larger screens */
+              }
+            }
+            @media (min-width: 1024px) {
+              article h1, aside h1, nav h1, section h1,
+              .hero-section h1, .content-section h1 {
+                font-size: 3.75rem !important; /* 60px on desktop */
+              }
+            }
+          `
+        }} />
 
         {/* Defer non-critical resources */}
         <link rel="prefetch" href={`${getBasePath()}/manifest.json`} />
@@ -393,50 +422,73 @@ export default function Home({ locale, messages }: { locale: string; messages: M
         }} />
       </Head>
 
-      {/* Google Tag Manager - Deferred */}
+      {/* Google Tag Manager - Only load when user interacts */}
       <Script
-        id="gtm-script"
+        id="gtm-init"
         strategy="lazyOnload"
         dangerouslySetInnerHTML={{
-          __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-5NZGBGJW');`
+          __html: `
+            // Minimal GTM setup - only load when needed
+            window.dataLayer = window.dataLayer || [];
+            function initGTM() {
+              if (window.gtmLoaded) return;
+              window.gtmLoaded = true;
+              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer','GTM-5NZGBGJW');
+            }
+
+            // Load GTM on user interaction
+            ['click', 'scroll', 'keydown', 'touchstart'].forEach(event => {
+              document.addEventListener(event, initGTM, { once: true, passive: true });
+            });
+
+            // Fallback: load after 5 seconds
+            setTimeout(initGTM, 5000);
+          `
         }}
       />
 
-      {/* Google Analytics 4 - Minimal & Deferred */}
+      {/* Google Analytics 4 - Optimized loading */}
       <Script
-        id="ga-minimal"
+        id="ga-optimized"
         strategy="lazyOnload"
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-B6GE3FT4HY', {
-              page_title: document.title,
-              content_group1: '${locale}',
-              send_page_view: false
-            });
-          `
-        }}
-      />
 
-      {/* Load GA script only when needed */}
-      <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-B6GE3FT4HY"
-        strategy="lazyOnload"
-        onLoad={() => {
-          // Send page view only after script loads
-          if (typeof window !== 'undefined' && window.gtag) {
-            window.gtag('event', 'page_view', {
-              page_title: document.title,
-              page_location: window.location.href,
-              content_group1: locale
+            function initGA() {
+              if (window.gaLoaded) return;
+              window.gaLoaded = true;
+
+              // Load GA script dynamically
+              const script = document.createElement('script');
+              script.async = true;
+              script.src = 'https://www.googletagmanager.com/gtag/js?id=G-B6GE3FT4HY';
+              document.head.appendChild(script);
+
+              script.onload = function() {
+                gtag('js', new Date());
+                gtag('config', 'G-B6GE3FT4HY', {
+                  page_title: document.title,
+                  content_group1: '${locale}',
+                  send_page_view: true,
+                  cookie_flags: 'SameSite=None;Secure'
+                });
+              };
+            }
+
+            // Load GA on user interaction
+            ['click', 'scroll', 'keydown', 'touchstart'].forEach(event => {
+              document.addEventListener(event, initGA, { once: true, passive: true });
             });
-          }
+
+            // Fallback: load after 3 seconds
+            setTimeout(initGA, 3000);
+          `
         }}
       />
 
@@ -500,7 +552,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     aria-expanded={localeMenu}
                     type="button"
                   >
-                    <GlobeAltIcon className="w-5 h-5 text-white" title="Globe" />
+                    <FaGlobe className="w-5 h-5 text-white" title="Globe" />
                     <span className="hidden sm:inline">{SUPPORTED_LOCALES.find((l) => l.code === locale)?.label || locale}</span>
                     <span className="sm:hidden">{locale.toUpperCase()}</span>
                   </button>
@@ -532,7 +584,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     className="flex items-center gap-1 px-3 py-2 rounded-full bg-green-500 text-white shadow-lg border border-white/20 font-semibold text-sm focus:outline-none focus:ring-2 focus:ring-green-400/40 transition-all"
                     type="button"
                   >
-                    <GlobeAltIcon className="w-4 h-4 text-white" />
+                    <FaGlobe className="w-4 h-4 text-white" />
                     {locale.toUpperCase()}
                   </button>
                   {localeMenu && (
@@ -977,7 +1029,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <span className="text-lg font-medium">Telegram Support</span>
                   </LazyMotionA>
 
-                  {/* Twitter/X */}
+                  {/* X (formerly Twitter) */}
                   <LazyMotionA
                     href="https://x.com/scam_radar_ai"
                     target="_blank"
@@ -986,8 +1038,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     transition={{ duration: 0.2 }}
                     className="flex items-center gap-4 text-gray-200 hover:text-green-400 transition-all duration-300 group"
                   >
-                    <FaTwitter className="text-xl text-blue-500 group-hover:text-blue-400" />
-                    <span className="text-lg font-medium">@scam_radar_ai</span>
+                    <FaXTwitter className="text-xl text-white group-hover:text-gray-300" />
+                    <span className="text-lg font-medium">X.com</span>
                   </LazyMotionA>
 
                   {/* Live Now */}
@@ -1169,8 +1221,8 @@ function HeroTextBlock({ t }: { t: (key: string) => string | string[] | { [key: 
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0, duration: 0.3, type: 'spring' }}
-        className="text-xl sm:text-2xl lg:text-4xl font-extrabold mb-6 tracking-tight max-w-xl drop-shadow-xl leading-tight text-white hover:scale-105 transition-all duration-300"
-        style={{ letterSpacing: '-0.01em' }}
+        className="hero-section text-xl sm:text-2xl lg:text-4xl font-extrabold mb-6 tracking-tight max-w-xl drop-shadow-xl leading-tight text-white hover:scale-105 transition-all duration-300"
+        style={{ letterSpacing: '-0.01em', fontSize: 'clamp(1.25rem, 4vw, 2.25rem)' }}
         itemProp="name"
         dangerouslySetInnerHTML={{ __html: formatTitle(titleText) }}
       />

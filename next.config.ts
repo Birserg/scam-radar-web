@@ -42,23 +42,51 @@ const nextConfig: NextConfig = {
       config.optimization.usedExports = true;
       config.optimization.sideEffects = false;
 
-      // Bundle splitting
+      // Bundle splitting with improved caching
       config.optimization.splitChunks = {
         chunks: 'all',
+        maxInitialRequests: 25,
+        maxAsyncRequests: 25,
         cacheGroups: {
           vendor: {
             test: /[\\/]node_modules[\\/]/,
             name: 'vendors',
             chunks: 'all',
+            priority: 10,
+          },
+          motion: {
+            test: /[\\/]node_modules[\\/]framer-motion[\\/]/,
+            name: 'motion',
+            chunks: 'all',
+            priority: 20,
+          },
+          icons: {
+            test: /[\\/]node_modules[\\/]react-icons[\\/]/,
+            name: 'icons',
+            chunks: 'all',
+            priority: 20,
           },
           common: {
             name: 'common',
             minChunks: 2,
             chunks: 'all',
             enforce: true,
+            priority: 5,
           },
         },
       };
+
+      // Optimize external scripts
+      config.externals = config.externals || [];
+      if (!Array.isArray(config.externals)) {
+        config.externals = [config.externals];
+      }
+
+      // Mark Google Analytics as external to reduce bundle size
+      config.externals.push({
+        'gtag': 'gtag',
+        'dataLayer': 'dataLayer'
+      });
     }
 
     // Bundle analyzer (uncomment to analyze)

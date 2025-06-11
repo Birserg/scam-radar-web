@@ -44,7 +44,7 @@
       { "title": "Kirim Alamat Kontrak", "desc": "Tempel atau kirim alamat smart contract yang ingin Anda periksa." },
       { "title": "Dapatkan Hasil Instan", "desc": "Bot menganalisis kontrak dan menunjukkan apakah itu scam, honeypot, atau aman." },
       { "title": "Upgrade untuk Lebih Banyak", "desc": "Buka cek tanpa batas dan fitur premium dengan berlangganan." },
-      { "title": "Tetap Waspada", "desc": "Dapatkan tweet dari komunitas kripto langsung di bot." }
+      { "title": "Tetap Waspada", "desc": "Dapatkan postingan dari komunitas kripto langsung di bot." }
     ],
     "cta": "Coba Scam Radar"
   },
@@ -63,7 +63,7 @@
       "Akses awal ke fitur baru",
       "Analisis risiko mendalam",
       "Tanpa iklan",
-      "Alerts Twitter"
+      "Alerts X"
     ],
     "featuresEmphasized": [0,1,2,3,4],
     "cta": "Bayar",
