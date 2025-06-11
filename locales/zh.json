@@ -176,6 +176,7 @@
       "@type": "Product",
       "name": "Scam Radar Bot",
       "description": "先进的加密货币诈骗检测和蜜罐检查器Telegram机器人",
+      "image": "https://scam-radar.net/logo.webp",
       "brand": {
         "@type": "Brand",
         "name": "Scam Radar"
@@ -185,7 +186,41 @@
         "url": "https://t.me/scam_radar_bot",
         "priceCurrency": "USD",
         "price": "0",
+        "priceValidUntil": "2025-12-31",
         "availability": "https://schema.org/InStock",
+        "shippingDetails": {
+          "@type": "OfferShippingDetails",
+          "shippingRate": {
+            "@type": "MonetaryAmount",
+            "value": "0",
+            "currency": "USD"
+          },
+          "shippingDestination": {
+            "@type": "DefinedRegion",
+            "addressCountry": "US"
+          },
+          "deliveryTime": {
+            "@type": "ShippingDeliveryTime",
+            "handlingTime": {
+              "@type": "QuantitativeValue",
+              "minValue": "0",
+              "maxValue": "0",
+              "unitCode": "DAY"
+            },
+            "transitTime": {
+              "@type": "QuantitativeValue",
+              "minValue": "0",
+              "maxValue": "0",
+              "unitCode": "DAY"
+            }
+          }
+        },
+        "hasMerchantReturnPolicy": {
+          "@type": "MerchantReturnPolicy",
+          "applicableCountry": "US",
+          "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted",
+          "merchantReturnDays": 0
+        },
         "seller": {
           "@type": "Organization",
           "name": "Scam Radar"

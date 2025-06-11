@@ -180,9 +180,18 @@ export default function Home({ locale, messages }: { locale: string; messages: M
 
         {/* Canonical and Other Links */}
         <link rel="canonical" href={getCanonicalUrl(locale)} />
-        <link rel="icon" href={`${getBasePath()}/favicon.ico`} />
-        <link rel="apple-touch-icon" href={`${getBasePath()}/apple-touch-icon.png`} />
+
+        {/* Enhanced Favicon and Icon Declarations for Google */}
+        <link rel="icon" type="image/x-icon" href={`${getBasePath()}/favicon.ico`} />
+        <link rel="icon" type="image/png" sizes="16x16" href={`${getBasePath()}/favicon-16x16.png`} />
+        <link rel="icon" type="image/png" sizes="32x32" href={`${getBasePath()}/favicon-32x32.png`} />
+        <link rel="icon" type="image/png" sizes="48x48" href={`${getBasePath()}/favicon-48x48.png`} />
+        <link rel="icon" type="image/png" sizes="192x192" href={`${getBasePath()}/android-chrome-192x192.png`} />
+        <link rel="icon" type="image/png" sizes="512x512" href={`${getBasePath()}/android-chrome-512x512.png`} />
+        <link rel="apple-touch-icon" sizes="180x180" href={`${getBasePath()}/apple-touch-icon.png`} />
         <link rel="manifest" href={`${getBasePath()}/manifest.json`} />
+        <meta name="msapplication-TileColor" content="#00b894" />
+        <meta name="msapplication-config" content={`${getBasePath()}/browserconfig.xml`} />
 
         {/* Viewport and Mobile Optimization */}
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
@@ -216,6 +225,69 @@ export default function Home({ locale, messages }: { locale: string; messages: M
             }}
           />
         )}
+
+        {/* Google Search Logo - Organization Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Scam Radar",
+              "alternateName": "Scam Radar Bot",
+              "url": "https://scam-radar.net",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://scam-radar.net/logo.webp",
+                "width": 512,
+                "height": 512,
+                "caption": "Scam Radar Logo"
+              },
+              "image": "https://scam-radar.net/logo.webp",
+              "description": "Advanced cryptocurrency scam detection and honeypot checker bot for Telegram",
+              "foundingDate": "2024",
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "contactType": "customer service",
+                "url": "https://t.me/scam_radar_bot"
+              },
+              "sameAs": [
+                "https://t.me/scam_radar_bot"
+              ]
+            })
+          }}
+        />
+
+        {/* Website Schema for Search */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "Scam Radar",
+              "url": "https://scam-radar.net",
+              "description": "Cryptocurrency scam detection and honeypot checker",
+              "image": "https://scam-radar.net/logo.webp",
+              "publisher": {
+                "@type": "Organization",
+                "name": "Scam Radar",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://scam-radar.net/logo.webp",
+                  "width": 512,
+                  "height": 512
+                }
+              },
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://scam-radar.net/{locale}",
+                "query-input": "required name=locale"
+              },
+              "inLanguage": ["en", "ru", "uk", "id", "zh"]
+            })
+          }}
+        />
 
         {/* Organization Schema */}
         {t('meta.organizationData') && (
@@ -615,19 +687,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </section>
 
         {/* Pricing Section */}
-        <section id="pricing" className="max-w-6xl mx-auto px-4 py-16 lg:py-24" itemScope itemType="https://schema.org/Product">
+        <section id="pricing" className="max-w-6xl mx-auto px-4 py-16 lg:py-24">
           <LazyMotionH2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
             className="text-2xl sm:text-3xl lg:text-4xl font-extrabold mb-8 lg:mb-10 text-center text-green-400 drop-shadow"
-            itemProp="name"
           >
             {(t('pricing.title') as string) || ''}
           </LazyMotionH2>
-          <meta itemProp="category" content="Security Software" />
-          <meta itemProp="brand" content="Scam Radar" />
           <LazyMotionP
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -814,18 +883,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </section>
 
         {/* FAQ Section */}
-        <section id="faq" className="max-w-6xl mx-auto px-4 py-24" itemScope itemType="https://schema.org/FAQPage">
+        <section id="faq" className="max-w-6xl mx-auto px-4 py-24">
           <LazyMotionH2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
             className="text-4xl font-extrabold mb-10 text-center text-green-400 drop-shadow"
-            itemProp="name"
           >
             {(t('faq.title') as string) || 'FAQ'}
           </LazyMotionH2>
-          <div className="w-full max-w-3xl mx-auto space-y-8" itemProp="mainEntity">
+          <div className="w-full max-w-3xl mx-auto space-y-8">
             {Array.isArray(t('faq.questions')) && ((t('faq.questions') as unknown) as { question: string; answer: string }[]).map((q, i) => (
               <LazyMotion
                 key={q.question}
@@ -834,16 +902,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1, duration: 0.7, type: 'spring' }}
                 className="glass-card bg-gradient-to-br from-[#101624]/80 to-[#181f2a]/80 rounded-2xl shadow-xl border border-green-800 overflow-hidden"
-                itemScope itemType="https://schema.org/Question"
-                itemProp="mainEntity"
               >
                 <details className="group" open={i === 0}>
                   <summary className="w-full text-left px-8 py-6 flex justify-between items-center cursor-pointer select-none">
-                    <span className="text-xl font-semibold text-green-400 group-hover:text-green-300 transition-colors" itemProp="name">{q.question}</span>
+                    <span className="text-xl font-semibold text-green-400 group-hover:text-green-300 transition-colors">{q.question}</span>
                     <span className="ml-4 text-green-400 text-3xl">&#8250;</span>
                   </summary>
-                  <div className="px-8 pb-6 text-gray-200 text-lg whitespace-pre-line" itemScope itemType="https://schema.org/Answer" itemProp="acceptedAnswer">
-                    <div itemProp="text">{q.answer}</div>
+                  <div className="px-8 pb-6 text-gray-200 text-lg whitespace-pre-line">
+                    <div>{q.answer}</div>
                   </div>
                 </details>
               </LazyMotion>

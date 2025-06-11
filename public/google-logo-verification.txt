@@ -1,0 +1,14 @@
+Site: scam-radar.net
+Logo: https://scam-radar.net/logo.webp
+Favicon: https://scam-radar.net/favicon.ico
+Organization: Scam Radar
+Type: Cryptocurrency Security Software
+Founded: 2024
+
+Logo Specifications:
+- Format: WebP (primary), ICO (fallback)
+- Dimensions: 512x512px (logo.webp)
+- Color: Green/Black theme (#22c55e, #000000)
+- Usage: Company logo for search results
+
+This file helps Google recognize our official logo for search result display.
