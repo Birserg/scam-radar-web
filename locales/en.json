@@ -10,7 +10,7 @@
   },
   "language": "EN",
   "subtitle": "AI-Powered Crypto Scam Detection & Honeypot Checker",
-  "description": "Protecting crypto investors worldwide with AI-powered scam detection across Ethereum, BSC, Solana, and Base networks. Our advanced machine learning algorithms instantly analyze smart contracts, detect honeypots, and avoid malicious tokens before investing.",
+  "description": "Protecting crypto investors worldwide with AI-powered scam detection across Ethereum, BSC, Solana, and Base networks. Our AI instantly analyzes smart contracts, detects honeypots, and avoids malicious tokens before investing.",
   "features": {
     "detection": "🛡️ Real-Time Detection",
     "detectionDesc": "Instant scam and honeypot analysis across multiple blockchains",
@@ -26,10 +26,10 @@
   "home": {
     "brand": "Scam Radar",
     "title": "Protect Your Crypto. Avoid <highlight>Scam</highlight> & <highlight>Honeypot</highlight>.",
-    "subtitle": "Scam Radar is your trusted AI-powered Telegram bot for checking smart contract addresses and identifying potential risks before you buy. Using advanced machine learning to instantly detect Scam, Honeypot, and suspicious activity—across multiple blockchains and languages.",
+    "subtitle": "Scam Radar is your trusted AI-powered Telegram bot for checking smart contract addresses and identifying potential risks before you buy. Using AI to instantly detect Scam, Honeypot, and suspicious activity—across multiple blockchains and languages.",
     "cta": "Try the Telegram Bot",
     "feature1Title": "AI-Powered Scam Detection",
-    "feature1Desc": "Advanced machine learning algorithms analyze smart contracts instantly and provide clear risk assessments before you buy.",
+    "feature1Desc": "AI analyzes smart contracts instantly and provides clear risk assessments before you buy.",
     "feature2Title": "Multi-Language Support",
     "feature2Desc": "Use Scam Radar in English, Ukrainian, Russian, Chinese, and Indonesian.",
     "feature3Title": "Upgrade for More",
@@ -110,14 +110,14 @@
   },
   "meta": {
     "title": "Scam Radar — AI-Powered Crypto Scam & Honeypot Detector",
-    "description": "AI-powered cryptocurrency scam detection and honeypot checker bot for Telegram. Advanced machine learning algorithms analyze smart contracts instantly across multiple blockchains.",
+    "description": "AI-powered cryptocurrency scam detection and honeypot checker bot for Telegram. AI analyzes smart contracts instantly across multiple blockchains.",
     "keywords": "AI crypto scam detector, machine learning honeypot checker, smart contract analysis, AI telegram crypto bot, ethereum scam detection, BSC honeypot checker, solana token analysis, cryptocurrency security, DeFi safety tools, AI crypto investment protection, blockchain security scanner, token validator, scam prevention, investment safety, crypto risk assessment",
     "ogTitle": "Scam Radar — AI-Powered Crypto Security Bot",
-    "ogDescription": "AI-powered Telegram bot for cryptocurrency security. Advanced machine learning instantly analyzes smart contracts, detects scams and honeypots across Ethereum, BSC, Solana & Base networks.",
+    "ogDescription": "AI-powered Telegram bot for cryptocurrency security. AI instantly analyzes smart contracts, detects scams and honeypots across Ethereum, BSC, Solana & Base networks.",
     "ogImage": "/og-scam-radar.webp",
     "ogImageAlt": "Scam Radar - AI-Powered Cryptocurrency Scam Detection and Honeypot Checker Bot Interface",
     "twitterTitle": "Scam Radar — AI-Powered Crypto Security Bot",
-    "twitterDescription": "🤖 AI-powered crypto scam detection! Advanced machine learning analyzes smart contracts instantly. Multi-chain support (ETH, BSC, SOL, BASE). Protect your crypto investments with AI! Follow @scam_radar_ai",
+    "twitterDescription": "🤖 AI-powered crypto scam detection! AI analyzes smart contracts instantly. Multi-chain support (ETH, BSC, SOL, BASE). Protect your crypto investments with AI! Follow @scam_radar_ai",
     "twitterImage": "/twitter-scam-radar.webp",
     "twitterImageAlt": "Scam Radar AI Bot - Protect Your Crypto from Scams and Honeypots",
     "author": "Scam Radar Team",
@@ -131,7 +131,7 @@
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
       "name": "Scam Radar",
-      "description": "AI-powered cryptocurrency scam detection and honeypot checker bot for Telegram. Advanced machine learning algorithms analyze smart contracts instantly across multiple blockchains.",
+      "description": "AI-powered cryptocurrency scam detection and honeypot checker bot for Telegram. AI analyzes smart contracts instantly across multiple blockchains.",
       "applicationCategory": "SecurityApplication",
       "operatingSystem": "Web Browser, Telegram",
       "offers": {
@@ -159,7 +159,7 @@
       },
       "featureList": [
         "AI-powered scam detection",
-        "Machine learning honeypot analysis",
+        "AI honeypot analysis",
         "Multi-blockchain support",
         "Instant AI risk assessment",
         "Multi-language interface",
@@ -177,7 +177,7 @@
       "name": "Scam Radar",
       "url": "https://scam-radar.net",
       "logo": "https://scam-radar.net/logo.webp",
-      "description": "AI-powered cryptocurrency scam detection and security platform using advanced machine learning",
+      "description": "AI-powered cryptocurrency scam detection and security platform using AI",
       "foundingDate": "2024-01-15",
       "areaServed": "Worldwide",
       "serviceType": "AI Cryptocurrency Security",
@@ -195,7 +195,7 @@
       "offers": {
         "@type": "Offer",
         "name": "AI-Powered Cryptocurrency Scam Detection Service",
-        "description": "Real-time AI-powered cryptocurrency scam and honeypot detection using machine learning",
+        "description": "Real-time AI-powered cryptocurrency scam and honeypot detection using AI",
         "category": "AI Security Software",
         "availability": "https://schema.org/InStock"
       }
