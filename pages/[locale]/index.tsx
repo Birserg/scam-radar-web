@@ -3,7 +3,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Script from 'next/script';
 import { GlobeAltIcon } from '@heroicons/react/24/outline';
-import { FaTelegramPlane, FaEye, FaRobot, FaShieldAlt, FaCrown, FaBell, FaEnvelope, FaCircle } from 'react-icons/fa';
+import { FaTelegramPlane, FaEye, FaRobot, FaShieldAlt, FaCrown, FaBell, FaEnvelope, FaCircle, FaTwitter } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
 // Lazy load heavy motion components
@@ -244,7 +244,7 @@ export default function Home({ locale, messages }: { locale: string; messages: M
                 "caption": "Scam Radar Logo"
               },
               "image": "https://scam-radar.net/logo.webp",
-              "description": "Advanced cryptocurrency scam detection and honeypot checker bot for Telegram",
+              "description": "AI-powered cryptocurrency scam detection and honeypot checker bot for Telegram. Using advanced machine learning to analyze smart contracts in real-time.",
               "foundingDate": "2024",
               "contactPoint": {
                 "@type": "ContactPoint",
@@ -252,7 +252,8 @@ export default function Home({ locale, messages }: { locale: string; messages: M
                 "url": "https://t.me/scam_radar_bot"
               },
               "sameAs": [
-                "https://t.me/scam_radar_bot"
+                "https://t.me/scam_radar_bot",
+                "https://x.com/scam_radar_ai"
               ]
             })
           }}
@@ -974,6 +975,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                   >
                     <FaTelegramPlane className="text-xl text-cyan-400 group-hover:text-cyan-300" />
                     <span className="text-lg font-medium">Telegram Support</span>
+                  </LazyMotionA>
+
+                  {/* Twitter/X */}
+                  <LazyMotionA
+                    href="https://x.com/scam_radar_ai"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.05, x: 10 }}
+                    transition={{ duration: 0.2 }}
+                    className="flex items-center gap-4 text-gray-200 hover:text-green-400 transition-all duration-300 group"
+                  >
+                    <FaTwitter className="text-xl text-blue-500 group-hover:text-blue-400" />
+                    <span className="text-lg font-medium">@scam_radar_ai</span>
                   </LazyMotionA>
 
                   {/* Live Now */}
