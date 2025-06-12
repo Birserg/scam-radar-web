@@ -8,9 +8,9 @@
     "contacts": "联系",
     "legal": "法律信息"
   },
-  "language": "中文",
-  "subtitle": "AI驱动的加密货币诈骗检测和蜜罐分析",
-  "description": "使用AI驱动的实时诈骗检测保护全球加密投资者，覆盖以太坊、BSC、Solana和Base网络。我们的AI即时分析智能合约，检测蜜罐，避免投资前的恶意代币。",
+  "language": "ZH",
+  "subtitle": "代币与智能合约安全检查器",
+  "description": "验证ETH、BSC、Solana、Base上的代币智能合约是否为诈骗和蜜罐。尝试免费Telegram机器人，享受加密安全的高级功能。",
   "features": {
     "detection": "🛡️ 实时检测",
     "detectionDesc": "跨多个区块链的即时诈骗和蜜罐分析",
@@ -109,18 +109,18 @@
     "copyright": "© 2025 Scam Radar. 保留所有权利。"
   },
   "meta": {
-    "title": "Scam Radar — AI驱动的高级加密货币诈骗检测和蜜罐分析",
-    "description": "AI驱动的加密货币诈骗检测机器人。使用Scam Radar保护您的加密货币投资，这是最值得信赖的Telegram机器人，使用AI检测诈骗和蜜罐。在以太坊、BSC、Solana和Base网络上即时分析智能合约。",
-    "keywords": "AI加密诈骗检测器, 机器学习蜜罐检查器, 智能合约分析, AI电报加密机器人, 以太坊诈骗检测, BSC蜜罐检查器, solana代币分析, 加密货币安全, DeFi安全工具, AI加密投资保护, 区块链安全扫描器, 代币验证器, 诈骗预防, 投资安全, 加密风险评估",
-    "ogTitle": "Scam Radar — AI驱动的终极加密安全机器人 | 即时检测诈骗和蜜罐",
-    "ogDescription": "AI驱动的加密货币安全高级Telegram机器人。AI即时分析智能合约，在以太坊、BSC、Solana和Base上检测诈骗和蜜罐。多语言支持、无限检查、优先支持。",
-    "ogImage": "/og-scam-radar-zh.webp",
-    "ogImageAlt": "Scam Radar - AI驱动的加密货币诈骗检测和蜜罐检查器机器人界面",
-    "twitterTitle": "🤖 Scam Radar — AI驱动的加密诈骗检测和蜜罐分析",
-    "twitterDescription": "🤖 AI驱动的加密诈骗检测！AI即时分析智能合约。多链支持(ETH, BSC, SOL, BASE) • 实时分析 • 5+语言 • 无限检查 • 优先支持。用AI保护您的加密投资！关注 @scam_radar_ai",
-    "twitterImage": "/twitter-scam-radar-zh.webp",
-    "twitterImageAlt": "Scam Radar 机器人 - 保护您的加密货币免受诈骗和蜜罐攻击",
-    "author": "Scam Radar 团队",
+    "title": "Scam Radar — 代币和智能合约安全检查器",
+    "description": "验证代币智能合约的诈骗和蜜罐陷阱在ETH、BSC、Solana、Base上。试试免费Telegram机器人的高级功能以保护加密货币安全。",
+    "keywords": "检查智能合约, 代币检查器, 代币诈骗检测器, 检查币安全性, 智能合约分析, 加密货币安全, DeFi诈骗保护, 区块链代币验证器, 以太坊代币检查, BSC蜜罐检测器, Solana代币安全, 加密风险检查器, 代币验证工具, 诈骗预防, 投资保护",
+    "ogTitle": "Scam Radar — 代币诈骗和智能合约检查器",
+    "ogDescription": "使用我们的免费Telegram机器人保护您的加密货币。在以太坊、BSC、Solana、Base上验证代币智能合约的诈骗和蜜罐陷阱。",
+    "ogImage": "/og-scam-radar.webp",
+    "ogImageAlt": "Scam Radar - 代币安全和智能合约验证界面",
+    "twitterTitle": "Scam Radar — 代币和智能合约安全",
+    "twitterDescription": "使用我们的免费Telegram机器人保护您的加密货币。检查ETH、BSC、SOL、Base上的代币智能合约诈骗。关注@scam_radar_ai",
+    "twitterImage": "/twitter-scam-radar.webp",
+    "twitterImageAlt": "Scam Radar - 代币诈骗检测和合约检查器",
+    "author": "Scam Radar团队",
     "publisher": "Scam Radar",
     "applicationName": "Scam Radar",
     "category": "加密货币安全工具",
@@ -131,7 +131,7 @@
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
       "name": "Scam Radar",
-      "description": "用于在 Telegram 中检测加密货币诈骗和蜜罐检查的高级机器人。在多个区块链上即时分析智能合约。",
+      "description": "试试免费Telegram机器人来验证代币智能合约的诈骗和蜜罐陷阱在以太坊、BSC、Solana和Base上。提供高级功能。",
       "applicationCategory": "SecurityApplication",
       "operatingSystem": "Web Browser, Telegram",
       "offers": {
@@ -154,28 +154,77 @@
       },
       "creator": {
         "@type": "Organization",
-        "name": "Scam Radar 团队",
+        "name": "Scam Radar团队",
         "url": "https://scam-radar.net"
       },
       "featureList": [
-        "实时诈骗检测",
-        "蜜罐分析",
-        "多区块链支持",
+        "试试免费Telegram机器人",
+        "AI驱动的诈骗检测",
+        "代币诈骗检测",
+        "智能合约验证",
+        "多链支持",
         "即时风险评估",
         "多语言界面",
-        "高级无限检查",
+        "高级功能",
         "优先客户支持"
       ],
-      "screenshot": "https://scam-radar.net/screenshot-zh.jpg",
+      "screenshot": "https://scam-radar.net/screenshot.jpg",
       "softwareVersion": "2.1.0",
       "datePublished": "2024-01-15",
       "dateModified": "2025-01-10"
+    },
+    "organizationData": {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Scam Radar",
+      "url": "https://scam-radar.net",
+      "logo": "https://scam-radar.net/logo.webp",
+      "description": "加密货币安全平台，用于验证代币智能合约和通过实时分析检测诈骗。",
+      "foundingDate": "2024-01-15",
+      "areaServed": "Worldwide",
+      "serviceType": "加密货币安全",
+      "sameAs": [
+        "https://t.me/scam_radar_bot",
+        "https://x.com/scam_radar_ai",
+        "https://github.com/birserg/scam-radar-web"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "客户支持",
+        "url": "https://t.me/scam_radar_bot",
+        "availableLanguage": ["en", "ru", "uk", "id", "zh"]
+      },
+      "offers": {
+        "@type": "Offer",
+        "name": "代币诈骗检测服务",
+        "description": "实时代币智能合约验证和诈骗检测，提供免费和高级选项",
+        "category": "安全软件",
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    "breadcrumbData": {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://scam-radar.net/zh"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "代币检查器",
+          "item": "https://scam-radar.net/zh#home"
+        }
+      ]
     },
     "reviewData": {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
       "name": "Scam Radar Bot",
-      "description": "AI加密货币诈骗检测和蜜罐检查器Telegram机器人",
+      "description": "试试免费Telegram机器人来验证代币智能合约的诈骗和蜜罐陷阱。",
       "image": "https://scam-radar.net/logo.webp",
       "applicationCategory": "SecurityApplication",
       "operatingSystem": "Web Browser, Telegram",
@@ -184,7 +233,7 @@
       "dateModified": "2025-01-10",
       "author": {
         "@type": "Organization",
-        "name": "Scam Radar 团队"
+        "name": "Scam Radar团队"
       },
       "publisher": {
         "@type": "Organization",
@@ -197,7 +246,7 @@
         "price": "0",
         "priceValidUntil": "2025-12-31",
         "availability": "https://schema.org/InStock",
-        "category": "Digital Service",
+        "category": "数字服务",
         "seller": {
           "@type": "Organization",
           "name": "Scam Radar"
@@ -215,14 +264,14 @@
           "@type": "Review",
           "author": {
             "@type": "Person",
-            "name": "加密交易者2024"
+            "name": "加密交易员2024"
           },
           "reviewRating": {
             "@type": "Rating",
             "ratingValue": "5",
             "bestRating": "5"
           },
-          "reviewBody": "拯救了我免于蜜罐代币！快速准确的检测。"
+          "reviewBody": "拯救我免于蜜罐代币！快速准确的检测。"
         },
         {
           "@type": "Review",
@@ -235,7 +284,7 @@
             "ratingValue": "5",
             "bestRating": "5"
           },
-          "reviewBody": "我使用过的最好的诈骗检测机器人。多语言支持完美。"
+          "reviewBody": "最好的代币检查机器人。多语言支持很棒。"
         }
       ]
     }

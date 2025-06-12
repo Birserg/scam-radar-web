@@ -9,8 +9,8 @@
     "legal": "Legal"
   },
   "language": "EN",
-  "subtitle": "AI-Powered Crypto Scam Detection & Honeypot Checker",
-  "description": "Protecting crypto investors worldwide with AI-powered scam detection across Ethereum, BSC, Solana, and Base networks. Our AI instantly analyzes smart contracts, detects honeypots, and avoids malicious tokens before investing.",
+  "subtitle": "Token & Smart Contract Safety Checker",
+  "description": "Verify token smart contracts for scams & honeypots on ETH, BSC, Solana, Base. Try for Free Telegram bot with premium features for crypto safety.",
   "features": {
     "detection": "🛡️ Real-Time Detection",
     "detectionDesc": "Instant scam and honeypot analysis across multiple blockchains",
@@ -20,9 +20,9 @@
     "botDesc": "Advanced AI technology with unlimited premium checks available"
   },
   "detecting": "Detecting your preferred language...",
-  "networks": "Supported Networks: Ethereum (ETH), BNB Smart Chain (BSC), Solana (SOL), Base Network",
-  "types": "Detection Types: Scam Contracts, Honeypot Tokens, Rug Pulls, Exit Scams, Malicious Smart Contracts",
-  "cta": "Join thousands of crypto traders who trust Scam Radar for safe DeFi investing. Try our Telegram bot @scam_radar_bot for instant token analysis.",
+  "networks": "Scam Radar supports multiple blockchain networks including Ethereum, Binance Smart Chain (BSC), Solana, and Base. Our advanced algorithms analyze smart contracts in real-time to detect potential scams, honeypots, and malicious tokens before you invest.",
+  "types": "We detect various types of crypto scams including honeypot tokens, rug pulls, fake tokens, liquidity traps, and malicious smart contracts. Our comprehensive analysis includes contract verification, liquidity analysis, ownership checks, and trading simulation.",
+  "cta": "Start using Scam Radar today to protect your cryptocurrency investments. Join thousands of crypto traders who trust our advanced scam detection technology to keep their funds safe.",
   "home": {
     "brand": "Scam Radar",
     "title": "Protect Your Crypto. Avoid <highlight>Scam</highlight> & <highlight>Honeypot</highlight>.",
@@ -109,17 +109,17 @@
     "copyright": "© 2025 Scam Radar. All rights reserved."
   },
   "meta": {
-    "title": "Scam Radar — AI-Powered Crypto Scam & Honeypot Detector",
-    "description": "🤖 #1 AI crypto scam detector & honeypot checker. Instant analysis across ETH, BSC, Solana & Base. Protect your investments with real-time smart contract security. Used by 50,000+ traders worldwide. Free Telegram bot!",
-    "keywords": "AI crypto scam detector, machine learning honeypot checker, smart contract analysis, AI telegram crypto bot, ethereum scam detection, BSC honeypot checker, solana token analysis, cryptocurrency security, DeFi safety tools, AI crypto investment protection, blockchain security scanner, token validator, scam prevention, investment safety, crypto risk assessment",
-    "ogTitle": "Scam Radar — AI-Powered Crypto Security Bot",
-    "ogDescription": "AI-powered Telegram bot for cryptocurrency security. AI instantly analyzes smart contracts, detects scams and honeypots across Ethereum, BSC, Solana & Base networks.",
+    "title": "Scam Radar — Token & Smart Contract Safety Checker",
+    "description": "Verify token smart contracts for scams & honeypots on ETH, BSC, Solana, Base. Try for Free Telegram bot with premium features for crypto safety.",
+    "keywords": "check smart contract, token checker, token scam detector, check coin security, smart contract analysis, cryptocurrency safety, DeFi scam protection, blockchain token validator, Ethereum token check, BSC honeypot detector, Solana token safety, crypto risk checker, token verification tool, scam prevention, investment protection",
+    "ogTitle": "Scam Radar — Token Scam & Smart Contract Checker",
+    "ogDescription": "Protect your crypto with our Try for Free Telegram bot. Verify token smart contracts on Ethereum, BSC, Solana, Base for scams and honeypots.",
     "ogImage": "/og-scam-radar.webp",
-    "ogImageAlt": "Scam Radar - AI-Powered Cryptocurrency Scam Detection and Honeypot Checker Bot Interface",
-    "twitterTitle": "Scam Radar — AI-Powered Crypto Security Bot",
-    "twitterDescription": "🤖 AI-powered crypto scam detection! AI analyzes smart contracts instantly. Multi-chain support (ETH, BSC, SOL, BASE). Protect your crypto investments with AI! Follow @scam_radar_ai",
+    "ogImageAlt": "Scam Radar - Token Safety and Smart Contract Verification Interface",
+    "twitterTitle": "Scam Radar — Token & Smart Contract Safety",
+    "twitterDescription": "Safeguard your crypto with our Try for Free Telegram bot. Check token smart contracts on ETH, BSC, SOL, Base for scams. Follow @scam_radar_ai",
     "twitterImage": "/twitter-scam-radar.webp",
-    "twitterImageAlt": "Scam Radar AI Bot - Protect Your Crypto from Scams and Honeypots",
+    "twitterImageAlt": "Scam Radar - Token Scam Detection and Contract Checker",
     "author": "Scam Radar Team",
     "publisher": "Scam Radar",
     "applicationName": "Scam Radar",
@@ -131,7 +131,7 @@
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
       "name": "Scam Radar",
-      "description": "AI-powered cryptocurrency scam detection and honeypot checker bot for Telegram. AI analyzes smart contracts instantly across multiple blockchains.",
+      "description": "Try for Free Telegram bot to verify token smart contracts for scams and honeypots on Ethereum, BSC, Solana, and Base. Premium features available.",
       "applicationCategory": "SecurityApplication",
       "operatingSystem": "Web Browser, Telegram",
       "offers": {
@@ -158,12 +158,14 @@
         "url": "https://scam-radar.net"
       },
       "featureList": [
-        "AI-powered scam detection",
-        "AI honeypot analysis",
-        "Multi-blockchain support",
-        "Instant AI risk assessment",
+        "Try for Free Telegram bot",
+        "AI-Powered Scam Detection",
+        "Token scam detection",
+        "Smart contract verification",
+        "Multi-chain support",
+        "Instant risk assessment",
         "Multi-language interface",
-        "Premium unlimited checks",
+        "Premium features",
         "Priority customer support"
       ],
       "screenshot": "https://scam-radar.net/screenshot.jpg",
@@ -177,10 +179,10 @@
       "name": "Scam Radar",
       "url": "https://scam-radar.net",
       "logo": "https://scam-radar.net/logo.webp",
-      "description": "AI-powered cryptocurrency scam detection and security platform using AI",
+      "description": "Cryptocurrency security platform to verify token smart contracts and detect scams with real-time analysis.",
       "foundingDate": "2024-01-15",
       "areaServed": "Worldwide",
-      "serviceType": "AI Cryptocurrency Security",
+      "serviceType": "Cryptocurrency Security",
       "sameAs": [
         "https://t.me/scam_radar_bot",
         "https://x.com/scam_radar_ai",
@@ -194,9 +196,9 @@
       },
       "offers": {
         "@type": "Offer",
-        "name": "AI-Powered Cryptocurrency Scam Detection Service",
-        "description": "Real-time AI-powered cryptocurrency scam and honeypot detection using AI",
-        "category": "AI Security Software",
+        "name": "Token Scam Detection Service",
+        "description": "Real-time token smart contract verification and scam detection with free and premium options",
+        "category": "Security Software",
         "availability": "https://schema.org/InStock"
       }
     },
@@ -213,7 +215,7 @@
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Scam Detection",
+          "name": "Token Checker",
           "item": "https://scam-radar.net/en#home"
         }
       ]
@@ -222,7 +224,7 @@
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
       "name": "Scam Radar Bot",
-      "description": "AI-powered cryptocurrency scam detection and honeypot checker bot for Telegram",
+      "description": "Try for Free Telegram bot to verify token smart contracts for scams and honeypots.",
       "image": "https://scam-radar.net/logo.webp",
       "applicationCategory": "SecurityApplication",
       "operatingSystem": "Web Browser, Telegram",
@@ -282,9 +284,10 @@
             "ratingValue": "5",
             "bestRating": "5"
           },
-          "reviewBody": "Best scam detection bot I've used. Multi-language support is perfect."
+          "reviewBody": "Best token checker bot. Multi-language support is great."
         }
       ]
     }
   }
 }
+
