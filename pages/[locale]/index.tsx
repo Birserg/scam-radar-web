@@ -220,13 +220,13 @@ export default function Home({ locale, messages }: { locale: string; messages: M
             @media (min-width: 768px) {
               article h1, aside h1, nav h1, section h1,
               .hero-section h1, .content-section h1 {
-                font-size: 3rem !important; /* 48px on larger screens */
+                font-size: 2rem !important; /* 48px on larger screens */
               }
             }
             @media (min-width: 1024px) {
               article h1, aside h1, nav h1, section h1,
               .hero-section h1, .content-section h1 {
-                font-size: 3.75rem !important; /* 60px on desktop */
+                font-size: 2.75rem !important; /* 60px on desktop */
               }
             }
           `
