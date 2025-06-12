@@ -148,7 +148,7 @@
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "4.8",
-        "reviewCount": "2547",
+        "reviewCount": "179",
         "bestRating": "5",
         "worstRating": "1"
       },
@@ -206,7 +206,7 @@
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "4.8",
-        "reviewCount": "2547",
+        "reviewCount": "179",
         "bestRating": "5",
         "worstRating": "1"
       },
