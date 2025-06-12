@@ -329,8 +329,8 @@ export default function Home({ locale, messages }: { locale: string; messages: M
           />
         )}
 
-        {/* FAQ Schema */}
-        {Array.isArray(t('faq.questions')) && (
+        {/* FAQ Schema - Only generate if we have valid FAQ data */}
+        {Array.isArray(t('faq.questions')) && (t('faq.questions') as unknown as Array<{question: string, answer: string}>).length > 0 && (
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{

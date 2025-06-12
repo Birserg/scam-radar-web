@@ -86,15 +86,15 @@
       },
       {
         "question": "Сколько бесплатных проверок доступно?",
-        "answer": "Вы получаете 3 бесплатные проверки токенов при первом использовании бота. Подписка не требуется. Нужно больше? Оформите подписку."
+        "answer": "Вы получаете 3 бесплатные проверки токенов при первом использовании бота. Подписка не требуется. Нужно больше? Оформите премиум."
       },
       {
         "question": "Что означают уровни риска?",
-        "answer": "Токены оцениваются по шкале от 1 до 100: Низкий (1–30), Средний (30–50), Высокий (50–80), Очень высокий (80–100). Мы проверяем honeypot, ликвидность, права владельца и другое."
+        "answer": "Токены оцениваются по шкале от 1 до 100: Низкий (1–30), Средний (30–50), Высокий (50–80), Очень высокий (80–100). Мы проверяем honeypot, ликвидность, права владельца и многое другое."
       },
       {
         "question": "Как оплатить подписку?",
-        "answer": "Вы можете оплатить через Tribute — это быстро, безопасно и удобно. Поддерживаются криптовалюта и банковские карты (fiat). Оплачивайте с любой карты или криптокошелька. Tribute работает по всему миру."
+        "answer": "Вы можете оплатить через Tribute — это быстро, безопасно и удобно. Поддерживаются криптовалюта и фиат (банковские карты). Платите с любой карты или криптокошелька. Tribute работает быстро, безопасно и по всему миру."
       }
     ]
   },
@@ -173,12 +173,21 @@
     },
     "reviewData": {
       "@context": "https://schema.org",
-      "@type": "Product",
+      "@type": "SoftwareApplication",
       "name": "Scam Radar Bot",
-      "description": "Бот для обнаружения криптомошенничества и проверки honeypot в Telegram",
+      "description": "ИИ-бот для обнаружения криптомошенничества и проверки honeypot в Telegram",
       "image": "https://scam-radar.net/logo.webp",
-      "brand": {
-        "@type": "Brand",
+      "applicationCategory": "SecurityApplication",
+      "operatingSystem": "Web Browser, Telegram",
+      "softwareVersion": "2.1.0",
+      "datePublished": "2024-01-15",
+      "dateModified": "2025-01-10",
+      "author": {
+        "@type": "Organization",
+        "name": "Команда Scam Radar"
+      },
+      "publisher": {
+        "@type": "Organization",
         "name": "Scam Radar"
       },
       "offers": {
@@ -188,39 +197,7 @@
         "price": "0",
         "priceValidUntil": "2025-12-31",
         "availability": "https://schema.org/InStock",
-        "shippingDetails": {
-          "@type": "OfferShippingDetails",
-          "shippingRate": {
-            "@type": "MonetaryAmount",
-            "value": "0",
-            "currency": "USD"
-          },
-          "shippingDestination": {
-            "@type": "DefinedRegion",
-            "addressCountry": "US"
-          },
-          "deliveryTime": {
-            "@type": "ShippingDeliveryTime",
-            "handlingTime": {
-              "@type": "QuantitativeValue",
-              "minValue": "0",
-              "maxValue": "0",
-              "unitCode": "DAY"
-            },
-            "transitTime": {
-              "@type": "QuantitativeValue",
-              "minValue": "0",
-              "maxValue": "0",
-              "unitCode": "DAY"
-            }
-          }
-        },
-        "hasMerchantReturnPolicy": {
-          "@type": "MerchantReturnPolicy",
-          "applicableCountry": "US",
-          "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted",
-          "merchantReturnDays": 0
-        },
+        "category": "Digital Service",
         "seller": {
           "@type": "Organization",
           "name": "Scam Radar"

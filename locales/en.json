@@ -74,11 +74,11 @@
     "questions": [
       {
         "question": "Where can I find a token's smart contract?",
-        "answer": "Check CoinMarketCap, official project posts, or community announcements. The contract address is usually a long string like 0x2a...d9E1. Once you have it, select the right network and paste it in the bot."
+        "answer": "Check CoinMarketCap, official project posts, or community announcements. The contract address is a long string like 0x2a...d9E1. Got the address? Select the right network and paste it into the bot."
       },
       {
         "question": "How do I check a token?",
-        "answer": "Tap 'Check token', choose the blockchain, and send the smart contract address."
+        "answer": "Press 'Check token', select the blockchain, and send the smart contract address."
       },
       {
         "question": "Which blockchains are supported?",
@@ -86,15 +86,15 @@
       },
       {
         "question": "How many free checks do I get?",
-        "answer": "You get 3 free token checks when you start using the bot. No subscription required. Need more? Get a subscription."
+        "answer": "You get 3 free token checks when you first use the bot. No subscription required. Need more? Upgrade to premium."
       },
       {
         "question": "What do the risk levels mean?",
-        "answer": "Tokens are scored from 1 to 100: Low (1–30), Medium (30–50), High (50–80), Very High (80–100). We check for Honeypot, liquidity issues, owner permissions, and more."
+        "answer": "Tokens are scored from 1 to 100: Low (1–30), Medium (30–50), High (50–80), Very High (80–100). We check for honeypots, liquidity, owner permissions, and more."
       },
       {
         "question": "How do I pay for a subscription?",
-        "answer": "You can pay securely via Tribute, which supports both crypto and fiat payments. Use any credit card or your favorite crypto wallet. Tribute is fast, safe, and works worldwide."
+        "answer": "You can pay through Tribute — it's fast, secure, and convenient. Crypto and fiat (credit cards) are both supported. Pay from any bank card or crypto wallet. Tribute is quick, secure, and works worldwide."
       }
     ]
   },
@@ -110,7 +110,7 @@
   },
   "meta": {
     "title": "Scam Radar — AI-Powered Crypto Scam & Honeypot Detector",
-    "description": "AI-powered cryptocurrency scam detection and honeypot checker bot for Telegram. AI analyzes smart contracts instantly across multiple blockchains.",
+    "description": "🤖 #1 AI crypto scam detector & honeypot checker. Instant analysis across ETH, BSC, Solana & Base. Protect your investments with real-time smart contract security. Used by 50,000+ traders worldwide. Free Telegram bot!",
     "keywords": "AI crypto scam detector, machine learning honeypot checker, smart contract analysis, AI telegram crypto bot, ethereum scam detection, BSC honeypot checker, solana token analysis, cryptocurrency security, DeFi safety tools, AI crypto investment protection, blockchain security scanner, token validator, scam prevention, investment safety, crypto risk assessment",
     "ogTitle": "Scam Radar — AI-Powered Crypto Security Bot",
     "ogDescription": "AI-powered Telegram bot for cryptocurrency security. AI instantly analyzes smart contracts, detects scams and honeypots across Ethereum, BSC, Solana & Base networks.",
@@ -220,12 +220,21 @@
     },
     "reviewData": {
       "@context": "https://schema.org",
-      "@type": "Product",
+      "@type": "SoftwareApplication",
       "name": "Scam Radar Bot",
-      "description": "Cryptocurrency scam detection and honeypot checker bot for Telegram",
+      "description": "AI-powered cryptocurrency scam detection and honeypot checker bot for Telegram",
       "image": "https://scam-radar.net/logo.webp",
-      "brand": {
-        "@type": "Brand",
+      "applicationCategory": "SecurityApplication",
+      "operatingSystem": "Web Browser, Telegram",
+      "softwareVersion": "2.1.0",
+      "datePublished": "2024-01-15",
+      "dateModified": "2025-01-10",
+      "author": {
+        "@type": "Organization",
+        "name": "Scam Radar Team"
+      },
+      "publisher": {
+        "@type": "Organization",
         "name": "Scam Radar"
       },
       "offers": {
@@ -235,39 +244,7 @@
         "price": "0",
         "priceValidUntil": "2025-12-31",
         "availability": "https://schema.org/InStock",
-        "shippingDetails": {
-          "@type": "OfferShippingDetails",
-          "shippingRate": {
-            "@type": "MonetaryAmount",
-            "value": "0",
-            "currency": "USD"
-          },
-          "shippingDestination": {
-            "@type": "DefinedRegion",
-            "addressCountry": "US"
-          },
-          "deliveryTime": {
-            "@type": "ShippingDeliveryTime",
-            "handlingTime": {
-              "@type": "QuantitativeValue",
-              "minValue": "0",
-              "maxValue": "0",
-              "unitCode": "DAY"
-            },
-            "transitTime": {
-              "@type": "QuantitativeValue",
-              "minValue": "0",
-              "maxValue": "0",
-              "unitCode": "DAY"
-            }
-          }
-        },
-        "hasMerchantReturnPolicy": {
-          "@type": "MerchantReturnPolicy",
-          "applicableCountry": "US",
-          "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted",
-          "merchantReturnDays": 0
-        },
+        "category": "Digital Service",
         "seller": {
           "@type": "Organization",
           "name": "Scam Radar"

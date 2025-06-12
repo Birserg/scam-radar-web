@@ -173,12 +173,21 @@
     },
     "reviewData": {
       "@context": "https://schema.org",
-      "@type": "Product",
+      "@type": "SoftwareApplication",
       "name": "Scam Radar Bot",
-      "description": "Bot lanjutan untuk deteksi penipuan cryptocurrency dan pemeriksa honeypot di Telegram",
+      "description": "Bot AI untuk deteksi penipuan cryptocurrency dan pemeriksa honeypot di Telegram",
       "image": "https://scam-radar.net/logo.webp",
-      "brand": {
-        "@type": "Brand",
+      "applicationCategory": "SecurityApplication",
+      "operatingSystem": "Web Browser, Telegram",
+      "softwareVersion": "2.1.0",
+      "datePublished": "2024-01-15",
+      "dateModified": "2025-01-10",
+      "author": {
+        "@type": "Organization",
+        "name": "Tim Scam Radar"
+      },
+      "publisher": {
+        "@type": "Organization",
         "name": "Scam Radar"
       },
       "offers": {
@@ -188,39 +197,7 @@
         "price": "0",
         "priceValidUntil": "2025-12-31",
         "availability": "https://schema.org/InStock",
-        "shippingDetails": {
-          "@type": "OfferShippingDetails",
-          "shippingRate": {
-            "@type": "MonetaryAmount",
-            "value": "0",
-            "currency": "USD"
-          },
-          "shippingDestination": {
-            "@type": "DefinedRegion",
-            "addressCountry": "US"
-          },
-          "deliveryTime": {
-            "@type": "ShippingDeliveryTime",
-            "handlingTime": {
-              "@type": "QuantitativeValue",
-              "minValue": "0",
-              "maxValue": "0",
-              "unitCode": "DAY"
-            },
-            "transitTime": {
-              "@type": "QuantitativeValue",
-              "minValue": "0",
-              "maxValue": "0",
-              "unitCode": "DAY"
-            }
-          }
-        },
-        "hasMerchantReturnPolicy": {
-          "@type": "MerchantReturnPolicy",
-          "applicableCountry": "US",
-          "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted",
-          "merchantReturnDays": 0
-        },
+        "category": "Digital Service",
         "seller": {
           "@type": "Organization",
           "name": "Scam Radar"
