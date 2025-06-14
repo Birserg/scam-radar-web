@@ -67,7 +67,8 @@
       "Alerts X"
     ],
     "featuresEmphasized": [0,1,2,3,4],
-    "cta": "Bayar",
+    "cta": "Pilih Paket",
+    "premiumCta": "Dapatkan Premium",
     "oneTimePayment": "Pembayaran sekali",
     "info": "Tautan pembayaran akan segera tersedia. Untuk saat ini, silakan gunakan bot untuk meminta upgrade."
   },

@@ -844,7 +844,7 @@ export default function Home({ locale, messages }: { locale: string; messages: M
                             whileTap={{ scale: 0.95 }}
                             className="block w-full bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-green-500/25"
                           >
-                            Choose Plan
+                            {(t('pricing.cta') as string) || 'Choose Plan'}
                           </LazyMotionA>
                         </div>
                       </div>
@@ -912,7 +912,7 @@ export default function Home({ locale, messages }: { locale: string; messages: M
                         whileTap={{ scale: 0.95 }}
                         className="block w-full bg-gradient-to-r from-rose-600 via-pink-600 to-purple-600 hover:from-rose-700 hover:via-pink-700 hover:to-purple-700 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-pink-500/20 text-base"
                       >
-                        👑 {(t('pricing.cta') as string) || 'Get Lifetime'}
+                        👑 {(t('pricing.premiumCta') as string) || 'Get Premium'}
                       </LazyMotionA>
                     </div>
                   </div>
@@ -977,16 +977,6 @@ export default function Home({ locale, messages }: { locale: string; messages: M
               ))}
             </div>
           </LazyMotion>
-
-          <LazyMotionP
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 2 }}
-            className="text-gray-400 text-center text-sm mt-8"
-          >
-            {(t('pricing.info') as string) || ''}
-          </LazyMotionP>
         </section>
 
         {/* FAQ Section */}

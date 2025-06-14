@@ -67,7 +67,8 @@
       "X平台预警"
     ],
     "featuresEmphasized": [0,1,2,3,4],
-    "cta": "支付",
+    "cta": "选择计划",
+    "premiumCta": "获取高级版",
     "oneTimePayment": "一次性付款",
     "info": "支付链接即将上线。目前请通过机器人申请升级。"
   },
