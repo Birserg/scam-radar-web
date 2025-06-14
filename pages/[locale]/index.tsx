@@ -180,13 +180,16 @@ export default function Home({ locale, messages }: { locale: string; messages: M
         <link rel="canonical" href={getCanonicalUrl(locale)} />
 
         {/* Enhanced Favicon and Icon Declarations for Google */}
-        <link rel="icon" type="image/x-icon" href={`${getBasePath()}/favicon.ico`} />
+        <link rel="icon" href={`${getBasePath()}/favicon.ico`} sizes="32x32" />
+        <link rel="icon" href={`${getBasePath()}/favicon.svg`} type="image/svg+xml" />
         <link rel="icon" type="image/png" sizes="16x16" href={`${getBasePath()}/favicon-16x16.png`} />
         <link rel="icon" type="image/png" sizes="32x32" href={`${getBasePath()}/favicon-32x32.png`} />
         <link rel="icon" type="image/png" sizes="48x48" href={`${getBasePath()}/favicon-48x48.png`} />
+        <link rel="icon" type="image/png" sizes="96x96" href={`${getBasePath()}/favicon-96x96.png`} />
         <link rel="icon" type="image/png" sizes="192x192" href={`${getBasePath()}/android-chrome-192x192.png`} />
         <link rel="icon" type="image/png" sizes="512x512" href={`${getBasePath()}/android-chrome-512x512.png`} />
         <link rel="apple-touch-icon" sizes="180x180" href={`${getBasePath()}/apple-touch-icon.png`} />
+        <meta name="apple-mobile-web-app-title" content={(t('meta.applicationName') as string) || 'Scam Radar'} />
         <link rel="manifest" href={`${getBasePath()}/manifest.json`} />
         <meta name="msapplication-TileColor" content="#00b894" />
         <meta name="msapplication-config" content={`${getBasePath()}/browserconfig.xml`} />
@@ -755,118 +758,169 @@ export default function Home({ locale, messages }: { locale: string; messages: M
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-base sm:text-lg lg:text-xl text-gray-200 mb-10 lg:mb-12 text-center max-w-2xl mx-auto px-4"
+            className="text-base sm:text-lg lg:text-xl text-gray-200 mb-6 lg:mb-8 text-center max-w-2xl mx-auto px-4"
           >
             {(t('pricing.subtitle') as string) || ''}
           </LazyMotionP>
 
-          {/* Pricing Cards */}
-          <div className="w-full max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-12 lg:mb-16">
-            {/* Existing Plans */}
-            {Array.isArray(t('pricing.plans')) && ((t('pricing.plans') as unknown) as { name: string; price: string }[]).slice(0, 3).map((plan, i) => (
-              <LazyMotion
-                key={plan.name}
-                initial={{ opacity: 0, y: 60, scale: 0.8, rotateY: 15 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1, rotateY: 0 }}
-                viewport={{ once: true }}
-                transition={{
-                  delay: 0.3 + i * 0.2,
-                  duration: 0.9,
-                  type: 'spring',
-                  bounce: 0.5,
-                  stiffness: 120
-                }}
-                whileHover={{
-                  scale: 1.08,
-                  y: -10,
-                  rotateY: 5,
-                  transition: { duration: 0.3, type: 'spring', stiffness: 300 }
-                }}
-                className="glass-card bg-gradient-to-br from-[#0a1a0a]/90 to-[#1a2e1a]/90 rounded-2xl p-6 flex flex-col items-center shadow-xl border border-green-400/30 hover:shadow-green-400/40 transition-all duration-300 hover:border-green-400/60 relative overflow-hidden"
-                style={{ transformStyle: 'preserve-3d' }}
-              >
-                {/* Glow effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-green-400/5 to-transparent rounded-2xl opacity-0 hover:opacity-100 transition-opacity duration-500" />
-
-                <div className="relative z-10 text-center w-full">
-                  <h3 className="text-xl font-bold mb-4 text-white drop-shadow-lg">{plan.name}</h3>
-                  <p className="text-4xl font-extrabold mb-8 text-green-400">{plan.price}</p>
-
-                  <LazyMotionA
-                    href="https://t.me/scam_radar_bot"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="w-full inline-block bg-gradient-to-r from-green-400 to-green-600 hover:from-green-500 hover:to-green-700 text-white font-bold px-6 py-4 rounded-full text-lg shadow-lg transition-all duration-300"
-                  >
-                    {(t('pricing.cta') as string) || 'Pay'}
-                  </LazyMotionA>
-                </div>
-              </LazyMotion>
-            ))}
-
-            {/* Premium/Lifetime Card from Locales */}
+          {/* Discount Badge */}
+          {(t('pricing.discount') as string) && (
             <LazyMotion
-              initial={{ opacity: 0, y: 60, scale: 0.8, rotateY: 15 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1, rotateY: 0 }}
+              initial={{ opacity: 0, scale: 0.8, rotateX: -90 }}
+              whileInView={{ opacity: 1, scale: 1, rotateX: 0 }}
               viewport={{ once: true }}
-              transition={{
-                delay: 0.9,
-                duration: 1.1,
-                type: 'spring',
-                bounce: 0.6,
-                stiffness: 100
-              }}
-              whileHover={{
-                scale: 1.08,
-                y: -10,
-                rotateY: -5,
-                transition: { duration: 0.3, type: 'spring', stiffness: 300 }
-              }}
-              className="glass-card bg-gradient-to-br from-yellow-900/30 to-orange-900/30 rounded-2xl p-6 flex flex-col items-center shadow-2xl border-2 border-yellow-400/60 hover:shadow-yellow-400/50 transition-all duration-300 hover:border-yellow-400/80 relative overflow-hidden"
-              style={{ transformStyle: 'preserve-3d' }}
+              transition={{ duration: 0.6, delay: 0.3, type: 'spring', bounce: 0.4 }}
+              className="text-center mb-10 lg:mb-12"
             >
-              {/* Popular badge */}
-              <LazyMotion
-                initial={{ scale: 0, rotate: -180 }}
-                animate={{ scale: 1, rotate: 0 }}
-                transition={{ delay: 1.2, duration: 0.6, type: 'spring' }}
-                className="absolute top-0 right-0 bg-gradient-to-r from-yellow-400 to-orange-400 text-black font-bold px-3 py-1 text-xs rounded-bl-lg"
-              >
-                POPULAR
-              </LazyMotion>
-
-              {/* Glow effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/10 to-orange-400/5 rounded-2xl opacity-0 hover:opacity-100 transition-opacity duration-500" />
-
-              <div className="relative z-10 text-center w-full">
-                <h3 className="text-xl font-bold mb-4 text-white drop-shadow-lg">
-                  {((t('pricing.plans') as unknown as { name: string; price: string }[])?.[3]?.name) || 'Lifetime Access'}
-                </h3>
-                <p className="text-4xl font-extrabold mb-8 text-yellow-400">
-                  {((t('pricing.plans') as unknown as { name: string; price: string }[])?.[3]?.price) || '$99.99'}
-                </p>
-
-                <LazyMotionA
-                  href="https://t.me/scam_radar_bot"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 bg-gradient-to-r from-green-500 to-green-600 border-2 border-green-400/80 text-white font-semibold px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm shadow-lg hover:from-green-600 hover:to-green-700 hover:scale-105 active:scale-95 transition focus:outline-none focus:ring-4 focus:ring-green-400/40"
-                  style={{
-                    boxShadow: '0 0 10px 0 #22c55e44, 0 2px 10px 0 #000a',
-                    transform: 'none'
-                  }}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  transition={{ type: 'spring', stiffness: 400, damping: 17 }}
-                >
-                  <FaTelegramPlane className="text-xs sm:text-sm" />
-                  <span className="hidden sm:inline">{(t('pricing.premiumCta') as string) || 'Get Lifetime'}</span>
-                  <span className="sm:hidden">Get Lifetime</span>
-                </LazyMotionA>
+              <div className="relative inline-block">
+                <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full blur-lg opacity-60 animate-pulse"></div>
+                <span className="relative inline-flex items-center gap-2 bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 text-white font-bold px-8 py-3 rounded-full text-base shadow-2xl border border-white/20">
+                  <span className="animate-bounce">🔥</span>
+                  <span className="tracking-wide">{(t('pricing.discount') as string)}</span>
+                  <span className="animate-bounce">⚡</span>
+                </span>
               </div>
             </LazyMotion>
+          )}
+
+          {/* Pricing Cards - Modern Neon Style */}
+          <div className="w-full max-w-7xl mx-auto mb-12 lg:mb-16">
+            {/* Main Pricing Grid */}
+            <div className="relative">
+              {/* Background Glow Effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-green-500/20 via-blue-500/20 to-purple-500/20 blur-3xl rounded-3xl"></div>
+
+              <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 p-8">
+                {/* Standard Plans */}
+                {Array.isArray(t('pricing.plans')) && ((t('pricing.plans') as unknown) as { name: string; price: string; originalPrice?: string; discount?: boolean; paymentUrl?: string }[]).slice(0, 3).map((plan, i) => (
+                  <LazyMotion
+                    key={plan.name}
+                    initial={{ opacity: 0, scale: 0.8, y: 40 }}
+                    whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.2, duration: 0.6, type: 'spring' }}
+                    whileHover={{ scale: 1.05, y: -10 }}
+                    className="relative group"
+                  >
+                    {/* Card Container */}
+                    <div className="relative bg-black/80 backdrop-blur-xl rounded-2xl p-6 border border-green-400/30 hover:border-green-400/60 transition-all duration-500 overflow-hidden min-h-[320px]">
+                      {/* Neon Glow Effect */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-green-400/10 to-blue-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
+
+                      <div className="relative z-10 text-center space-y-6 h-full flex flex-col justify-between">
+                        {/* Plan Name */}
+                        <h3 className="text-xl font-bold text-white pt-4">{plan.name}</h3>
+
+                        {/* Price Section - Contained */}
+                        <div className="space-y-4 flex-1 flex flex-col justify-center px-2">
+                          {plan.originalPrice && plan.discount ? (
+                            <>
+                              <div className="flex items-center justify-center">
+                                <div className="text-2xl font-black text-slate-300 line-through decoration-slate-400 decoration-3 relative">
+                                  {plan.originalPrice}
+                                  <div className="absolute -top-2 -right-10 bg-gradient-to-r from-red-500 to-orange-500 text-white px-2 py-1 rounded-full text-xs font-bold animate-pulse shadow-lg transform rotate-12">
+                                    🔥 10% OFF
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="text-4xl font-black bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent break-words leading-tight">
+                                {plan.price}
+                              </div>
+                            </>
+                          ) : (
+                            <div className="text-2xl font-black bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent break-words leading-tight">
+                              {plan.price}
+                            </div>
+                          )}
+                        </div>
+
+                        {/* CTA Button */}
+                        <div className="mt-4">
+                          <LazyMotionA
+                            href={plan.paymentUrl || 'https://t.me/scam_radar_bot'}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="block w-full bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-green-500/25"
+                          >
+                            Choose Plan
+                          </LazyMotionA>
+                        </div>
+                      </div>
+                    </div>
+                  </LazyMotion>
+                ))}
+
+                {/* Bigger Premium Lifetime Plan */}
+                <LazyMotion
+                  initial={{ opacity: 0, scale: 0.8, y: 40 }}
+                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.6, duration: 0.8, type: 'spring' }}
+                  whileHover={{ scale: 1.05, y: -10 }}
+                  className="relative group md:col-span-1 lg:col-span-1"
+                >
+                  {/* Bigger Premium Card Container */}
+                  <div className="relative bg-gradient-to-br from-rose-900/50 to-pink-900/50 backdrop-blur-xl rounded-2xl p-6 border-2 border-rose-500/40 hover:border-pink-400/60 transition-all duration-500 overflow-hidden min-h-[380px]">
+                    {/* Popular Badge */}
+                    <div className="absolute top-1 left-1/2 transform -translate-x-1/2 z-10">
+                      <div className="bg-gradient-to-r from-rose-600 to-pink-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
+                        ⭐ POPULAR
+                      </div>
+                    </div>
+
+                    {/* Premium Glow Effect */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-rose-400/15 to-pink-400/15 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
+
+                    <div className="relative z-10 text-center space-y-5 h-full flex flex-col justify-between pt-6">
+                      {/* Plan Name */}
+                      <h3 className="text-xl font-bold text-white">
+                        {((t('pricing.plans') as unknown as { name: string; price: string; originalPrice?: string; discount?: boolean }[])?.[3]?.name) || 'LIFETIME'}
+                      </h3>
+
+                      {/* Contained Price */}
+                      <div className="space-y-3 flex-1 flex flex-col justify-center px-2">
+                        <div className="text-3xl font-black bg-gradient-to-r from-rose-300 via-pink-300 to-purple-300 bg-clip-text text-transparent break-words leading-tight">
+                          {((t('pricing.plans') as unknown as { name: string; price: string; originalPrice?: string; discount?: boolean }[])?.[3]?.price) || '$499.99'}
+                        </div>
+                        <div className="text-rose-300 text-sm font-semibold">{(t('pricing.oneTimePayment') as string) || 'One-time payment'}</div>
+                      </div>
+
+                      {/* Extended Features */}
+                      <div className="space-y-2 text-sm">
+                        <div className="flex items-center justify-center gap-2 text-rose-200">
+                          <span className="text-pink-400">✓</span>
+                          <span>{(Array.isArray(t('pricing.features')) ? (t('pricing.features') as string[])[0] : 'Unlimited checks')}</span>
+                        </div>
+                        <div className="flex items-center justify-center gap-2 text-rose-200">
+                          <span className="text-pink-400">✓</span>
+                          <span>{(Array.isArray(t('pricing.features')) ? (t('pricing.features') as string[])[1] : 'Priority support')}</span>
+                        </div>
+                        <div className="flex items-center justify-center gap-2 text-rose-200">
+                          <span className="text-pink-400">✓</span>
+                          <span>{(Array.isArray(t('pricing.features')) ? (t('pricing.features') as string[])[2] : 'Early access to new features')}</span>
+                        </div>
+                      </div>
+
+                      {/* Premium CTA */}
+                      <LazyMotionA
+                        href="https://t.me/scam_radar_bot"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="block w-full bg-gradient-to-r from-rose-600 via-pink-600 to-purple-600 hover:from-rose-700 hover:via-pink-700 hover:to-purple-700 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-pink-500/20 text-base"
+                      >
+                        👑 {(t('pricing.cta') as string) || 'Get Lifetime'}
+                      </LazyMotionA>
+                    </div>
+                  </div>
+                </LazyMotion>
+              </div>
+            </div>
+
+
           </div>
 
           {/* Premium Features Box */}
@@ -887,7 +941,7 @@ export default function Home({ locale, messages }: { locale: string; messages: M
               {(t('footer.premiumFeatures') as string) || '✨ Premium Features'}
             </LazyMotionH3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            {(Array.isArray(t('pricing.features')) ? (t('pricing.features') as string[]) : [
+              {(Array.isArray(t('pricing.features')) ? (t('pricing.features') as string[]) : [
                 'Unlimited contract checks',
                 'Priority support',
                 'Early access to new features',
@@ -984,7 +1038,7 @@ export default function Home({ locale, messages }: { locale: string; messages: M
                 transition={{ duration: 0.8 }}
                 className="space-y-6"
               >
-                                 <h3 id="contacts" className="text-2xl font-bold text-green-400 mb-8">{(t('contacts.title') as string) || 'Get in Touch'}</h3>
+                <h3 id="contacts" className="text-2xl font-bold text-green-400 mb-8">{(t('contacts.title') as string) || 'Get in Touch'}</h3>
 
                 <div className="space-y-4" itemScope itemType="https://schema.org/ContactPoint">
                   <meta itemProp="contactType" content="Customer Support" />
@@ -1110,7 +1164,7 @@ export default function Home({ locale, messages }: { locale: string; messages: M
                     transition={{ duration: 0.2 }}
                     className="block text-gray-200 hover:text-green-400 transition-all duration-300 text-lg"
                   >
-                                         {(t('nav.contacts') as string) || 'Contacts'}
+                    {(t('nav.contacts') as string) || 'Contacts'}
                   </LazyMotionA>
                 </div>
 
@@ -1243,20 +1297,20 @@ function HeroTextBlock({ t }: { t: (key: string) => string | string[] | { [key: 
       <meta itemProp="author" content="Scam Radar Team" />
       <meta itemProp="price" content="0" />
       <meta itemProp="priceCurrency" content="USD" />
-              <LazyMotionA
-          href='https://t.me/scam_radar_bot'
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-3 bg-gradient-to-r from-green-500 to-green-600 border-2 border-green-400/80 text-white font-bold px-6 sm:px-8 py-4 rounded-full text-base sm:text-lg shadow-2xl hover:from-green-600 hover:to-green-700 hover:scale-105 active:scale-95 transition focus:outline-none focus:ring-4 focus:ring-green-400/40"
-          style={{ boxShadow: '0 0 20px 0 #22c55e88, 0 4px 20px 0 #000a' }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          transition={{ type: 'spring', stiffness: 400, damping: 17 }}
-        >
-          <FaTelegramPlane className="text-lg sm:text-xl" />
-          <span className="hidden sm:inline">{(t('home.cta') as string) || 'Try the Telegram Bot'}</span>
-          <span className="sm:hidden">Try Bot</span>
-        </LazyMotionA>
+      <LazyMotionA
+        href='https://t.me/scam_radar_bot'
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center gap-3 bg-gradient-to-r from-green-500 to-green-600 border-2 border-green-400/80 text-white font-bold px-6 sm:px-8 py-4 rounded-full text-base sm:text-lg shadow-2xl hover:from-green-600 hover:to-green-700 hover:scale-105 active:scale-95 transition focus:outline-none focus:ring-4 focus:ring-green-400/40"
+        style={{ boxShadow: '0 0 20px 0 #22c55e88, 0 4px 20px 0 #000a' }}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+      >
+        <FaTelegramPlane className="text-lg sm:text-xl" />
+        <span className="hidden sm:inline">{(t('home.cta') as string) || 'Try the Telegram Bot'}</span>
+        <span className="sm:hidden">Try Bot</span>
+      </LazyMotionA>
     </>
   );
 }

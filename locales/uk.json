@@ -49,13 +49,14 @@
     "cta": "Спробувати Scam Radar"
   },
   "pricing": {
-    "title": "Оновіть до Преміум",
-    "subtitle": "Відкрийте необмежені перевірки, пріоритетну підтримку, розширений аналіз ризиків та багато іншого!",
+    "title": "Оновитися до Преміум",
+    "subtitle": "Розблокуйте необмежені перевірки, пріоритетну підтримку, розширений аналіз ризиків та багато іншого!",
+    "discount": "ЗНИЖКА 10% Обмежений час",
     "plans": [
-      { "name": "1 місяць", "price": "$9.99" },
-      { "name": "3 місяці", "price": "$24.99" },
-      { "name": "1 рік", "price": "$79.99" },
-      { "name": "Назавжди", "price": "$499.99" }
+      { "name": "1 Місяць", "price": "$8.99", "originalPrice": "$9.99", "discount": true, "paymentUrl": "https://web.tribute.tg/s/tZM" },
+      { "name": "3 Місяці", "price": "$22.49", "originalPrice": "$24.99", "discount": true, "paymentUrl": "https://web.tribute.tg/s/tZN" },
+      { "name": "1 Рік", "price": "$71.99", "originalPrice": "$79.99", "discount": true, "paymentUrl": "https://web.tribute.tg/s/vWl" },
+      { "name": "Довічно", "price": "$499.99", "originalPrice": null, "discount": false, "paymentUrl": "https://web.tribute.tg/s/tZO" }
     ],
     "features": [
       "Необмежені перевірки контрактів",
@@ -67,6 +68,7 @@
     ],
     "featuresEmphasized": [0,1,2,3,4],
     "cta": "Оплатити",
+    "oneTimePayment": "Одноразовий платіж",
     "info": "Посилання для оплати з'являться незабаром. Поки що використовуйте бота для оформлення підписки."
   },
   "faq": {

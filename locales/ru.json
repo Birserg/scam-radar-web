@@ -49,13 +49,14 @@
     "cta": "Попробовать Scam Radar"
   },
   "pricing": {
-    "title": "Премиум-подписка",
-    "subtitle": "Откройте неограниченные проверки, приоритетную поддержку, расширенный анализ рисков и многое другое!",
+    "title": "Обновиться до Премиум",
+    "subtitle": "Разблокируйте неограниченные проверки, приоритетную поддержку, расширенный анализ рисков и многое другое!",
+    "discount": "СКИДКА 10% Ограниченное время",
     "plans": [
-      { "name": "1 месяц", "price": "$9.99" },
-      { "name": "3 месяца", "price": "$24.99" },
-      { "name": "1 год", "price": "$79.99" },
-      { "name": "Навсегда", "price": "$499.99" }
+      { "name": "1 Месяц", "price": "$8.99", "originalPrice": "$9.99", "discount": true, "paymentUrl": "https://web.tribute.tg/s/tZM" },
+      { "name": "3 Месяца", "price": "$22.49", "originalPrice": "$24.99", "discount": true, "paymentUrl": "https://web.tribute.tg/s/tZN" },
+      { "name": "1 Год", "price": "$71.99", "originalPrice": "$79.99", "discount": true, "paymentUrl": "https://web.tribute.tg/s/vWl" },
+      { "name": "Пожизненно", "price": "$499.99", "originalPrice": null, "discount": false, "paymentUrl": "https://web.tribute.tg/s/tZO" }
     ],
     "features": [
       "Неограниченные проверки контрактов",
@@ -67,6 +68,7 @@
     ],
     "featuresEmphasized": [0,1,2,3,4],
     "cta": "Оплатить",
+    "oneTimePayment": "Единоразовый платеж",
     "info": "Ссылки для оплаты появятся скоро. Пока что используйте бота для оформления подписки."
   },
   "faq": {

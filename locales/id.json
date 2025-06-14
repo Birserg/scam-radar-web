@@ -50,12 +50,13 @@
   },
   "pricing": {
     "title": "Upgrade ke Premium",
-    "subtitle": "Buka cek tanpa batas, dukungan prioritas, analisis risiko lanjutan, dan banyak lagi!",
+    "subtitle": "Buka kunci pemeriksaan tak terbatas, dukungan prioritas, analisis risiko lanjutan, dan banyak lagi!",
+    "discount": "DISKON 10% Waktu Terbatas",
     "plans": [
-      { "name": "1 Bulan", "price": "$9.99" },
-      { "name": "3 Bulan", "price": "$24.99" },
-      { "name": "1 Tahun", "price": "$79.99" },
-      { "name": "Seumur Hidup", "price": "$499.99" }
+      { "name": "1 Bulan", "price": "$8.99", "originalPrice": "$9.99", "discount": true, "paymentUrl": "https://web.tribute.tg/s/tZM" },
+      { "name": "3 Bulan", "price": "$22.49", "originalPrice": "$24.99", "discount": true, "paymentUrl": "https://web.tribute.tg/s/tZN" },
+      { "name": "1 Tahun", "price": "$71.99", "originalPrice": "$79.99", "discount": true, "paymentUrl": "https://web.tribute.tg/s/vWl" },
+      { "name": "Seumur Hidup", "price": "$499.99", "originalPrice": null, "discount": false, "paymentUrl": "https://web.tribute.tg/s/tZO" }
     ],
     "features": [
       "Cek kontrak tanpa batas",
@@ -67,6 +68,7 @@
     ],
     "featuresEmphasized": [0,1,2,3,4],
     "cta": "Bayar",
+    "oneTimePayment": "Pembayaran sekali",
     "info": "Tautan pembayaran akan segera tersedia. Untuk saat ini, silakan gunakan bot untuk meminta upgrade."
   },
   "faq": {

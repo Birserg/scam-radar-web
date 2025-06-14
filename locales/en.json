@@ -51,11 +51,12 @@
   "pricing": {
     "title": "Upgrade to Premium",
     "subtitle": "Unlock unlimited checks, priority support, advanced risk analysis, and more!",
+    "discount": "10% OFF Limited Time",
     "plans": [
-      { "name": "1 Month", "price": "$9.99" },
-      { "name": "3 Months", "price": "$24.99" },
-      { "name": "1 Year", "price": "$79.99" },
-      { "name": "Lifetime", "price": "$499.99" }
+      { "name": "1 Month", "price": "$8.99", "originalPrice": "$9.99", "discount": true, "paymentUrl": "https://web.tribute.tg/s/tZM" },
+      { "name": "3 Months", "price": "$22.49", "originalPrice": "$24.99", "discount": true, "paymentUrl": "https://web.tribute.tg/s/tZN" },
+      { "name": "1 Year", "price": "$71.99", "originalPrice": "$79.99", "discount": true, "paymentUrl": "https://web.tribute.tg/s/vWl" },
+      { "name": "Lifetime", "price": "$499.99", "originalPrice": null, "discount": false, "paymentUrl": "https://web.tribute.tg/s/tZO" }
     ],
     "features": [
       "Unlimited contract checks",
@@ -66,7 +67,8 @@
       "X alerts"
     ],
     "featuresEmphasized": [0,1,2,3,4],
-    "cta": "Pay",
+    "cta": "Get Premium",
+    "oneTimePayment": "One-time payment",
     "info": "Payment links will be available soon. For now, please use the bot to request an upgrade."
   },
   "faq": {
