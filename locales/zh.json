@@ -51,11 +51,11 @@
   "pricing": {
     "title": "升级到高级版",
     "subtitle": "解锁无限检查、优先支持、高级风险分析等功能！",
-    "discount": "限时优惠 10% 折扣",
+    "discount": "限时优惠 30% 折扣",
     "plans": [
-      { "name": "1个月", "price": "$8.99", "originalPrice": "$9.99", "discount": true, "paymentUrl": "https://web.tribute.tg/s/tZM" },
-      { "name": "3个月", "price": "$22.49", "originalPrice": "$24.99", "discount": true, "paymentUrl": "https://web.tribute.tg/s/tZN" },
-      { "name": "1年", "price": "$71.99", "originalPrice": "$79.99", "discount": true, "paymentUrl": "https://web.tribute.tg/s/vWl" },
+      { "name": "1个月", "price": "$6.99", "originalPrice": "$9.99", "discount": true, "paymentUrl": "https://web.tribute.tg/s/tZM" },
+      { "name": "3个月", "price": "$17.49", "originalPrice": "$24.99", "discount": true, "paymentUrl": "https://web.tribute.tg/s/tZN" },
+      { "name": "1年", "price": "$55.99", "originalPrice": "$79.99", "discount": true, "paymentUrl": "https://web.tribute.tg/s/vWl" },
       { "name": "终身", "price": "$499.99", "originalPrice": null, "discount": false, "paymentUrl": "https://web.tribute.tg/s/tZO" }
     ],
     "features": [

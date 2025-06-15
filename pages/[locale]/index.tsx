@@ -819,7 +819,7 @@ export default function Home({ locale, messages }: { locale: string; messages: M
                                 <div className="text-2xl font-black text-slate-300 line-through decoration-slate-400 decoration-3 relative">
                                   {plan.originalPrice}
                                   <div className="absolute -top-2 -right-10 bg-gradient-to-r from-red-500 to-orange-500 text-white px-2 py-1 rounded-full text-xs font-bold animate-pulse shadow-lg transform rotate-12">
-                                    🔥 10% OFF
+                                    🔥 30% OFF
                                   </div>
                                 </div>
                               </div>
@@ -905,7 +905,7 @@ export default function Home({ locale, messages }: { locale: string; messages: M
 
                       {/* Premium CTA */}
                       <LazyMotionA
-                        href="https://t.me/scam_radar_bot"
+                        href="https://t.me/"
                         target="_blank"
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.05 }}

@@ -51,11 +51,11 @@
   "pricing": {
     "title": "Обновиться до Премиум",
     "subtitle": "Разблокируйте неограниченные проверки, приоритетную поддержку, расширенный анализ рисков и многое другое!",
-    "discount": "СКИДКА 10% Ограниченное время",
+    "discount": "СКИДКА 30% Ограниченное время",
     "plans": [
-      { "name": "1 Месяц", "price": "$8.99", "originalPrice": "$9.99", "discount": true, "paymentUrl": "https://web.tribute.tg/s/tZM" },
-      { "name": "3 Месяца", "price": "$22.49", "originalPrice": "$24.99", "discount": true, "paymentUrl": "https://web.tribute.tg/s/tZN" },
-      { "name": "1 Год", "price": "$71.99", "originalPrice": "$79.99", "discount": true, "paymentUrl": "https://web.tribute.tg/s/vWl" },
+      { "name": "1 Месяц", "price": "$6.99", "originalPrice": "$9.99", "discount": true, "paymentUrl": "https://web.tribute.tg/s/tZM" },
+      { "name": "3 Месяца", "price": "$17.49", "originalPrice": "$24.99", "discount": true, "paymentUrl": "https://web.tribute.tg/s/tZN" },
+      { "name": "1 Год", "price": "$55.99", "originalPrice": "$79.99", "discount": true, "paymentUrl": "https://web.tribute.tg/s/vWl" },
       { "name": "Пожизненно", "price": "$499.99", "originalPrice": null, "discount": false, "paymentUrl": "https://web.tribute.tg/s/tZO" }
     ],
     "features": [
