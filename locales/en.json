@@ -20,7 +20,7 @@
     "botDesc": "Advanced AI technology with unlimited premium checks available"
   },
   "detecting": "Detecting your preferred language...",
-  "networks": "Scam Radar supports multiple blockchain networks including Ethereum, Binance Smart Chain (BSC), Solana, and Base. Our advanced algorithms analyze smart contracts in real-time to detect potential scams, honeypots, and malicious tokens before you invest.",
+  "networks": "Scam Radar supports multiple blockchain networks including Ethereum, BNB Smart Chain (BSC), Base, Solana, Blast, Polygon, Fantom, Arbitrum, Optimism, Avalanche, Gnosis (xDAI), Harmony, KuCoin Community Chain (KCC), Cronos, and Oasis. Our advanced algorithms analyze smart contracts in real-time to detect potential scams, honeypots, and malicious tokens before you invest.",
   "types": "We detect various types of crypto scams including honeypot tokens, rug pulls, fake tokens, liquidity traps, and malicious smart contracts. Our comprehensive analysis includes contract verification, liquidity analysis, ownership checks, and trading simulation.",
   "cta": "Start using Scam Radar today to protect your cryptocurrency investments. Join thousands of crypto traders who trust our advanced scam detection technology to keep their funds safe.",
   "home": {
@@ -85,7 +85,7 @@
       },
       {
         "question": "Which blockchains are supported?",
-        "answer": "Ethereum, Base, BNB Chain (BSC), and Solana. Choose the network where you plan to buy the token."
+        "answer": "We support Ethereum, BNB Smart Chain (BSC), Base, Solana, Blast, Polygon, Fantom, Arbitrum, Optimism, Avalanche, Gnosis (xDAI), Harmony, KuCoin Community Chain (KCC), Cronos, and Oasis. Choose the network where you plan to buy the token."
       },
       {
         "question": "How many free checks do I get?",
@@ -114,7 +114,7 @@
   "meta": {
     "title": "Scam Radar — Token & Smart Contract Safety Checker",
     "description": "Verify token smart contracts for scams & honeypots on ETH, BSC, Solana, Base. Try for Free Telegram bot with premium features for crypto safety.",
-    "keywords": "check smart contract, token checker, token scam detector, check coin security, smart contract analysis, cryptocurrency safety, DeFi scam protection, blockchain token validator, Ethereum token check, BSC honeypot detector, Solana token safety, crypto risk checker, token verification tool, scam prevention, investment protection",
+    "keywords": "check smart contract, token checker, token scam detector, check coin security, smart contract analysis, cryptocurrency safety, DeFi scam protection, blockchain token validator, Ethereum token check, BSC honeypot detector, Solana token safety, Blast token check, Polygon token verification, Fantom token analysis, Arbitrum token check, Optimism token safety, Avalanche token verification, Gnosis token check, Harmony token analysis, KCC token verification, Cronos token check, Oasis token safety, crypto risk checker, token verification tool, scam prevention, investment protection",
     "ogTitle": "Scam Radar — Token Scam & Smart Contract Checker",
     "ogDescription": "Protect your crypto with our Try for Free Telegram bot. Verify token smart contracts on Ethereum, BSC, Solana, Base for scams and honeypots.",
     "ogImage": "/og-scam-radar.webp",

@@ -20,7 +20,7 @@
     "botDesc": "Teknologi AI canggih dengan cek premium tanpa batas tersedia"
   },
   "detecting": "Mendeteksi bahasa pilihan Anda...",
-  "networks": "Jaringan yang Didukung: Ethereum (ETH), BNB Smart Chain (BSC), Solana (SOL), Base Network",
+  "networks": "Scam Radar mendukung berbagai jaringan blockchain termasuk Ethereum, BNB Smart Chain (BSC), Base, Solana, Blast, Polygon, Fantom, Arbitrum, Optimism, Avalanche, Gnosis (xDAI), Harmony, KuCoin Community Chain (KCC), Cronos, dan Oasis. Algoritma canggih kami menganalisis kontrak pintar secara real-time untuk mendeteksi potensi penipuan, honeypot, dan token berbahaya sebelum Anda berinvestasi.",
   "types": "Jenis Deteksi: Kontrak Scam, Token Honeypot, Rug Pull, Exit Scam, Smart Contract Berbahaya",
   "cta": "Bergabunglah dengan ribuan trader kripto yang mempercayai Scam Radar untuk investasi DeFi yang aman. Coba bot Telegram kami @scam_radar_bot untuk analisis token instan.",
   "home": {
@@ -84,8 +84,8 @@
         "answer": "Tekan 'Periksa token', pilih blockchain, dan kirimkan alamat smart contract."
       },
       {
-        "question": "Blockchain apa saja yang didukung?",
-        "answer": "Ethereum, Base, BNB Chain (BSC), dan Solana. Pilih jaringan tempat Anda ingin membeli token."
+        "question": "Blockchain mana yang didukung?",
+        "answer": "Kami mendukung Ethereum, BNB Smart Chain (BSC), Base, Solana, Blast, Polygon, Fantom, Arbitrum, Optimism, Avalanche, Gnosis (xDAI), Harmony, KuCoin Community Chain (KCC), Cronos, dan Oasis. Pilih jaringan tempat Anda berencana membeli token."
       },
       {
         "question": "Berapa banyak cek gratis yang saya dapatkan?",
@@ -113,8 +113,8 @@
   },
   "meta": {
     "title": "Scam Radar — Pemeriksa Keamanan Token & Smart Contract",
-    "description": "Verifikasi smart contract token untuk scam & honeypot di ETH, BSC, Solana, Base. Coba Bot Telegram Gratis dengan fitur premium untuk keamanan kripto.",
-    "keywords": "periksa smart contract, pemeriksa token, detektor scam token, periksa keamanan koin, analisis smart contract, keamanan cryptocurrency, perlindungan scam DeFi, validator token blockchain, periksa token Ethereum, detektor honeypot BSC, keamanan token Solana, pemeriksa risiko crypto, alat verifikasi token, pencegahan scam, perlindungan investasi",
+    "description": "Verifikasi smart contract token untuk scam & honeypot di ETH, BSC, Solana, Base, dan jaringan lainnya. Coba bot Telegram gratis dengan fitur premium untuk keamanan kripto.",
+    "keywords": "pemeriksaan smart contract, pemeriksa token, detektor token scam, pemeriksaan keamanan token, analisis smart contract, keamanan kripto, perlindungan scam DeFi, validator token blockchain, pemeriksaan token Ethereum, detektor honeypot BSC, keamanan token Solana, pemeriksaan token Blast, verifikasi token Polygon, analisis token Fantom, pemeriksaan token Arbitrum, keamanan token Optimism, verifikasi token Avalanche, pemeriksaan token Gnosis, analisis token Harmony, verifikasi token KCC, pemeriksaan token Cronos, keamanan token Oasis, pemeriksa risiko kripto, alat verifikasi token, pencegahan scam, perlindungan investasi",
     "ogTitle": "Scam Radar — Pemeriksa Scam Token & Smart Contract",
     "ogDescription": "Lindungi crypto Anda dengan Bot Telegram Gratis kami. Verifikasi smart contract token di Ethereum, BSC, Solana, Base untuk scam dan honeypot.",
     "ogImage": "/og-scam-radar.webp",

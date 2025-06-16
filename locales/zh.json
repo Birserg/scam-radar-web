@@ -20,7 +20,7 @@
     "botDesc": "先进的AI技术，提供无限高级检查"
   },
   "detecting": "正在检测您的首选语言...",
-  "networks": "支持的网络：以太坊(ETH)、BNB智能链(BSC)、Solana(SOL)、Base网络",
+  "networks": "Scam Radar 支持多个区块链网络，包括以太坊、BNB智能链(BSC)、Base、Solana、Blast、Polygon、Fantom、Arbitrum、Optimism、Avalanche、Gnosis(xDAI)、Harmony、KuCoin社区链(KCC)、Cronos和Oasis。我们的高级算法实时分析智能合约，在您投资前检测潜在的诈骗、蜜罐和恶意代币。",
   "types": "检测类型：诈骗合约、蜜罐代币、Rug Pull、退出诈骗、恶意智能合约",
   "cta": "加入数千名信任Scam Radar进行安全DeFi投资的加密交易者。尝试我们的Telegram机器人@scam_radar_bot进行即时代币分析。",
   "home": {
@@ -85,7 +85,7 @@
       },
       {
         "question": "支持哪些区块链？",
-        "answer": "Ethereum、Base、BNB Chain (BSC) 和 Solana。请选择您计划购买代币的网络。"
+        "answer": "我们支持以太坊、BNB智能链(BSC)、Base、Solana、Blast、Polygon、Fantom、Arbitrum、Optimism、Avalanche、Gnosis(xDAI)、Harmony、KuCoin社区链(KCC)、Cronos和Oasis。请选择您计划购买代币的网络。"
       },
       {
         "question": "有多少次免费检查？",
@@ -113,8 +113,8 @@
   },
   "meta": {
     "title": "Scam Radar — 代币和智能合约安全检查器",
-    "description": "验证代币智能合约的诈骗和蜜罐陷阱在ETH、BSC、Solana、Base上。试试免费Telegram机器人的高级功能以保护加密货币安全。",
-    "keywords": "检查智能合约, 代币检查器, 代币诈骗检测器, 检查币安全性, 智能合约分析, 加密货币安全, DeFi诈骗保护, 区块链代币验证器, 以太坊代币检查, BSC蜜罐检测器, Solana代币安全, 加密风险检查器, 代币验证工具, 诈骗预防, 投资保护",
+    "description": "在ETH、BSC、Solana、Base等网络上验证代币智能合约是否存在诈骗和蜜罐。免费试用Telegram机器人，提供加密货币安全的高级功能。",
+    "keywords": "检查智能合约, 代币检查器, 代币诈骗检测器, 检查代币安全性, 智能合约分析, 加密货币安全, DeFi诈骗防护, 区块链代币验证器, 以太坊代币检查, BSC蜜罐检测器, Solana代币安全, Blast代币检查, Polygon代币验证, Fantom代币分析, Arbitrum代币检查, Optimism代币安全, Avalanche代币验证, Gnosis代币检查, Harmony代币分析, KCC代币验证, Cronos代币检查, Oasis代币安全, 加密货币风险检查器, 代币验证工具, 诈骗预防, 投资保护",
     "ogTitle": "Scam Radar — 代币诈骗和智能合约检查器",
     "ogDescription": "使用我们的免费Telegram机器人保护您的加密货币。在以太坊、BSC、Solana、Base上验证代币智能合约的诈骗和蜜罐陷阱。",
     "ogImage": "/og-scam-radar.webp",

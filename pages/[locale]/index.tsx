@@ -905,7 +905,7 @@ export default function Home({ locale, messages }: { locale: string; messages: M
 
                       {/* Premium CTA */}
                       <LazyMotionA
-                        href="https://t.me/"
+                        href="https://web.tribute.tg/s/tZO"
                         target="_blank"
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.05 }}
