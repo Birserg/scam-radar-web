@@ -32,8 +32,11 @@ const SUPPORTED_LOCALES = [
 ];
 
 // Utility function to handle base path consistently across the app
-const getBasePath = () => process.env.NEXT_PUBLIC_BASE_PATH || '';
-
+const getBasePath = () => {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+  // Remove locale from path for static assets
+  return basePath.replace(/\/[a-z]{2}$/, '');
+};
 // Helper function for creating proper navigation links
 const createNavLink = (locale: string, anchor?: string) => {
   const basePath = getBasePath();
