@@ -12,23 +12,28 @@ Allow: /zh/
 Allow: /logo.jpeg
 Allow: /logo.webp
 Allow: /logo.avif
-  Allow: /og-*.jpg
-  Allow: /og-*.webp
-  Allow: /twitter-*.jpg
-  Allow: /twitter-*.webp
+Allow: /og-*.jpg
+Allow: /og-*.webp
+Allow: /og-*.avif
+Allow: /twitter-*.jpg
+Allow: /twitter-*.webp
+Allow: /twitter-*.avif
 Allow: /favicon.ico
+Allow: /favicon.svg
+Allow: /favicon-*.png
 Allow: /apple-touch-icon.png
+Allow: /android-chrome-*.png
 Allow: /manifest.json
-Allow: /_next/static/
+Allow: /browserconfig.xml
 
 # Disallow admin and private paths
 Disallow: /admin/
 Disallow: /_next/
 Disallow: /api/
+Disallow: /private/
 
 # Sitemap location
 Sitemap: https://scam-radar.net/sitemap.xml
-Sitemap: https://www.scam-radar.net/sitemap.xml
 
 # Social Media Profiles
 # X (formerly Twitter): https://x.com/scam_radar_ai

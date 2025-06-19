@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <!-- Root Page (Redirects to default language) -->
+  <!-- Root Page (Main landing page) -->
   <url>
     <loc>https://scam-radar.net/</loc>
-    <lastmod>2025-06-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://scam-radar.net/en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://scam-radar.net/ru"/>
     <xhtml:link rel="alternate" hreflang="uk" href="https://scam-radar.net/uk"/>
@@ -17,35 +17,21 @@
   <!-- English (Default) -->
   <url>
     <loc>https://scam-radar.net/en</loc>
-    <lastmod>2025-06-10</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://scam-radar.net/en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://scam-radar.net/ru"/>
     <xhtml:link rel="alternate" hreflang="uk" href="https://scam-radar.net/uk"/>
     <xhtml:link rel="alternate" hreflang="id" href="https://scam-radar.net/id"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://scam-radar.net/zh"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://scam-radar.net/en"/>
-  </url>
-
-  <!-- English (Default) -->
-  <url>
-    <loc>https://www.scam-radar.net/en</loc>
-    <lastmod>2025-06-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.scam-radar.net/en"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://www.scam-radar.net/ru"/>
-    <xhtml:link rel="alternate" hreflang="uk" href="https://www.scam-radar.net/uk"/>
-    <xhtml:link rel="alternate" hreflang="id" href="https://www.scam-radar.net/id"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://www.scam-radar.net/zh"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.scam-radar.net/en"/>
   </url>
 
   <!-- Russian -->
   <url>
     <loc>https://scam-radar.net/ru</loc>
-    <lastmod>2025-06-10</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://scam-radar.net/en"/>
@@ -54,26 +40,12 @@
     <xhtml:link rel="alternate" hreflang="id" href="https://scam-radar.net/id"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://scam-radar.net/zh"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://scam-radar.net/en"/>
-  </url>
-
-  <!-- Russian -->
-  <url>
-    <loc>https://www.scam-radar.net/ru</loc>
-    <lastmod>2025-06-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.scam-radar.net/en"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://www.scam-radar.net/ru"/>
-    <xhtml:link rel="alternate" hreflang="uk" href="https://www.scam-radar.net/uk"/>
-    <xhtml:link rel="alternate" hreflang="id" href="https://www.scam-radar.net/id"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://www.scam-radar.net/zh"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.scam-radar.net/en"/>
   </url>
 
   <!-- Ukrainian -->
   <url>
     <loc>https://scam-radar.net/uk</loc>
-    <lastmod>2025-06-10</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://scam-radar.net/en"/>
@@ -84,36 +56,10 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://scam-radar.net/en"/>
   </url>
 
-  <!-- Ukrainian -->
-  <url>
-    <loc>https://www.scam-radar.net/uk</loc>
-    <lastmod>2025-06-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.scam-radar.net/en"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://www.scam-radar.net/ru"/>
-    <xhtml:link rel="alternate" hreflang="uk" href="https://www.scam-radar.net/uk"/>
-    <xhtml:link rel="alternate" hreflang="id" href="https://www.scam-radar.net/id"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://www.scam-radar.net/zh"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.scam-radar.net/en"/>
-  </url>
-
   <!-- Indonesian -->
   <url>
-    <loc>https://www.scam-radar.net/id</loc>
-    <lastmod>2025-06-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.scam-radar.net/en"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://www.scam-radar.net/ru"/>
-    <xhtml:link rel="alternate" hreflang="uk" href="https://www.scam-radar.net/uk"/>
-    <xhtml:link rel="alternate" hreflang="id" href="https://www.scam-radar.net/id"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://www.scam-radar.net/zh"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.scam-radar.net/en"/>
-  </url>
-  <url>
     <loc>https://scam-radar.net/id</loc>
-    <lastmod>2025-06-10</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://scam-radar.net/en"/>
@@ -127,7 +73,7 @@
   <!-- Chinese -->
   <url>
     <loc>https://scam-radar.net/zh</loc>
-    <lastmod>2025-06-10</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://scam-radar.net/en"/>
@@ -136,19 +82,5 @@
     <xhtml:link rel="alternate" hreflang="id" href="https://scam-radar.net/id"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://scam-radar.net/zh"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://scam-radar.net/en"/>
-  </url>
-
-  <!-- Chinese -->
-  <url>
-    <loc>https://www.scam-radar.net/zh</loc>
-    <lastmod>2025-06-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.scam-radar.net/en"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://www.scam-radar.net/ru"/>
-    <xhtml:link rel="alternate" hreflang="uk" href="https://www.scam-radar.net/uk"/>
-    <xhtml:link rel="alternate" hreflang="id" href="https://www.scam-radar.net/id"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://www.scam-radar.net/zh"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.scam-radar.net/en"/>
   </url>
 </urlset>

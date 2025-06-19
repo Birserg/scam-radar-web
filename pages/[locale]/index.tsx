@@ -53,7 +53,7 @@ const getCanonicalUrl = (locale: string) => {
     return `https://birserg.github.io${basePath}/${locale}`;
   }
 
-  // For local development or custom domain
+  // For production - always use non-www version to prevent duplicate content
   return `https://scam-radar.net/${locale}`;
 };
 

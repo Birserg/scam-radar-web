@@ -78,8 +78,11 @@ interface Messages {
 export default function Index() {
   const router = useRouter();
   const [messages, setMessages] = useState<Messages>({});
+  const [isRedirecting, setIsRedirecting] = useState(false);
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
+    setIsClient(true);
     const preferredLocale = detectUserLocale();
 
     // Load locale messages for SEO content
@@ -101,9 +104,16 @@ export default function Index() {
       localStorage.setItem('preferred-locale', preferredLocale);
     }
 
-    // Redirect immediately to the localized page
-    router.replace(createNavLink(preferredLocale));
-  }, [router]);
+    // Only redirect if user is not a search engine bot
+    const isBot = /bot|crawler|spider|crawling/i.test(navigator.userAgent);
+    if (!isBot && !isRedirecting) {
+      setIsRedirecting(true);
+      // Add a small delay to allow search engines to crawl the content
+      setTimeout(() => {
+        router.replace(createNavLink(preferredLocale));
+      }, 1000);
+    }
+  }, [router, isRedirecting]);
 
   const t = (key: string): string => {
     const value = key.split('.').reduce<unknown>((obj, k) => (obj && typeof obj === 'object' ? (obj as Record<string, unknown>)[k] : undefined), messages);
@@ -115,8 +125,9 @@ export default function Index() {
       <Head>
         <title>{t('meta.title') || "Scam Radar — Crypto Scam & Honeypot Detector"}</title>
         <meta name="description" content={t('meta.description') || "Cryptocurrency scam detection bot. Protect your crypto investments with real-time smart contract analysis across Ethereum, BSC, Solana, and Base networks."} />
-        <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://scam-radar.net/en" />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
+        <meta name="googlebot" content="index, follow" />
+        <link rel="canonical" href="https://scam-radar.net/" />
 
         {/* Language alternatives for SEO */}
         <link rel="alternate" hrefLang="en" href="https://scam-radar.net/en" />
@@ -131,6 +142,17 @@ export default function Index() {
         <meta property="og:description" content={t('meta.ogDescription') || "Cryptocurrency scam detection and honeypot checker bot"} />
         <meta property="og:url" content="https://scam-radar.net/" />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content={`${getBasePath()}/og-image.webp`} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:type" content="image/webp" />
+        <meta property="og:site_name" content="Scam Radar" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={t('meta.twitterTitle') || "Scam Radar - Crypto Scam Detection"} />
+        <meta name="twitter:description" content={t('meta.twitterDescription') || "Cryptocurrency scam detection and honeypot checker bot"} />
+        <meta name="twitter:image" content={`${getBasePath()}/twitter-image.webp`} />
 
         {/* Google Search Console Verification */}
         <meta name="google-site-verification" content="GeK4WZtgQtonCWGVzCF4Ipy7ED6ZO19E75TsxX7vgCk" />
@@ -179,115 +201,183 @@ export default function Index() {
             })
           }}
         />
+
+        {/* Critical CSS for SEO content visibility */}
+        <style dangerouslySetInnerHTML={{
+          __html: `
+            /* Hide content from users but keep it accessible to search engines */
+            .seo-content {
+              position: absolute !important;
+              left: -9999px !important;
+              top: -9999px !important;
+              width: 1px !important;
+              height: 1px !important;
+              overflow: hidden !important;
+              opacity: 0 !important;
+              pointer-events: none !important;
+              user-select: none !important;
+            }
+
+            /* Ensure search engines can still read the content */
+            .seo-content h1,
+            .seo-content h2,
+            .seo-content h3,
+            .seo-content p,
+            .seo-content div {
+              display: block !important;
+              visibility: visible !important;
+            }
+
+            /* Loading spinner styles */
+            .loading-container {
+              min-height: 100vh;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              background: black;
+              padding: 1rem;
+            }
+
+            .loading-spinner {
+              animation: spin 1s linear infinite;
+            }
+
+            @keyframes spin {
+              from { transform: rotate(0deg); }
+              to { transform: rotate(360deg); }
+            }
+          `
+        }} />
       </Head>
-      <div className="min-h-screen bg-black flex items-center justify-center px-4">
-        {/* Visible content for users - Loading spinner */}
-        <div className="min-h-screen bg-black flex items-center justify-center px-4">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-400 mx-auto mb-4"></div>
-          <h1 className="text-2xl font-semibold text-white mb-2" style={{ fontSize: '1.5rem' }}>Scam Radar</h1>
-          <h2 className="text-xl text-green-400 mb-6">Advanced Crypto Scam Detection & Honeypot Checker</h2>
-          <p className="text-gray-300 mb-6">
-            Detecting your preferred language...
-          </p>
-          <div className="flex flex-wrap gap-2 justify-center">
-            {SUPPORTED_LOCALES.map((locale) => (
-              <a
-                key={locale.code}
-                href={createNavLink(locale.code)}
-                className="bg-green-500 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-green-600 transition-colors"
-              >
-                {locale.label}
-              </a>
-            ))}
-          </div>
-        </div>
-      </div>
 
-        {/* Hidden SEO content - visible to search engines but not users */}
-        <div className="absolute opacity-0 pointer-events-none select-none" style={{ position: 'absolute', left: '-9999px', top: '-9999px' }}>
-          <div className="max-w-4xl">
-            {/* Hidden logo to satisfy preload */}
-            <Image src="/logo.webp" alt="Scam Radar Logo" width={1} height={1} />
-            <h1 className="text-4xl font-bold text-white mb-4" style={{ fontSize: '2.25rem' }}>Scam Radar</h1>
-            <h2 className="text-xl text-green-400 mb-6">{t('subtitle') || 'Advanced Crypto Scam Detection & Honeypot Checker'}</h2>
-            <p className="text-gray-300 mb-8 text-lg leading-relaxed">
-              {t('description') || 'Protect your cryptocurrency investments with Scam Radar, the most trusted Telegram bot for detecting scams and honeypots. Analyze smart contracts instantly across Ethereum, BSC, Solana, and Base networks.'}
+      {/* User-facing loading UI */}
+      {isClient && (
+        <div className="loading-container">
+          <div className="text-center">
+            <div className="loading-spinner rounded-full h-12 w-12 border-b-2 border-green-400 mx-auto mb-4"></div>
+            <h1 className="text-2xl font-semibold text-white mb-2">Scam Radar</h1>
+            <h2 className="text-xl text-green-400 mb-6">Advanced Crypto Scam Detection & Honeypot Checker</h2>
+            <p className="text-gray-300 mb-6">
+              Detecting your preferred language...
             </p>
-
-            {/* Key Features */}
-            <div className="grid md:grid-cols-3 gap-6 mb-8">
-              <div className="bg-gray-900 rounded-lg p-6">
-                <h3 className="text-green-400 font-semibold mb-2">{t('features.detection') || 'Smart Contract Analysis'}</h3>
-                <p className="text-gray-300 text-sm">{t('features.detectionDesc') || 'Advanced real-time detection of crypto scams and honeypot tokens'}</p>
-              </div>
-              <div className="bg-gray-900 rounded-lg p-6">
-                <h3 className="text-green-400 font-semibold mb-2">{t('features.language') || 'Multi-Language Support'}</h3>
-                <p className="text-gray-300 text-sm">{t('features.languageDesc') || 'Available in English, Russian, Ukrainian, Indonesian, and Chinese'}</p>
-              </div>
-              <div className="bg-gray-900 rounded-lg p-6">
-                <h3 className="text-green-400 font-semibold mb-2">{t('features.bot') || 'Telegram Bot'}</h3>
-                <p className="text-gray-300 text-sm">{t('features.botDesc') || 'Easy to use Telegram interface with instant results'}</p>
-              </div>
-            </div>
-
-            <p className="text-gray-400 mb-6">
-              {t('detecting') || 'Currently detecting scams and honeypots on multiple blockchain networks including Ethereum, BSC, Solana, and Base.'}
-            </p>
-
-            {/* Language Selection for SEO */}
-            <div className="flex flex-wrap gap-3 justify-center mb-8">
+            <div className="flex flex-wrap gap-2 justify-center">
               {SUPPORTED_LOCALES.map((locale) => (
                 <a
                   key={locale.code}
                   href={createNavLink(locale.code)}
-                  className="bg-green-500 text-white px-6 py-3 rounded-lg text-sm font-semibold"
+                  className="bg-green-500 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-green-600 transition-colors"
+                >
+                  {locale.label}
+                </a>
+              ))}
+            </div>
+            {isRedirecting && (
+              <div className="mt-4">
+                <p className="text-gray-400">Redirecting to your preferred language...</p>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* SEO content - hidden from users but visible to search engines */}
+      <div className="seo-content">
+        <div className="max-w-6xl mx-auto">
+          {/* Logo */}
+          <Image
+            src="/logo.webp"
+            alt="Scam Radar Logo"
+            width={120}
+            height={120}
+            priority
+          />
+
+          {/* Main Heading */}
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+            Scam Radar
+          </h1>
+
+          {/* Subtitle */}
+          <h2 className="text-xl md:text-2xl text-green-400 mb-8">
+            Advanced Crypto Scam Detection & Honeypot Checker
+          </h2>
+
+          {/* Description */}
+          <p className="text-lg text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
+            Protect your cryptocurrency investments with Scam Radar, the most trusted Telegram bot for detecting scams and honeypots. Analyze smart contracts instantly across Ethereum, BSC, Solana, and Base networks.
+          </p>
+
+          {/* Key Features */}
+          <div className="grid md:grid-cols-3 gap-6 mb-12">
+            <div className="bg-gray-900 rounded-lg p-6">
+              <h3 className="text-green-400 font-semibold mb-2">Smart Contract Analysis</h3>
+              <p className="text-gray-300 text-sm">Advanced real-time detection of crypto scams and honeypot tokens</p>
+            </div>
+            <div className="bg-gray-900 rounded-lg p-6">
+              <h3 className="text-green-400 font-semibold mb-2">Multi-Language Support</h3>
+              <p className="text-gray-300 text-sm">Available in English, Russian, Ukrainian, Indonesian, and Chinese</p>
+            </div>
+            <div className="bg-gray-900 rounded-lg p-6">
+              <h3 className="text-green-400 font-semibold mb-2">Telegram Bot</h3>
+              <p className="text-gray-300 text-sm">Easy to use Telegram interface with instant results</p>
+            </div>
+          </div>
+
+          {/* Language Selection */}
+          <div className="mb-12">
+            <p className="text-gray-400 mb-6">Choose your language:</p>
+            <div className="flex flex-wrap gap-3 justify-center">
+              {SUPPORTED_LOCALES.map((locale) => (
+                <a
+                  key={locale.code}
+                  href={createNavLink(locale.code)}
+                  className="bg-green-500 text-white px-6 py-3 rounded-lg text-sm font-semibold hover:bg-green-600 transition-colors"
                   title={`View Scam Radar in ${locale.label}`}
                 >
                   {locale.label}
                 </a>
               ))}
             </div>
+          </div>
 
-            {/* Additional SEO Content */}
-            <div className="text-sm text-gray-500 leading-relaxed">
-              <p className="mb-4">
-                {t('networks') || 'Scam Radar supports multiple blockchain networks including Ethereum, Binance Smart Chain (BSC), Solana, and Base. Our advanced algorithms analyze smart contracts in real-time to detect potential scams, honeypots, and malicious tokens before you invest.'}
-              </p>
-              <p className="mb-4">
-                {t('types') || 'We detect various types of crypto scams including honeypot tokens, rug pulls, fake tokens, liquidity traps, and malicious smart contracts. Our comprehensive analysis includes contract verification, liquidity analysis, ownership checks, and trading simulation.'}
-              </p>
-              <p>
-                {t('cta') || 'Start using Scam Radar today to protect your cryptocurrency investments. Join thousands of crypto traders who trust our advanced scam detection technology to keep their funds safe.'}
-              </p>
-            </div>
+          {/* Additional SEO Content */}
+          <div className="mt-16 text-sm text-gray-500 leading-relaxed max-w-4xl mx-auto">
+            <p className="mb-4">
+              Scam Radar supports multiple blockchain networks including Ethereum, Binance Smart Chain (BSC), Solana, and Base. Our advanced algorithms analyze smart contracts in real-time to detect potential scams, honeypots, and malicious tokens before you invest.
+            </p>
+            <p className="mb-4">
+              We detect various types of crypto scams including honeypot tokens, rug pulls, fake tokens, liquidity traps, and malicious smart contracts. Our comprehensive analysis includes contract verification, liquidity analysis, ownership checks, and trading simulation.
+            </p>
+            <p>
+              Start using Scam Radar today to protect your cryptocurrency investments. Join thousands of crypto traders who trust our advanced scam detection technology to keep their funds safe.
+            </p>
+          </div>
 
-            {/* Additional SEO keywords */}
-            <div className="mt-8">
-              <h3 className="text-lg font-semibold text-green-400 mb-4">Crypto Security Features</h3>
-              <ul className="space-y-2 text-gray-300">
-                <li>• Real-time honeypot detection</li>
-                <li>• Smart contract security analysis</li>
-                <li>• Liquidity pool verification</li>
-                <li>• Token ownership analysis</li>
-                <li>• Trading simulation testing</li>
-                <li>• Multi-blockchain support</li>
-                <li>• Instant risk assessment</li>
-                <li>• DeFi safety tools</li>
-              </ul>
-            </div>
+          {/* Supported Networks */}
+          <div className="mt-12">
+            <h3 className="text-lg font-semibold text-green-400 mb-4">Supported Blockchain Networks</h3>
+            <ul className="space-y-2 text-gray-300 text-sm">
+              <li>• Ethereum (ETH) - ERC-20 tokens</li>
+              <li>• Binance Smart Chain (BSC) - BEP-20 tokens</li>
+              <li>• Solana (SOL) - SPL tokens</li>
+              <li>• Base - Base network tokens</li>
+              <li>• More networks coming soon</li>
+            </ul>
+          </div>
 
-            {/* Supported Networks */}
-            <div className="mt-8">
-              <h3 className="text-lg font-semibold text-green-400 mb-4">Supported Blockchain Networks</h3>
-              <ul className="space-y-2 text-gray-300">
-                <li>• Ethereum (ETH) - ERC-20 tokens</li>
-                <li>• Binance Smart Chain (BSC) - BEP-20 tokens</li>
-                <li>• Solana (SOL) - SPL tokens</li>
-                <li>• Base - Base network tokens</li>
-                <li>• More networks coming soon</li>
-              </ul>
-            </div>
+          {/* Additional SEO keywords */}
+          <div className="mt-8">
+            <h3 className="text-lg font-semibold text-green-400 mb-4">Crypto Security Features</h3>
+            <ul className="space-y-2 text-gray-300">
+              <li>• Real-time honeypot detection</li>
+              <li>• Smart contract security analysis</li>
+              <li>• Liquidity pool verification</li>
+              <li>• Token ownership analysis</li>
+              <li>• Trading simulation testing</li>
+              <li>• Multi-blockchain support</li>
+              <li>• Instant risk assessment</li>
+              <li>• DeFi safety tools</li>
+            </ul>
           </div>
         </div>
       </div>
