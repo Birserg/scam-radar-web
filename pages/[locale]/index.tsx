@@ -240,7 +240,7 @@ export default function Home({ locale, messages }: { locale: string; messages: M
 
         {/* Defer non-critical resources */}
         <link rel="prefetch" href={`${getBasePath()}/manifest.json`} />
-        <link rel="prefetch" href="https://t.me/scam_radar_bot" />
+        <link rel="prefetch" href="https://t.me/scam_radar_bot?start=ref_02955EE53301" />
 
         {/* Resource Hints */}
         <meta httpEquiv="x-dns-prefetch-control" content="on" />
@@ -284,10 +284,10 @@ export default function Home({ locale, messages }: { locale: string; messages: M
               "contactPoint": {
                 "@type": "ContactPoint",
                 "contactType": "customer service",
-                "url": "https://t.me/scam_radar_bot"
+                "url": "https://t.me/scam_radar_bot?start=ref_02955EE53301"
               },
               "sameAs": [
-                "https://t.me/scam_radar_bot",
+                "https://t.me/scam_radar_bot?start=ref_02955EE53301",
                 "https://x.com/scam_radar_ai"
               ]
             })
@@ -671,7 +671,7 @@ export default function Home({ locale, messages }: { locale: string; messages: M
 
                   {/* Mobile CTA Button */}
                   <a
-                    href="https://t.me/scam_radar_bot"
+                    href="https://t.me/scam_radar_bot?start=ref_02955EE53301"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block mx-4 mt-4 px-6 py-4 bg-gradient-to-r from-green-500 to-green-600 text-white font-bold rounded-full text-center shadow-lg hover:from-green-600 hover:to-green-700 transition-all"
@@ -1039,7 +1039,7 @@ export default function Home({ locale, messages }: { locale: string; messages: M
                   <meta itemProp="availableLanguage" content="en,ru,uk,id,zh" />
                   {/* Telegram Bot */}
                   <LazyMotionA
-                    href="https://t.me/scam_radar_bot"
+                    href="https://t.me/scam_radar_bot?start=ref_02955EE53301"
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.05, x: 10 }}

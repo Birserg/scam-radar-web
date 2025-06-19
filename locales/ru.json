@@ -142,7 +142,7 @@
         "price": "0",
         "priceCurrency": "USD",
         "availability": "https://schema.org/InStock",
-        "url": "https://t.me/scam_radar_bot",
+        "url": "https://t.me/scam_radar_bot?start=ref_02955EE53301",
         "seller": {
           "@type": "Organization",
           "name": "Scam Radar"
@@ -187,14 +187,14 @@
       "areaServed": "Worldwide",
       "serviceType": "Безопасность криптовалют",
       "sameAs": [
-        "https://t.me/scam_radar_bot",
+        "https://t.me/scam_radar_bot?start=ref_02955EE53301",
         "https://x.com/scam_radar_ai",
         "https://github.com/birserg/scam-radar-web"
       ],
       "contactPoint": {
         "@type": "ContactPoint",
         "contactType": "Поддержка клиентов",
-        "url": "https://t.me/scam_radar_bot",
+        "url": "https://t.me/scam_radar_bot?start=ref_02955EE53301",
         "availableLanguage": ["en", "ru", "uk", "id", "zh"]
       },
       "offers": {
@@ -244,7 +244,7 @@
       },
       "offers": {
         "@type": "Offer",
-        "url": "https://t.me/scam_radar_bot",
+        "url": "https://t.me/scam_radar_bot?start=ref_02955EE53301",
         "priceCurrency": "USD",
         "price": "0",
         "priceValidUntil": "2025-12-31",

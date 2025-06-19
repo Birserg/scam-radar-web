@@ -243,7 +243,7 @@ export default function Custom404() {
               {currentMessages.goHome}
             </button>
             <a
-              href="https://t.me/scam_radar_bot"
+              href="https://t.me/scam_radar_bot?start=ref_02955EE53301"
               target="_blank"
               rel="noopener noreferrer"
               className="border border-green-500 text-green-500 px-6 py-3 rounded-lg font-semibold hover:bg-green-500 hover:text-white transition-colors"
