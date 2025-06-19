@@ -111,6 +111,24 @@
     "resources": "Sumber Daya",
     "copyright": "© 2025 Scam Radar. Semua hak dilindungi."
   },
+  "referral": {
+    "title": "🎁 Program Referral",
+    "heroTitle": "Bonus Referral",
+    "heroSubtitle": "Undang teman dan kalian berdua dapat 3 pemeriksaan token gratis masing-masing!",
+    "heroButton": "Dapatkan Link Referral",
+    "sectionTitle": "Undang Teman & Dapatkan Pemeriksaan Token Gratis",
+    "sectionSubtitle": "Bagikan Scam Radar dengan komunitas crypto Anda dan kalian berdua mendapat manfaat!",
+    "forYouTitle": "Untuk Anda",
+    "forYouDesc": "Dapatkan 3 pemeriksaan token gratis untuk setiap teman yang bergabung menggunakan link referral Anda",
+    "forFriendTitle": "Untuk Teman Anda",
+    "forFriendDesc": "Mereka juga mendapat 3 pemeriksaan token gratis saat mendaftar dengan link Anda",
+    "howItWorksTitle": "Cara Kerjanya:",
+    "step1": "Dapatkan link referral unik dari bot Telegram",
+    "step2": "Bagikan link dengan teman di komunitas crypto Anda",
+    "step3": "Anda dan teman Anda mendapat 3 pemeriksaan token gratis secara instan",
+    "ctaButton": "Mulai Mengundang Teman",
+    "navLink": "🎁 Referral"
+  },
   "meta": {
     "title": "Scam Radar — Pemeriksa Keamanan Token & Smart Contract",
     "description": "Verifikasi smart contract token untuk scam & honeypot di ETH, BSC, Solana, Base, dan jaringan lainnya. Coba bot Telegram gratis dengan fitur premium untuk keamanan kripto.",

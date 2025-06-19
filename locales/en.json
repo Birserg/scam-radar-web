@@ -111,6 +111,24 @@
     "resources": "Resources",
     "copyright": "© 2025 Scam Radar. All rights reserved."
   },
+  "referral": {
+    "title": "🎁 Referral Program",
+    "heroTitle": "Referral Bonus",
+    "heroSubtitle": "Invite friends and both of you get 3 free token checks each!",
+    "heroButton": "Get Referral Link",
+    "sectionTitle": "Invite Friends & Earn Free Token Checks",
+    "sectionSubtitle": "Share Scam Radar with your crypto community and both of you benefit!",
+    "forYouTitle": "For You",
+    "forYouDesc": "Get 3 free token checks for each friend who joins using your referral link",
+    "forFriendTitle": "For Your Friend",
+    "forFriendDesc": "They also get 3 free token checks when they sign up with your link",
+    "howItWorksTitle": "How It Works:",
+    "step1": "Get your unique referral link from the Telegram bot",
+    "step2": "Share the link with friends in your crypto community",
+    "step3": "Both you and your friend get 3 free token checks instantly",
+    "ctaButton": "Start Referring Friends",
+    "navLink": "🎁 Referral"
+  },
   "meta": {
     "title": "Scam Radar — Token & Smart Contract Safety Checker",
     "description": "Verify token smart contracts for scams & honeypots on ETH, BSC, Solana, Base. Try for Free Telegram bot with premium features for crypto safety.",

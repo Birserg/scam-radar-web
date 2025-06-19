@@ -547,6 +547,7 @@ export default function Home({ locale, messages }: { locale: string; messages: M
                   <a href={createNavLink(locale, 'pricing')} className="text-white hover:text-green-400 transition">{(t('nav.pricing') as string) || 'Pricing'}</a>
                   <a href={createNavLink(locale, 'faq')} className="text-white hover:text-green-400 transition">{(t('nav.faq') as string) || 'FAQ'}</a>
                   <a href={createNavLink(locale, 'contacts')} className="text-white hover:text-green-400 transition">{(t('nav.contacts') as string) || 'Contact'}</a>
+                  <a href="#referral" className="text-white hover:text-green-400 transition">{(t('referral.navLink') as string) || '🎁 Referral'}</a>
                 </div>
 
                 {/* Desktop Locale Switcher */}
@@ -667,6 +668,14 @@ export default function Home({ locale, messages }: { locale: string; messages: M
                     onClick={() => setMobileMenu(false)}
                   >
                     {(t('nav.contacts') as string) || 'Contact'}
+                  </a>
+
+                  <a
+                    href="#referral"
+                    className="block px-4 py-3 text-white hover:text-green-400 hover:bg-green-500/10 rounded-lg transition text-lg font-semibold"
+                    onClick={() => setMobileMenu(false)}
+                  >
+                    {(t('referral.navLink') as string) || '🎁 Referral Program'}
                   </a>
 
                   {/* Mobile CTA Button */}
@@ -982,6 +991,90 @@ export default function Home({ locale, messages }: { locale: string; messages: M
           </LazyMotion>
         </section>
 
+        {/* Referral Program Section */}
+        <section id="referral" className="max-w-6xl mx-auto px-4 py-24">
+          <LazyMotionH2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="text-4xl font-extrabold mb-10 text-center text-green-400 drop-shadow"
+          >
+            {(t('referral.title') as string) || '🎁 Referral Program'}
+          </LazyMotionH2>
+
+          <LazyMotion
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="bg-gradient-to-br from-[#0a1a0a]/95 to-[#1a2e1a]/95 md:backdrop-blur-xl rounded-2xl p-8 border border-green-400/30 shadow-xl max-w-4xl mx-auto"
+          >
+            <div className="text-center mb-8">
+              <h3 className="text-2xl font-bold text-white mb-4">
+                {(t('referral.sectionTitle') as string) || 'Invite Friends & Earn Free Token Checks'}
+              </h3>
+              <p className="text-gray-300 text-lg mb-6">
+                {(t('referral.sectionSubtitle') as string) || 'Share Scam Radar with your crypto community and both of you benefit!'}
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+              <div className="text-center">
+                <div className="bg-green-500/20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl">🎯</span>
+                </div>
+                <h4 className="text-xl font-semibold text-white mb-2">{(t('referral.forYouTitle') as string) || 'For You'}</h4>
+                <p className="text-gray-300">
+                  {(t('referral.forYouDesc') as string) || 'Get 3 free token checks for each friend who joins using your referral link'}
+                </p>
+              </div>
+
+              <div className="text-center">
+                <div className="bg-blue-500/20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl">👥</span>
+                </div>
+                <h4 className="text-xl font-semibold text-white mb-2">{(t('referral.forFriendTitle') as string) || 'For Your Friend'}</h4>
+                <p className="text-gray-300">
+                  {(t('referral.forFriendDesc') as string) || 'They also get 3 free token checks when they sign up with your link'}
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-6 mb-6">
+              <h4 className="text-lg font-semibold text-green-400 mb-3">{(t('referral.howItWorksTitle') as string) || 'How It Works:'}</h4>
+              <ol className="space-y-2 text-gray-300">
+                <li className="flex items-start gap-3">
+                  <span className="bg-green-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold flex-shrink-0 mt-0.5">1</span>
+                  <span>{(t('referral.step1') as string) || 'Get your unique referral link from the Telegram bot'}</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="bg-green-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold flex-shrink-0 mt-0.5">2</span>
+                  <span>{(t('referral.step2') as string) || 'Share the link with friends in your crypto community'}</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="bg-green-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold flex-shrink-0 mt-0.5">3</span>
+                  <span>{(t('referral.step3') as string) || 'Both you and your friend get 3 free token checks instantly'}</span>
+                </li>
+              </ol>
+            </div>
+
+            <div className="text-center">
+              <LazyMotionA
+                href="https://t.me/scam_radar_bot?start=ref_02955EE53301"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-flex items-center gap-3 bg-gradient-to-r from-green-500 to-green-600 text-white font-bold px-8 py-4 rounded-full text-lg shadow-lg hover:from-green-600 hover:to-green-700 transition-all"
+              >
+                <span>🚀</span>
+                {(t('referral.ctaButton') as string) || 'Start Referring Friends'}
+              </LazyMotionA>
+            </div>
+          </LazyMotion>
+        </section>
+
         {/* FAQ Section */}
         <section id="faq" className="max-w-6xl mx-auto px-4 py-24">
           <LazyMotionH2
@@ -1158,6 +1251,15 @@ export default function Home({ locale, messages }: { locale: string; messages: M
                     className="block text-gray-200 hover:text-green-400 transition-all duration-300 text-lg"
                   >
                     {(t('nav.contacts') as string) || 'Contacts'}
+                  </LazyMotionA>
+
+                  <LazyMotionA
+                    href="#referral"
+                    whileHover={{ scale: 1.05, x: 10 }}
+                    transition={{ duration: 0.2 }}
+                    className="block text-gray-200 hover:text-green-400 transition-all duration-300 text-lg"
+                  >
+                    {(t('referral.navLink') as string) || '🎁 Referral Program'}
                   </LazyMotionA>
                 </div>
 

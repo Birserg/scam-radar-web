@@ -340,6 +340,29 @@ export default function Index() {
             </div>
           </div>
 
+          {/* Referral Program */}
+          <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-6 mb-8 max-w-md mx-auto">
+            <div className="text-center">
+              <h3 className="text-green-400 font-semibold mb-2 flex items-center justify-center gap-2">
+                <span>🎁</span>
+                {t('referral.heroTitle') || 'Referral Bonus'}
+              </h3>
+              <p className="text-gray-300 text-sm mb-4">
+                {t('referral.heroSubtitle') || 'Invite friends and both of you get 3 free token checks each!'}
+              </p>
+              <button className="bg-green-500 text-white px-6 py-2 rounded-lg text-sm font-semibold hover:bg-green-600 transition-colors">
+                {t('referral.heroButton') || 'Get Referral Link'}
+              </button>
+            </div>
+          </div>
+
+          {/* Loading indicator for users */}
+          {isRedirecting && (
+            <div className="mt-4">
+              <p className="text-gray-400">Redirecting to your preferred language...</p>
+            </div>
+          )}
+
           {/* Additional SEO Content */}
           <div className="mt-16 text-sm text-gray-500 leading-relaxed max-w-4xl mx-auto">
             <p className="mb-4">
@@ -377,6 +400,20 @@ export default function Index() {
               <li>• Multi-blockchain support</li>
               <li>• Instant risk assessment</li>
               <li>• DeFi safety tools</li>
+            </ul>
+          </div>
+
+          {/* Referral Program for SEO */}
+          <div className="mt-8">
+            <h3 className="text-lg font-semibold text-green-400 mb-4">{t('referral.title') || 'Referral Program'}</h3>
+            <p className="text-gray-300 text-sm mb-4">
+              {t('referral.sectionSubtitle') || 'Join our referral program and earn 3 free token checks for each friend you invite. Both you and your friend benefit from this crypto security tool. Share Scam Radar with your crypto community and help protect more investors from scams.'}
+            </p>
+            <ul className="space-y-2 text-gray-300 text-sm">
+              <li>• {t('referral.forYouDesc') || 'Earn 3 free token checks per referral'}</li>
+              <li>• {t('referral.forFriendDesc') || 'Your friend also gets 3 free checks'}</li>
+              <li>• No limits on referrals</li>
+              <li>• Instant rewards</li>
             </ul>
           </div>
         </div>
