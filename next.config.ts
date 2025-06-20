@@ -25,12 +25,14 @@ const nextConfig: NextConfig = {
     dangerouslyAllowSVG: false,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
-  // Performance optimizations
+  // Performance optimizations for full SSG
   compress: true,
   poweredByHeader: false,
   generateEtags: false,
-  // Note: Custom headers are not supported with static export
-  // Security headers would need to be configured at the web server level (GitHub Pages, Vercel, etc.)
+  // Remove server-side runtime config for full SSG
+  serverRuntimeConfig: {},
+  publicRuntimeConfig: {},
+  // Environment variables for static generation
   env: {
     NEXT_PUBLIC_BASE_PATH: basePath,
   },
@@ -99,9 +101,16 @@ const nextConfig: NextConfig = {
 
     return config;
   },
-  // Experimental features for performance
+  // Experimental features for performance and full SSG
   experimental: {
     optimizePackageImports: ['framer-motion', 'react-icons'],
+  },
+  // Disable any server-side features
+  typescript: {
+    ignoreBuildErrors: false,
+  },
+  eslint: {
+    ignoreDuringBuilds: false,
   },
 };
 
