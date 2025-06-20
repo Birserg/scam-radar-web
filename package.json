@@ -8,10 +8,17 @@
     "build:analyze": "ANALYZE=true next build",
     "build:github": "GITHUB_PAGES=true NODE_ENV=production next build",
     "build:vercel": "NODE_ENV=production next build",
+    "build:static": "next build && npm run validate-static",
+    "validate-static": "node scripts/validate-static.js",
+    "indexnow": "node scripts/indexnow.js",
+    "indexnow:submit": "npm run build && node scripts/indexnow.js",
+    "indexnow:static": "npm run build && node -e \"import('./scripts/indexnow.js').then(m => m.copyApiKeyToStaticExport(process.env.INDEXNOW_API_KEY))\"",
+    "vercel:deploy": "npm run build:static && npm run indexnow:static && vercel --prod",
+    "vercel:build": "npm run build:static && npm run indexnow:static",
     "start": "next start",
     "lint": "next lint",
     "export": "next export",
-    "deploy": "npm run export && touch out/.nojekyll"
+    "deploy": "npm run build:static && npm run indexnow:static && touch out/.nojekyll"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",

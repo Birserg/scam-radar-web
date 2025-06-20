@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://scam-radar.net/sitemap.xml
+
+# IndexNow API key location
+# This will be automatically updated when IndexNow is set up
+# IndexNow: https://scam-radar.net/{api-key}.txt
