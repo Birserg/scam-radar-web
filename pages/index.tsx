@@ -348,7 +348,7 @@ export default function Index() {
                 {t('referral.heroTitle') || 'Referral Bonus'}
               </h3>
               <p className="text-gray-300 text-sm mb-4">
-                {t('referral.heroSubtitle') || 'Invite friends and both of you get 3 free token checks each!'}
+                {t('referral.heroSubtitle') || 'Invite friends and both of you get 50 free token checks each!'}
               </p>
               <button className="bg-green-500 text-white px-6 py-2 rounded-lg text-sm font-semibold hover:bg-green-600 transition-colors">
                 {t('referral.heroButton') || 'Get Referral Link'}
@@ -407,11 +407,11 @@ export default function Index() {
           <div className="mt-8">
             <h3 className="text-lg font-semibold text-green-400 mb-4">{t('referral.title') || 'Referral Program'}</h3>
             <p className="text-gray-300 text-sm mb-4">
-              {t('referral.sectionSubtitle') || 'Join our referral program and earn 3 free token checks for each friend you invite. Both you and your friend benefit from this crypto security tool. Share Scam Radar with your crypto community and help protect more investors from scams.'}
+              {t('referral.sectionSubtitle') || 'Join our referral program and earn 50 free token checks for each friend you invite. Both you and your friend benefit from this crypto security tool. Share Scam Radar with your crypto community and help protect more investors from scams.'}
             </p>
             <ul className="space-y-2 text-gray-300 text-sm">
-              <li>• {t('referral.forYouDesc') || 'Earn 3 free token checks per referral'}</li>
-              <li>• {t('referral.forFriendDesc') || 'Your friend also gets 3 free checks'}</li>
+              <li>• {t('referral.forYouDesc') || 'Earn 50 free token checks per referral'}</li>
+              <li>• {t('referral.forFriendDesc') || 'Your friend also gets 50 free checks'}</li>
               <li>• No limits on referrals</li>
               <li>• Instant rewards</li>
             </ul>

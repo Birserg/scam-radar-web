@@ -1026,7 +1026,7 @@ export default function Home({ locale, messages }: { locale: string; messages: M
                 </div>
                 <h4 className="text-xl font-semibold text-white mb-2">{(t('referral.forYouTitle') as string) || 'For You'}</h4>
                 <p className="text-gray-300">
-                  {(t('referral.forYouDesc') as string) || 'Get 3 free token checks for each friend who joins using your referral link'}
+                  {(t('referral.forYouDesc') as string) || 'Get 50 free token checks for each friend who joins using your referral link'}
                 </p>
               </div>
 
@@ -1036,7 +1036,7 @@ export default function Home({ locale, messages }: { locale: string; messages: M
                 </div>
                 <h4 className="text-xl font-semibold text-white mb-2">{(t('referral.forFriendTitle') as string) || 'For Your Friend'}</h4>
                 <p className="text-gray-300">
-                  {(t('referral.forFriendDesc') as string) || 'They also get 3 free token checks when they sign up with your link'}
+                  {(t('referral.forFriendDesc') as string) || 'They also get 50 free token checks when they sign up with your link'}
                 </p>
               </div>
             </div>
@@ -1054,7 +1054,7 @@ export default function Home({ locale, messages }: { locale: string; messages: M
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="bg-green-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold flex-shrink-0 mt-0.5">3</span>
-                  <span>{(t('referral.step3') as string) || 'Both you and your friend get 3 free token checks instantly'}</span>
+                  <span>{(t('referral.step3') as string) || 'Both you and your friend get 50 free token checks instantly'}</span>
                 </li>
               </ol>
             </div>
